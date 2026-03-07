@@ -1,0 +1,132 @@
+{
+  "variantId": "hao-zhan",
+  "_preset": {
+    "id": "hao-zhan",
+    "name": "Hao Zhan 豪展",
+    "category": "chinese-fine-dining",
+    "description": "Grand Display — Ink black and antique gold. For fine dining Cantonese and Shanghainese restaurants. Authoritative, editorial, classic."
+  },
+  "colors": {
+    "primary": {
+      "DEFAULT": "#1A1A1A",
+      "dark": "#0D0D0D",
+      "light": "#2E2E2E",
+      "50": "#F5F0E8",
+      "100": "#EBE4D8"
+    },
+    "secondary": {
+      "DEFAULT": "#C9A84C",
+      "dark": "#A8873B",
+      "light": "#D8BF74",
+      "50": "#FDF8EC"
+    },
+    "backdrop": {
+      "primary": "#F5F0E8",
+      "secondary": "#EBE4D8",
+      "surface": "#FFFFFF",
+      "overlay": "rgba(26,26,26,0.55)"
+    },
+    "text": {
+      "primary": "#1A1A1A",
+      "secondary": "#4A4035",
+      "muted": "#7A6F62",
+      "inverse": "#F5F0E8",
+      "accent": "#C9A84C",
+      "onDarkPrimary": "#F5F0E8",
+      "onDarkSecondary": "#C8BCAA",
+      "headingOnLight": "#1A1A1A",
+      "bodyOnLight": "#3D342A",
+      "mutedOnLight": "#7A6F62"
+    },
+    "border": {
+      "DEFAULT": "rgba(201,168,76,0.25)",
+      "subtle": "rgba(26,26,26,0.1)",
+      "emphasis": "rgba(201,168,76,0.5)"
+    },
+    "status": {
+      "success": "#22C55E",
+      "warning": "#F59E0B",
+      "error": "#EF4444"
+    }
+  },
+  "typography": {
+    "display": "clamp(2.8rem, 5.5vw, 4.5rem)",
+    "heading": "clamp(2rem, 3.5vw, 3rem)",
+    "subheading": "clamp(1.1rem, 1.8vw, 1.5rem)",
+    "body": "1rem",
+    "small": "0.875rem",
+    "fonts": {
+      "display": "'Cormorant Garamond', Georgia, serif",
+      "heading": "'Cormorant Garamond', Georgia, serif",
+      "subheading": "'Lato', system-ui, sans-serif",
+      "body": "'Lato', system-ui, sans-serif",
+      "small": "'Lato', system-ui, sans-serif"
+    },
+    "tracking": {
+      "display": "0.06em",
+      "heading": "0.03em",
+      "body": "0.01em",
+      "nav": "0.12em",
+      "label": "0.16em"
+    },
+    "lineHeight": {
+      "display": "1.1",
+      "heading": "1.25",
+      "body": "1.7",
+      "menu": "1.65"
+    },
+    "weight": {
+      "display": "300"
+    }
+  },
+  "spacing": {
+    "sectionPy": "6rem",
+    "sectionPySm": "4rem",
+    "containerMax": "1200px",
+    "containerPx": "2rem",
+    "cardPad": "2rem",
+    "menuItemPy": "1.25rem",
+    "navHeight": "76px",
+    "heroMinH": "100svh",
+    "gridGap": "1.5rem"
+  },
+  "effects": {
+    "cardRadius": "2px",
+    "btnRadius": "2px",
+    "badgeRadius": "2px",
+    "cardShadow": "0 2px 12px rgba(26,26,26,0.12)",
+    "cardShadowHover": "0 8px 28px rgba(26,26,26,0.2)",
+    "heroOverlay": "linear-gradient(to bottom, rgba(26,26,26,0.30) 0%, rgba(26,26,26,0.62) 100%)",
+    "menuDivider": "1px solid rgba(201,168,76,0.2)"
+  },
+  "motion": {
+    "durationFast": "180ms",
+    "durationBase": "320ms",
+    "durationSlow": "520ms",
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "hoverLift": "-3px",
+    "entranceDist": "18px"
+  },
+  "shape": {
+    "radius": "2px",
+    "shadow": "0 2px 12px rgba(26,26,26,0.12)"
+  },
+  "layout": {
+    "heroVariant": "photo-background",
+    "featureVariant": "grid",
+    "spacingDensity": "spacious"
+  },
+  "chinese": {
+    "fontDisplayZh": "'Noto Serif SC', serif",
+    "fontBodyZh": "'Noto Sans SC', sans-serif",
+    "inkOverlayColor": "rgba(26,26,26,0.25)",
+    "inkOverlayOpacity": "0.25",
+    "paperCutColor": "#C9A84C",
+    "sealColor": "#8B0000",
+    "festivalAccent": "#C9A84C",
+    "brushDividerColor": "rgba(26,26,26,0.3)",
+    "zhNameDisplay": "block",
+    "lanternColor": "#8B0000"
+  },
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400&display=swap"
+}

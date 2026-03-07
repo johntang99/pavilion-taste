@@ -1,0 +1,50 @@
+{
+  "seo": {
+    "title": "Order Online — Grand Pavilion 大观楼",
+    "description": "Order Grand Pavilion favorites online for delivery or pickup."
+  },
+  "hero": {
+    "heading": "Order Online",
+    "headingZh": "在线订餐",
+    "subheading": "Choose delivery or pickup and enjoy Cantonese favorites at home.",
+    "subheadingZh": "支持外送与自取，在家也能品尝经典粤菜。"
+  },
+  "providers": [
+    {
+      "name": "Direct Pickup",
+      "nameZh": "门店自取",
+      "description": "Fastest option with full menu availability.",
+      "descriptionZh": "最快取餐方式，支持完整菜单。",
+      "href": "/contact",
+      "eta": "Ready in 20-35 mins",
+      "feeNote": "No platform fee"
+    },
+    {
+      "name": "Delivery Partner A",
+      "nameZh": "外送平台A",
+      "description": "Popular dim sum and dinner classics delivered to your door.",
+      "descriptionZh": "点心与晚餐招牌菜直送到家。",
+      "href": "https://example.com",
+      "eta": "35-55 mins",
+      "feeNote": "Delivery fee may apply"
+    },
+    {
+      "name": "Delivery Partner B",
+      "nameZh": "外送平台B",
+      "description": "Festival specials and seasonal chef picks available.",
+      "descriptionZh": "节庆限定与时令主厨推荐可在线订购。",
+      "href": "https://example.com",
+      "eta": "40-60 mins",
+      "feeNote": "Service fee may apply"
+    }
+  ],
+  "pickup": {
+    "heading": "Prefer Pickup?",
+    "headingZh": "想要自取？",
+    "description": "Call us directly for custom requests and large family orders.",
+    "descriptionZh": "欢迎电话预订，适合定制需求或多人家庭餐。",
+    "ctaText": "Call to Order",
+    "ctaTextZh": "致电下单",
+    "href": "/contact"
+  }
+}

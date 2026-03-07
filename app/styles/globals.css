@@ -1,0 +1,394 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   BAAM System F — Chinese Restaurant Premium
+   Token Fallbacks (overridden at runtime by theme.json via layout.tsx)
+   DO NOT put brand colors here — use CSS vars only
+   ============================================ */
+
+:root {
+  /* ── Typography sizes ── */
+  --text-display: clamp(2.5rem, 5vw, 4.5rem);
+  --text-heading: clamp(1.8rem, 3.2vw, 3rem);
+  --text-subheading: clamp(1rem, 1.8vw, 1.4rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+
+  /* ── Font families ── */
+  --font-body-default: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  --font-display: var(--font-playfair, 'Cormorant Garamond'), Georgia, serif;
+  --font-heading: var(--font-playfair, 'Cormorant Garamond'), Georgia, serif;
+  --font-subheading: var(--font-inter, var(--font-body-default));
+  --font-body: var(--font-inter, var(--font-body-default));
+  --font-small: var(--font-inter, var(--font-body-default));
+
+  /* ── Chinese font fallbacks (overridden per variant) ── */
+  --font-display-zh: 'Noto Serif SC', 'Songti SC', serif;
+  --font-body-zh: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --zh-name-display: block;
+
+  /* ── Chinese decorative tokens ── */
+  --ink-overlay-color: rgba(26, 26, 26, 0.2);
+  --ink-overlay-opacity: 0.2;
+  --paper-cut-color: #C9A84C;
+  --seal-color: #8B0000;
+  --festival-accent: #C9A84C;
+  --brush-divider-color: rgba(26, 26, 26, 0.15);
+  --lantern-color: #8B0000;
+
+  /* ── Colors (hao-zhan fallbacks — overridden by theme preset) ── */
+  --primary: #1A1A1A;
+  --primary-dark: #0D0D0D;
+  --primary-light: #2E2E2E;
+  --primary-50: #F5F0E8;
+  --primary-100: #EBE4D8;
+  --secondary: #C9A84C;
+  --secondary-dark: #A8873B;
+  --secondary-light: #D8BF74;
+  --secondary-50: #FDF8EC;
+  --backdrop-primary: #F5F0E8;
+  --backdrop-secondary: #EBE4D8;
+  --color-surface: #FFFFFF;
+
+  /* ── Text tokens ── */
+  --text-color-primary: #1A1A1A;
+  --text-color-secondary: #4A4035;
+  --text-color-muted: #7A6F62;
+  --text-color-inverse: #F5F0E8;
+  --text-color-accent: #C9A84C;
+  --text-on-dark-primary: #F5F0E8;
+  --text-on-dark-secondary: rgba(245, 240, 232, 0.85);
+  --heading-on-light: #1A1A1A;
+  --body-on-light: #3D342A;
+  --muted-on-light: #7A6F62;
+
+  /* ── Border ── */
+  --border-default: rgba(201, 168, 76, 0.2);
+  --border-subtle: rgba(26, 26, 26, 0.08);
+  --border-emphasis: rgba(201, 168, 76, 0.45);
+
+  /* ── Status ── */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+
+  /* ── Shape & Layout ── */
+  --radius-base: 2px;
+  --shadow-base: 0 2px 12px rgba(26, 26, 26, 0.12);
+  --section-padding-y: 5rem;
+  --section-py: var(--section-padding-y);
+  --section-py-sm: calc(var(--section-padding-y) * 0.7);
+
+  /* ── Spacing ── */
+  --container-max: 1200px;
+  --container-px: 2rem;
+  --card-pad: 2rem;
+  --menu-item-py: 1.1rem;
+  --nav-height: 72px;
+  --hero-min-h: 100svh;
+  --grid-gap: 1.5rem;
+
+  /* ── Effects ── */
+  --shadow-card: var(--shadow-base);
+  --shadow-card-hover: 0 8px 28px rgba(26, 26, 26, 0.2);
+  --hero-overlay: linear-gradient(to bottom, rgba(26, 26, 26, 0.15) 0%, rgba(26, 26, 26, 0.55) 100%);
+  --menu-divider: 1px solid var(--border-default);
+
+  /* ── Motion ── */
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 520ms;
+  --easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --hover-lift: -3px;
+  --entrance-dist: 18px;
+}
+
+/* Mobile typography scale */
+@media (max-width: 768px) {
+  :root {
+    --text-display: 2.25rem;
+    --text-heading: 1.75rem;
+    --text-subheading: 1.1rem;
+    --container-px: 1.25rem;
+    --section-padding-y: 3.5rem;
+  }
+}
+
+/* ============================================
+   BASE STYLES — token-first
+   ============================================ */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--backdrop-primary);
+    color: var(--text-color-primary);
+    font-family: var(--font-body, var(--font-body-default));
+    font-size: var(--text-body);
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    /* Inherit color so dark hero sections naturally pass --text-on-dark-primary through */
+    color: inherit;
+    font-family: var(--font-heading, var(--font-body-default));
+    line-height: var(--leading-heading, 1.25);
+    font-weight: 600;
+  }
+
+  /* Chinese text nodes inherit ZH font */
+  [lang="zh-Hans"],
+  [lang="zh-Hant"],
+  [lang="zh"] {
+    font-family: var(--font-body-zh, 'Noto Sans SC', sans-serif);
+  }
+
+  /* Links — token colors */
+  a {
+    color: inherit;
+    transition: opacity var(--duration-fast) var(--easing);
+  }
+
+  a:hover {
+    opacity: 0.8;
+  }
+
+  /* Focus visible ring */
+  :focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================
+   CUSTOM UTILITIES
+   ============================================ */
+
+@layer utilities {
+  /* Font family utilities */
+  .font-display    { font-family: var(--font-display); }
+  .font-heading    { font-family: var(--font-heading); }
+  .font-body       { font-family: var(--font-body); }
+  .font-display-zh { font-family: var(--font-display-zh); }
+  .font-body-zh    { font-family: var(--font-body-zh); }
+
+  /* Size utilities */
+  .text-display    { font-size: var(--text-display);    line-height: var(--leading-display, 1.1); }
+  .text-heading    { font-size: var(--text-heading);    line-height: var(--leading-heading, 1.25); }
+  .text-subheading { font-size: var(--text-subheading); line-height: 1.4; }
+  .text-body       { font-size: var(--text-body);       line-height: var(--leading-body, 1.65); }
+  .text-small      { font-size: var(--text-small); }
+
+  /* Layout */
+  .container-site {
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-px);
+    padding-right: var(--container-px);
+  }
+
+  .section-py {
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+  }
+
+  .section-py-sm {
+    padding-top: var(--section-py-sm);
+    padding-bottom: var(--section-py-sm);
+  }
+
+  /* Surface */
+  .card-surface {
+    border-radius: var(--radius-base);
+    box-shadow: var(--shadow-base);
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Nav active state */
+  .nav-active {
+    color: var(--secondary);
+    border-bottom: 2px solid var(--secondary);
+  }
+}
+
+/* ============================================
+   COMPONENT STYLES — token-first
+   ============================================ */
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-base);
+    transition: all var(--duration-base) var(--easing);
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: var(--text-on-dark-primary);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(var(--hover-lift, -2px));
+  }
+
+  .btn-secondary {
+    background-color: var(--secondary);
+    color: var(--primary);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border: 1px solid currentColor;
+    color: inherit;
+  }
+
+  .card {
+    background-color: var(--backdrop-primary);
+    border-radius: var(--radius-base);
+    box-shadow: var(--shadow-base);
+    transition: box-shadow var(--duration-base) var(--easing);
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Chinese restaurant specific */
+  .zh-headline {
+    font-family: var(--font-display-zh);
+    font-weight: 700;
+  }
+
+  .seal-accent {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-color: var(--seal-color);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(var(--entrance-dist, 16px)); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up  { animation: fadeInUp 0.6s var(--easing) forwards; }
+.animate-fade-in     { animation: fadeIn 0.4s var(--easing) forwards; }
+.animate-slide-down  { animation: slideDown 0.3s var(--easing) forwards; }
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+/* Home hero text positioning (desktop/mobile controls from admin) */
+.home-hero-content {
+  top: var(--hero-content-y-desktop, 56%);
+  left: var(--hero-content-x-desktop, 50%);
+  transform: translate(
+    calc(-1 * var(--hero-content-x-desktop, 50%)),
+    calc(-1 * var(--hero-content-y-desktop, 56%))
+  );
+}
+
+@media (max-width: 768px) {
+  .home-hero-content {
+    top: var(--hero-content-y-mobile, 60%);
+    left: var(--hero-content-x-mobile, 50%);
+    transform: translate(
+      calc(-1 * var(--hero-content-x-mobile, 50%)),
+      calc(-1 * var(--hero-content-y-mobile, 60%))
+    );
+  }
+}
+
+/* Testimonials auto-scroll carousel */
+.testimonial-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.testimonial-carousel-track {
+  display: flex;
+  gap: var(--testimonial-card-gap, 1rem);
+  width: max-content;
+  animation: testimonialMarquee var(--testimonial-scroll-duration, 42s) linear infinite;
+  will-change: transform;
+}
+
+.testimonial-carousel-viewport:hover .testimonial-carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes testimonialMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-carousel-track {
+    animation: none;
+  }
+}

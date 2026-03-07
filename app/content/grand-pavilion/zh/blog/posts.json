@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "slug": "cantonese-banquet-etiquette-guide",
+      "title": "粤式宴席礼仪入门：首次赴宴必读",
+      "excerpt": "从斟茶顺序到上菜节奏，快速了解粤式宴席的礼仪与文化。",
+      "category": "kitchen-stories",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg",
+      "author": "李伟主厨",
+      "publishDate": "2026-02-20",
+      "readTime": "6分钟",
+      "featured": true,
+      "published": true,
+      "tags": ["宴席", "礼仪", "粤菜"],
+      "body": "<p>粤式宴席讲究共享与礼序。通常先为长辈斟茶，再按节奏上菜，让宾客在交流中慢慢品味每一道菜。</p><p>若您首次参加宴席，可先从经典菜式开始，按服务团队建议节奏享用。</p>"
+    },
+    {
+      "slug": "best-dim-sum-order-for-newcomers",
+      "title": "新手点心点单建议",
+      "excerpt": "一套均衡的入门点单：蒸点、焗点、酥炸与甜品搭配。",
+      "category": "chef-perspective",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/dim-sum-spread.jpg",
+      "author": "李伟主厨",
+      "publishDate": "2026-03-01",
+      "readTime": "5分钟",
+      "featured": false,
+      "published": true,
+      "tags": ["点心", "入门"],
+      "body": "<p>首次来店建议从虾饺、烧卖、叉烧包开始，再搭配一款粥品。最后加一款甜品收尾，层次更完整。</p>"
+    }
+  ]
+}

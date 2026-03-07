@@ -1,0 +1,69 @@
+{
+  "items": [
+    {
+      "id": "award-best-cantonese-2026",
+      "publication": "NYC Dining Guide",
+      "headline": "Best Cantonese Experience in Queens",
+      "award": "Editor's Choice 2026",
+      "excerpt": "Grand Pavilion blends classic banquet tradition with refined service and outstanding dim sum execution.",
+      "url": "#",
+      "date": "2026-11-01",
+      "isAward": true,
+      "featured": true,
+      "logo": null,
+      "displayOrder": 1
+    },
+    {
+      "id": "award-festival-menu-2026",
+      "publication": "Flushing Food Awards",
+      "headline": "Top Festival Menu Program",
+      "award": "Gold Distinction",
+      "excerpt": "Recognized for thoughtful Lunar New Year and Mid-Autumn seasonal menu design.",
+      "url": "#",
+      "date": "2026-10-10",
+      "isAward": true,
+      "featured": true,
+      "logo": null,
+      "displayOrder": 2
+    },
+    {
+      "id": "mention-eater-queens-spotlight",
+      "publication": "Eater Queens",
+      "headline": "Where to Book a Cantonese Banquet in Flushing",
+      "award": null,
+      "excerpt": "The piece highlights our private dining flexibility and chef-led tasting options.",
+      "url": "#",
+      "date": "2026-09-02",
+      "isAward": false,
+      "featured": true,
+      "logo": null,
+      "displayOrder": 3
+    },
+    {
+      "id": "mention-timeout-dim-sum",
+      "publication": "Time Out New York",
+      "headline": "A Refined Dim Sum Service That Still Feels Traditional",
+      "award": null,
+      "excerpt": "Praised for consistency, tea pairing, and deep weekend dim sum selection.",
+      "url": "#",
+      "date": "2026-08-12",
+      "isAward": false,
+      "featured": false,
+      "logo": null,
+      "displayOrder": 4
+    },
+    {
+      "id": "mention-ny-food-journal",
+      "publication": "NY Food Journal",
+      "headline": "Chef Li Wei on Heritage, Technique, and Seasonal Menus",
+      "award": null,
+      "excerpt": "An interview covering sourcing, stock traditions, and banquet menu planning.",
+      "url": "#",
+      "date": "2026-07-18",
+      "isAward": false,
+      "featured": false,
+      "logo": null,
+      "displayOrder": 5
+    }
+  ]
+}

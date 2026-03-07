@@ -1,0 +1,65 @@
+{
+  "seo": {
+    "title": "Private Dining & Banquets — Grand Pavilion 大观楼",
+    "description": "Private dining rooms and grand ballroom for up to 500 guests. Wedding banquets, corporate events, birthday celebrations, and family gatherings."
+  },
+  "hero": {
+    "heading": "Private Dining & Banquets",
+    "headingZh": "私人宴厅",
+    "subheading": "Hosting an event? We do banquets for up to 500 guests.",
+    "subheadingZh": "举办活动？我们可为多达500位宾客提供宴席服务。",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/banquet/grand-ballroom.jpg"
+  },
+  "packages": {
+    "_source": "db",
+    "heading": "Banquet Packages",
+    "headingZh": "宴席套餐"
+  },
+  "rooms": [
+    {
+      "name": "Private Dining Room",
+      "nameZh": "私人宴厅",
+      "capacity": "10–20 guests",
+      "capacityZh": "10至20位宾客",
+      "description": "Intimate private room perfect for family dinners, business lunches, and small celebrations.",
+      "descriptionZh": "温馨私人用餐室，适合家庭聚餐、商务午宴及小型庆典。",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/banquet/private-room.jpg"
+    },
+    {
+      "name": "Banquet Hall",
+      "nameZh": "宴会厅",
+      "capacity": "50–200 guests",
+      "capacityZh": "50至200位宾客",
+      "description": "Elegant banquet hall for mid-size celebrations, corporate dinners, and milestone birthdays.",
+      "descriptionZh": "优雅宴会厅，适合中型庆典、企业晚宴及重要生日。",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/banquet/banquet-hall.jpg"
+    },
+    {
+      "name": "Grand Ballroom",
+      "nameZh": "大宴会厅",
+      "capacity": "200–500 guests",
+      "capacityZh": "200至500位宾客",
+      "description": "Our magnificent grand ballroom — Flushing's finest venue for wedding banquets and large-scale events.",
+      "descriptionZh": "宏伟大宴会厅——法拉盛最顶级的婚宴及大型活动场地。",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/banquet/grand-ballroom.jpg"
+    }
+  ],
+  "inquiry": {
+    "heading": "Request a Quote",
+    "headingZh": "申请报价",
+    "subheading": "Tell us about your event and we will respond within 24 hours.",
+    "subheadingZh": "告知我们您的活动详情，我们将在24小时内回复。"
+  },
+  "testimonials": [
+    {
+      "name": "The Zhang Family",
+      "text": "We hosted our son's wedding reception here for 350 guests. Everything was perfect — the food, the décor, and the service exceeded our expectations.",
+      "rating": 5
+    },
+    {
+      "name": "Emily Chen, Event Director",
+      "text": "We've held three annual corporate dinners at Grand Pavilion. The professionalism and quality are consistently excellent.",
+      "rating": 5
+    }
+  ]
+}

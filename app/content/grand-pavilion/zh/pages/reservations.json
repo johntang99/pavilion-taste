@@ -1,0 +1,39 @@
+{
+  "seo": {
+    "title": "Reserve a Table — Grand Pavilion 大观楼",
+    "description": "Book your table at Grand Pavilion. Online reservations for dinner service and weekend brunch. Private dining for groups of 10 to 500."
+  },
+  "hero": {
+    "heading": "Reserve Your Table",
+    "headingZh": "预约您的餐桌",
+    "subheading": "Join us for dim sum, dinner, or a special celebration",
+    "subheadingZh": "欢迎前来享用点心、晚餐或特别庆典",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/hero/reservations-hero.jpg"
+  },
+  "widget": {
+    "provider": "custom",
+    "opentableId": null,
+    "resyVenueId": null
+  },
+  "specialOccasionPrompt": {
+    "enabled": true,
+    "threshold": 20,
+    "heading": "Planning a larger event?",
+    "headingZh": "计划举办较大规模的活动？",
+    "text": "For parties of 20 or more, our private dining team can create a customized experience.",
+    "textZh": "如需招待20位或以上宾客，我们的私人宴厅团队可为您提供专属定制服务。",
+    "cta": { "text": "Inquire About Private Dining", "textZh": "了解私人宴厅", "href": "/private-dining" }
+  },
+  "notes": [
+    "Reservations recommended for dinner service.",
+    "Walk-ins welcome for dim sum (subject to availability).",
+    "Cancellations must be made at least 24 hours in advance.",
+    "For parties of 8+, please call us directly at (718) 555-0188."
+  ],
+  "notesZh": [
+    "晚餐建议提前预约。",
+    "点心时段欢迎直接到店（视座位情况而定）。",
+    "取消预约须在24小时前通知。",
+    "8位或以上宾客请直接致电 (718) 555-0188。"
+  ]
+}

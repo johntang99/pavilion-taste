@@ -1,0 +1,19 @@
+{
+  "seo": {
+    "title": "From the Kitchen — Grand Pavilion 大观楼",
+    "description": "Stories, traditions, and chef insights behind Cantonese cuisine."
+  },
+  "hero": {
+    "variant": "split-photo-right",
+    "eyebrow": "Journal",
+    "headline": "From the Kitchen",
+    "subline": "Recipes, banquet culture, ingredient stories, and chef perspectives from Grand Pavilion.",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/food-1.jpg"
+  },
+  "newsletter": {
+    "headline": "Get updates from our kitchen",
+    "description": "Seasonal dishes, festival menus, and new stories delivered occasionally.",
+    "placeholder": "Enter your email",
+    "buttonText": "Subscribe"
+  }
+}

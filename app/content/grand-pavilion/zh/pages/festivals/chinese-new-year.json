@@ -1,0 +1,62 @@
+{
+  "seo": {
+    "title": "Chinese New Year 2027 农历新年 — Grand Pavilion 大观楼",
+    "description": "Celebrate Lunar New Year 2027 with our special prix-fixe banquet dinner. Limited tables — reserve early at Grand Pavilion, Flushing NY."
+  },
+  "festival": {
+    "id": "chinese-new-year",
+    "slug": "chinese-new-year",
+    "name": "Chinese New Year",
+    "nameZh": "农历新年",
+    "year": 2027,
+    "activeDateStart": "2027-01-18",
+    "activeDateEnd": "2027-02-14",
+    "heroImage": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/festivals/cny-hero.jpg",
+    "tagline": "Usher in the Year of the Goat with a Feast of Tradition",
+    "taglineZh": "以传统盛宴迎接羊年新春",
+    "description": "Chinese New Year is the most important celebration in our calendar — and Grand Pavilion's most anticipated event. Each year, our kitchen prepares an elaborate prix-fixe menu of auspicious Cantonese dishes, each selected for its symbolic meaning and flavors that are said to bring fortune, health, and happiness in the coming year.",
+    "descriptionZh": "农历新年是我们最重要的节日，也是大观楼全年最受期待的盛事。每年，我们的厨房团队都会精心制作一套寓意吉祥的粤菜年夜饭，每道菜肴都经过精心挑选，象征福气、健康与来年好运。",
+    "urgencyMessage": "Only 24 tables remaining for Feb 1 sitting",
+    "urgencyMessageZh": "2月1日晚餐仅余24席",
+    "urgencyCount": 24
+  },
+  "prixFixeTiers": [
+    {
+      "tier": "standard",
+      "tierName": "Prosperity Menu",
+      "tierNameZh": "鸿运套餐",
+      "pricePerPerson": 9800,
+      "minGuests": 4,
+      "courses": [
+        { "dish": "Braised Sea Cucumber with Mushrooms", "dishZh": "红烧海参冬菇", "description": "A celebratory braise symbolizing prosperity and abundance" },
+        { "dish": "Whole Steamed Fish", "dishZh": "清蒸全鱼", "description": "Symbolizes abundance — served whole with ginger and scallion" },
+        { "dish": "Golden Fried Rice", "dishZh": "黄金炒饭", "description": "Wok-fried rice with egg, XO sauce, and dried scallop" },
+        { "dish": "Longevity Noodles", "dishZh": "长寿面", "description": "Hand-pulled noodles in superior broth — represent long life" },
+        { "dish": "New Year Cake", "dishZh": "年糕", "description": "Pan-fried sticky rice cake — symbolizes rising fortune year by year" }
+      ]
+    },
+    {
+      "tier": "premium",
+      "tierName": "Fortune Banquet",
+      "tierNameZh": "财运宴",
+      "pricePerPerson": 14800,
+      "minGuests": 8,
+      "courses": [
+        { "dish": "Braised Whole Abalone", "dishZh": "红焖鲍鱼", "description": "6-hour braised South African abalone — the highest status dish of the lunar banquet" },
+        { "dish": "Double-Boiled Supreme Seafood Broth", "dishZh": "花胶海味老火汤", "description": "Long-simmered premium soup with fish maw and dried scallop" },
+        { "dish": "Crispy Whole Suckling Pig", "dishZh": "脆皮烤乳猪", "description": "Ceremonial whole roast — carved tableside" },
+        { "dish": "Steamed Live Lobster", "dishZh": "清蒸活龙虾", "description": "Market-fresh live lobster with garlic vermicelli" },
+        { "dish": "Whole Steamed Fish", "dishZh": "清蒸全鱼", "description": "Served with house soy and fresh ginger" },
+        { "dish": "Longevity Noodles", "dishZh": "长寿面", "description": "Hand-pulled noodles in superior broth" },
+        { "dish": "Assorted Festive Desserts", "dishZh": "节庆甜品拼盘", "description": "New Year cake, glutinous rice balls, and seasonal sweet soups" }
+      ]
+    }
+  ],
+  "giftBoxes": {
+    "enabled": false
+  },
+  "cta": {
+    "primary": { "text": "Reserve CNY Dinner", "textZh": "预约年夜饭", "href": "/reservations" },
+    "secondary": { "text": "View Prosperity Menu", "textZh": "查看套餐详情", "href": "/menu/chef-signatures" }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "clientId": "golden-dynasty-flushing",
+  "templateSiteId": "grand-pavilion",
+  "industry": "chinese-restaurant",
+
+  "business": {
+    "name": "Golden Dynasty",
+    "nameZh": "金朝代",
+    "ownerName": "Chef Wong Kin-Man",
+    "ownerNameZh": "黄建文",
+    "ownerTitle": "Executive Chef & Owner",
+    "ownerTitleZh": "行政主厨 & 东主",
+    "chefOrigin": "Hong Kong",
+    "chefTraining": "Fook Lam Moon, Hong Kong · 25 years Cantonese mastery",
+    "cuisineType": "Cantonese",
+    "cuisineTypeZh": "粤菜",
+    "subType": "dim-sum-fine-dining",
+    "foundedYear": 2015,
+    "tagline": "Authentic Cantonese Mastery Since 2015",
+    "taglineZh": "地道粤菜，2015年创立"
+  },
+
+  "location": {
+    "address": "45-22 Main Street",
+    "city": "Flushing",
+    "state": "NY",
+    "zip": "11355",
+    "phone": "(718) 555-0299",
+    "email": "info@goldendynastyny.com",
+    "parkingNote": "Validated parking available at adjacent garage on weekends.",
+    "parkingNoteZh": "周末在相邻车库可验证停车。"
+  },
+
+  "social": {
+    "instagram": "@goldendynastyny",
+    "facebook": "facebook.com/goldendynastyny",
+    "wechatAccountName": "金朝代餐厅",
+    "wechatQrUrl": null
+  },
+
+  "hours": {
+    "monday":    { "open": "10:00", "close": "21:30" },
+    "tuesday":   { "open": "10:00", "close": "21:30" },
+    "wednesday": { "open": "10:00", "close": "21:30" },
+    "thursday":  { "open": "10:00", "close": "21:30" },
+    "friday":    { "open": "10:00", "close": "22:00" },
+    "saturday":  { "open": "09:30", "close": "22:00" },
+    "sunday":    { "open": "09:30", "close": "21:00" }
+  },
+
+  "dimSum": {
+    "enabled": true,
+    "hours": { "open": "10:00", "close": "15:00" },
+    "weekendBrunchHours": { "open": "09:30", "close": "15:30" },
+    "cartStyle": "traditional-cart"
+  },
+
+  "menu": {
+    "enabled": ["dim-sum", "dinner", "chef-signatures", "weekend-brunch", "beverages", "desserts"],
+    "disabled": ["breakfast", "lunch", "cocktails", "wine", "kids", "tasting-menu", "seasonal"]
+  },
+
+  "festivals": {
+    "enabled": ["chinese-new-year", "mid-autumn"],
+    "disabled": ["wedding-banquet", "dragon-boat"]
+  },
+
+  "reservations": {
+    "provider": "custom",
+    "opentableId": null,
+    "resyVenueId": null,
+    "privateDining": true,
+    "catering": true,
+    "maxPartySize": 300
+  },
+
+  "brand": {
+    "variant": "hongxiang",
+    "overrides": {}
+  },
+
+  "locales": {
+    "enabled": ["en", "zh"],
+    "primary": "en",
+    "disabled": ["es", "ko"]
+  },
+
+  "domains": {
+    "production": "goldendynastyny.com",
+    "dev": "golden-dynasty.localhost"
+  },
+
+  "features": {
+    "online_reservation": true,
+    "private_dining": true,
+    "events_section": true,
+    "blog": true,
+    "gallery": true,
+    "gift_cards": false,
+    "online_ordering": false,
+    "catering": true,
+    "careers": false,
+    "festival_pages": true,
+    "dim_sum_cart": true,
+    "chef_signatures": true,
+    "vip_membership": false
+  },
+
+  "seo": {
+    "targetCity": "Flushing",
+    "targetNeighborhood": "Downtown Flushing",
+    "primaryKeyword": "cantonese restaurant flushing",
+    "zhPrimaryKeyword": "法拉盛粤菜餐厅"
+  },
+
+  "voice": "warm-traditional-authoritative"
+}

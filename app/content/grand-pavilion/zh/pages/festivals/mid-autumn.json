@@ -1,0 +1,63 @@
+{
+  "seo": {
+    "title": "Mid-Autumn Festival 中秋节 — Grand Pavilion 大观楼",
+    "description": "Celebrate Mid-Autumn Festival with our special seasonal menu and mooncake gift boxes. Reserve your table at Grand Pavilion, Flushing NY."
+  },
+  "festival": {
+    "id": "mid-autumn",
+    "slug": "mid-autumn",
+    "name": "Mid-Autumn Festival",
+    "nameZh": "中秋节",
+    "year": 2026,
+    "activeDateStart": "2026-09-15",
+    "activeDateEnd": "2026-10-06",
+    "heroImage": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/festivals/mid-autumn-hero.jpg",
+    "tagline": "A Season of Reunion, Moonlight, and Cantonese Tradition",
+    "taglineZh": "团圆月明，粤式传统",
+    "description": "Mid-Autumn Festival is a celebration of family reunion, harvest, and the full moon. At Grand Pavilion, we mark this beloved holiday with a special seasonal menu featuring dishes of gathering and abundance, alongside our artisan mooncake gift boxes.",
+    "descriptionZh": "中秋节是庆祝家人团聚、丰收与圆月的节日。在大观楼，我们以精心策划的节庆菜单迎接这个传统节日，并提供手工月饼礼盒。",
+    "urgencyMessage": "Mooncake gift boxes available while supplies last",
+    "urgencyMessageZh": "月饼礼盒售完即止",
+    "urgencyCount": null
+  },
+  "prixFixeTiers": [
+    {
+      "tier": "standard",
+      "tierName": "Reunion Dinner",
+      "tierNameZh": "团圆晚宴",
+      "pricePerPerson": 8800,
+      "minGuests": 2,
+      "courses": [
+        { "dish": "Braised Whole Duck", "dishZh": "卤水全鸭", "description": "Master-stock braised duck, sliced tableside" },
+        { "dish": "Steamed Whole Fish with Moon Sauce", "dishZh": "月亮酱蒸全鱼", "description": "Our signature Mid-Autumn preparation" },
+        { "dish": "Stir-Fried Lotus Root with Lily Bulb", "dishZh": "百合炒莲藕", "description": "Symbolizes harmony and togetherness" },
+        { "dish": "Taro and Yam Dessert Soup", "dishZh": "芋头番薯糖水", "description": "Traditional sweet soup for the festival" }
+      ]
+    }
+  ],
+  "giftBoxes": {
+    "enabled": true,
+    "heading": "Artisan Mooncake Gift Boxes",
+    "headingZh": "手工月饼礼盒",
+    "items": [
+      {
+        "name": "Classic Lotus Seed Paste (4-piece)",
+        "nameZh": "传统莲蓉月饼（4件装）",
+        "description": "Traditional baked mooncake with lotus seed paste and salted egg yolk",
+        "price": 4800
+      },
+      {
+        "name": "Premium Assorted (8-piece)",
+        "nameZh": "精选礼盒（8件装）",
+        "description": "Mixed selection: lotus paste, red bean, and five-kernel",
+        "price": 8800
+      }
+    ],
+    "orderDeadline": "2026-09-08",
+    "orderDeadlineZh": "预购截止日期：2026年9月8日"
+  },
+  "cta": {
+    "primary": { "text": "Reserve Mid-Autumn Dinner", "textZh": "预约中秋晚宴", "href": "/reservations" },
+    "secondary": { "text": "Order Mooncake Gift Box", "textZh": "订购月饼礼盒", "href": "/contact" }
+  }
+}

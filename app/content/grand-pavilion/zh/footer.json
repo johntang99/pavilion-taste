@@ -1,0 +1,32 @@
+{
+  "variant": "dark",
+  "tagline": "纽约法拉盛正宗粤菜。每日点心供应至下午三时。可容纳500人宴席。",
+  "columns": {
+    "story": true,
+    "hours": true,
+    "address": true,
+    "links": true
+  },
+  "explore": {
+    "heading": "探索",
+    "links": [
+      { "text": "点心菜单", "url": "/menu/dim-sum" },
+      { "text": "晚餐菜单", "url": "/menu/dinner" },
+      { "text": "厨师特色菜", "url": "/menu/chef-signatures" },
+      { "text": "私人宴厅", "url": "/private-dining" },
+      { "text": "外卖餐饮", "url": "/catering" },
+      { "text": "农历新年", "url": "/festivals/chinese-new-year" },
+      { "text": "中秋节", "url": "/festivals/mid-autumn" },
+      { "text": "图库", "url": "/gallery" },
+      { "text": "常见问题", "url": "/faq" },
+      { "text": "联系我们", "url": "/contact" }
+    ]
+  },
+  "show_newsletter": false,
+  "show_lang_switcher": true,
+  "copyright": "© {year} 大观楼 Grand Pavilion. 版权所有。",
+  "legal_links": [
+    { "text": "隐私政策", "url": "/privacy" },
+    { "text": "服务条款", "url": "/terms" }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "婚宴 — 大观楼",
+    "description": "大观楼提供传统粤式婚宴套餐，适合私密及大型婚礼庆典。"
+  },
+  "festival": {
+    "id": "wedding-banquet",
+    "slug": "wedding-banquet",
+    "name": "Wedding Banquet",
+    "nameZh": "婚宴",
+    "year": 2027,
+    "activeDateStart": "2027-03-01",
+    "activeDateEnd": "2027-12-31",
+    "heroImage": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/banquet/grand-ballroom.jpg",
+    "tagline": "Celebrate your union with timeless Cantonese banquet tradition",
+    "taglineZh": "以经典粤式婚宴礼遇，见证新人成双",
+    "description": "From tea ceremony luncheons to grand evening banquets, our wedding team curates every detail around your family traditions. Custom menus, private rooms, and stage-ready ballroom service are available.",
+    "descriptionZh": "从敬茶午宴到隆重晚宴，我们的婚宴团队将依据您的家庭传统精心安排每个细节。可提供定制菜单、私密包间及舞台级宴会服务。",
+    "urgencyMessage": "Peak autumn weekends are booking quickly",
+    "urgencyMessageZh": "秋季热门周末档期紧张",
+    "urgencyCount": 12
+  },
+  "prixFixeTiers": [
+    {
+      "tier": "gold",
+      "tierName": "Golden Harmony",
+      "tierNameZh": "金玉良缘宴",
+      "pricePerPerson": 12800,
+      "minGuests": 10,
+      "courses": [
+        { "dish": "Roasted Whole Suckling Pig", "dishZh": "鸿运脆皮乳猪", "description": "Traditional wedding opening centerpiece" },
+        { "dish": "Braised Abalone & Sea Cucumber", "dishZh": "鲍参翅肚", "description": "Classic premium banquet braise" },
+        { "dish": "Steamed Live Lobster", "dishZh": "上汤蒸活龙虾", "description": "Garlic vermicelli and superior broth" },
+        { "dish": "Longevity Noodles", "dishZh": "长寿伊面", "description": "Symbolizing prosperity and long life" }
+      ]
+    },
+    {
+      "tier": "diamond",
+      "tierName": "Diamond Celebration",
+      "tierNameZh": "龙凤呈祥宴",
+      "pricePerPerson": 16800,
+      "minGuests": 12,
+      "courses": [
+        { "dish": "Roasted Whole Suckling Pig", "dishZh": "鸿运脆皮乳猪", "description": "Ceremonial opening course" },
+        { "dish": "Braised Whole South African Abalone", "dishZh": "红焖南非鲍鱼", "description": "Chef signature 6-hour braise" },
+        { "dish": "Steamed Live King Crab", "dishZh": "清蒸帝王蟹", "description": "Market-fresh premium crab" },
+        { "dish": "Double Happiness Dessert Trio", "dishZh": "双囍甜品拼盘", "description": "Sweet ending curated for weddings" }
+      ]
+    }
+  ],
+  "giftBoxes": {
+    "enabled": false
+  },
+  "cta": {
+    "primary": { "text": "Request Wedding Inquiry", "textZh": "提交婚宴咨询", "href": "/private-dining" },
+    "secondary": { "text": "View Banquet Packages", "textZh": "查看宴会套餐", "href": "/private-dining" }
+  }
+}

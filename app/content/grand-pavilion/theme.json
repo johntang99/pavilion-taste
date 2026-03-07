@@ -1,0 +1,137 @@
+{
+  "shape": {
+    "radius": "8px",
+    "shadow": "0 2px 10px rgba(139,26,26,0.12)"
+  },
+  "colors": {
+    "text": {
+      "muted": "#8A6060",
+      "accent": "#8B1A1A",
+      "inverse": "#FDF6E3",
+      "primary": "#1A0A0A",
+      "secondary": "#5A3030",
+      "bodyOnLight": "#4A2A2A",
+      "mutedOnLight": "#8A6060",
+      "onDarkPrimary": "#FDF6E3",
+      "headingOnLight": "#1A0A0A",
+      "onDarkSecondary": "#EAB553"
+    },
+    "border": {
+      "subtle": "rgba(139,26,26,0.08)",
+      "DEFAULT": "rgba(139,26,26,0.2)",
+      "emphasis": "rgba(139,26,26,0.45)"
+    },
+    "status": {
+      "error": "#EF4444",
+      "success": "#22C55E",
+      "warning": "#F59E0B"
+    },
+    "primary": {
+      "50": "#FDF6E3",
+      "100": "#FAF0D0",
+      "dark": "#6B1212",
+      "light": "#A82525",
+      "DEFAULT": "#8B1A1A"
+    },
+    "backdrop": {
+      "overlay": "rgba(139,26,26,0.5)",
+      "primary": "#FDF6E3",
+      "surface": "#FFFFFF",
+      "secondary": "#FAF0D0"
+    },
+    "secondary": {
+      "50": "#FDF8EC",
+      "dark": "#A8873B",
+      "light": "#D8BF74",
+      "DEFAULT": "#C9A84C"
+    }
+  },
+  "layout": {
+    "heroVariant": "photo-background",
+    "featureVariant": "grid",
+    "spacingDensity": "comfortable"
+  },
+  "motion": {
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "hoverLift": "-2px",
+    "durationBase": "350ms",
+    "durationFast": "200ms",
+    "durationSlow": "550ms",
+    "entranceDist": "16px"
+  },
+  "_preset": {
+    "id": "hongxiang",
+    "name": "Hong Xiang 鴻翔",
+    "category": "chinese-dim-sum",
+    "description": "Soaring Phoenix — Deep crimson and imperial gold on warm ivory. For dim sum parlors, traditional banquet restaurants, and teahouses. Festive, warm, welcoming."
+  },
+  "chinese": {
+    "sealColor": "#8B0000",
+    "fontBodyZh": "'Noto Sans SC', sans-serif",
+    "lanternColor": "#8B1A1A",
+    "fontDisplayZh": "'Noto Serif SC', serif",
+    "paperCutColor": "#8B1A1A",
+    "zhNameDisplay": "block",
+    "festivalAccent": "#C9A84C",
+    "inkOverlayColor": "rgba(139,26,26,0.2)",
+    "brushDividerColor": "rgba(139,26,26,0.25)",
+    "inkOverlayOpacity": "0.2"
+  },
+  "effects": {
+    "btnRadius": "4px",
+    "cardRadius": "4px",
+    "cardShadow": "0 2px 10px rgba(139,26,26,0.12)",
+    "badgeRadius": "3px",
+    "heroOverlay": "linear-gradient(to bottom, rgba(139,26,26,0.1) 0%, rgba(26,10,10,0.55) 100%)",
+    "menuDivider": "1px solid rgba(139,26,26,0.15)",
+    "cardShadowHover": "0 8px 24px rgba(139,26,26,0.2)"
+  },
+  "spacing": {
+    "cardPad": "1.75rem",
+    "gridGap": "1.5rem",
+    "heroMinH": "100svh",
+    "navHeight": "72px",
+    "sectionPy": "5rem",
+    "menuItemPy": "1.1rem",
+    "containerPx": "2rem",
+    "sectionPySm": "3.5rem",
+    "containerMax": "1200px"
+  },
+  "_workflow": {
+    "status": "published",
+    "updatedAt": "2026-03-07T10:12:21.478Z",
+    "publishedAt": "2026-03-07T01:08:46.122Z"
+  },
+  "variantId": "hongxiang",
+  "typography": {
+    "body": "1rem",
+    "fonts": {
+      "body": "'Lato', system-ui, sans-serif",
+      "small": "'Lato', system-ui, sans-serif",
+      "display": "'EB Garamond', Georgia, serif",
+      "heading": "'EB Garamond', Georgia, serif",
+      "subheading": "'Lato', system-ui, sans-serif"
+    },
+    "small": "0.875rem",
+    "weight": {
+      "display": "400"
+    },
+    "display": "clamp(2.6rem, 5vw, 4.2rem)",
+    "heading": "clamp(1.9rem, 3.2vw, 2.8rem)",
+    "tracking": {
+      "nav": "0.01em",
+      "body": "0.01em",
+      "label": "0.14em",
+      "display": "0.04em",
+      "heading": "0.02em"
+    },
+    "lineHeight": {
+      "body": "1.7",
+      "menu": "1.65",
+      "display": "1.15",
+      "heading": "1.3"
+    },
+    "subheading": "clamp(1.05rem, 1.7vw, 1.4rem)"
+  },
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Lato:wght@300;400;700&family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400&display=swap"
+}

@@ -1,0 +1,79 @@
+{
+  "menu": {
+    "logo": {
+      "type": "text",
+      "text": "Grand Pavilion",
+      "textZh": "大观楼",
+      "showChineseName": true
+    },
+    "variant": "transparent",
+    "items": [
+      {
+        "text": "Menu",
+        "url": "/menu",
+        "children": [
+          { "text": "Menu Overview", "url": "/menu" },
+          { "text": "Dim Sum", "url": "/menu/dim-sum" },
+          { "text": "Cantonese Dinner", "url": "/menu/dinner" },
+          { "text": "Chef's Signatures", "url": "/menu/chef-signatures" },
+          { "text": "Weekend Brunch", "url": "/menu/weekend-brunch" },
+          { "text": "Chef's Tasting Menu", "url": "/menu/tasting-menu" },
+          { "text": "Seasonal Menu", "url": "/menu/seasonal" },
+          { "text": "Beverages & Tea", "url": "/menu/beverages" },
+          { "text": "Desserts", "url": "/menu/desserts" }
+        ]
+      },
+      {
+        "text": "Dining & Services",
+        "url": "/private-dining",
+        "children": [
+          { "text": "Private Dining", "url": "/private-dining", "feature_gate": "private_dining" },
+          { "text": "Catering", "url": "/catering" },
+          { "text": "Order Online", "url": "/order-online" },
+          { "text": "Gift Cards", "url": "/gift-cards", "feature_gate": "gift_cards" }
+        ]
+      },
+      {
+        "text": "Discover",
+        "url": "/events",
+        "children": [
+          { "text": "Festivals — Chinese New Year", "url": "/festivals/chinese-new-year" },
+          { "text": "Festivals — Mid-Autumn", "url": "/festivals/mid-autumn" },
+          { "text": "Festivals — Wedding Banquet", "url": "/festivals/wedding-banquet" },
+          { "text": "Events", "url": "/events", "feature_gate": "events" },
+          { "text": "Gallery", "url": "/gallery" },
+          { "text": "Blog", "url": "/blog", "feature_gate": "blog" },
+          { "text": "Press", "url": "/press", "feature_gate": "press" }
+        ]
+      },
+      {
+        "text": "About",
+        "url": "/about",
+        "children": [
+          { "text": "About Us", "url": "/about" },
+          { "text": "Careers", "url": "/careers", "feature_gate": "careers" }
+        ]
+      },
+      {
+        "text": "Contact",
+        "url": "/contact",
+        "children": [
+          { "text": "Contact", "url": "/contact" },
+          { "text": "FAQ", "url": "/faq" }
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "text": "Reserve a Table",
+    "textZh": "预约餐桌",
+    "link": "/reservations"
+  },
+  "topbar": {
+    "show": true,
+    "phone": "(718) 555-0188",
+    "message": "Dim Sum daily 10am – 3pm · Now accepting CNY 2027 reservations"
+  },
+  "transparent_hero": true,
+  "show_lang_switcher": true
+}

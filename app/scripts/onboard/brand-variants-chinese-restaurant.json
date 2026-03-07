@@ -1,0 +1,83 @@
+{
+  "variants": {
+    "hao-zhan": {
+      "id": "hao-zhan",
+      "name": "Hao Zhan 豪展",
+      "nameZh": "豪展",
+      "description": "Grand Display — Ink black and antique gold. For fine dining Cantonese and Shanghainese.",
+      "for": ["fine-dining", "cantonese", "shanghainese"],
+      "colors": {
+        "primary": "#1A1A1A",
+        "secondary": "#C9A84C",
+        "backdrop": "#F5F0E8"
+      },
+      "typography": {
+        "displayFont": "Cormorant Garamond",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400&display=swap"
+      }
+    },
+    "hongxiang": {
+      "id": "hongxiang",
+      "name": "Hong Xiang 鴻翔",
+      "nameZh": "鴻翔",
+      "description": "Soaring Phoenix — Deep crimson and imperial gold. For dim sum parlors and traditional banquet restaurants.",
+      "for": ["dim-sum", "yum-cha", "traditional-banquet", "teahouse"],
+      "colors": {
+        "primary": "#8B1A1A",
+        "secondary": "#C9A84C",
+        "backdrop": "#FDF6E3"
+      },
+      "typography": {
+        "displayFont": "EB Garamond",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Lato:wght@300;400;700&family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400&display=swap"
+      }
+    },
+    "longmen": {
+      "id": "longmen",
+      "name": "Long Men 龍門",
+      "nameZh": "龍門",
+      "description": "Dragon Gate — Near black and lacquer red. For contemporary fusion and chef-driven modern Chinese.",
+      "for": ["contemporary-fusion", "chef-driven", "sichuan-modern"],
+      "colors": {
+        "primary": "#2C1810",
+        "secondary": "#C0392B",
+        "backdrop": "#0A0A0A"
+      },
+      "typography": {
+        "displayFont": "DM Serif Display",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400&display=swap"
+      }
+    },
+    "shuimo": {
+      "id": "shuimo",
+      "name": "Shui Mo 水墨",
+      "nameZh": "水墨",
+      "description": "Ink Wash — Charcoal and cinnabar red on off-white. For modern minimalist Chinese, Taiwanese, and tea-bar concepts.",
+      "for": ["modern-chinese", "taiwanese", "tea-bar"],
+      "colors": {
+        "primary": "#2F2F2F",
+        "secondary": "#8B0000",
+        "backdrop": "#F9F6F0"
+      },
+      "typography": {
+        "displayFont": "Libre Baskerville",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500&family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400&display=swap"
+      }
+    }
+  },
+  "selectionGuide": {
+    "fine-dining": "hao-zhan",
+    "cantonese": "hao-zhan",
+    "shanghainese": "hao-zhan",
+    "dim-sum": "hongxiang",
+    "yum-cha": "hongxiang",
+    "traditional-banquet": "hongxiang",
+    "teahouse": "hongxiang",
+    "contemporary-fusion": "longmen",
+    "sichuan": "longmen",
+    "chef-driven": "longmen",
+    "modern-chinese": "shuimo",
+    "taiwanese": "shuimo",
+    "tea-bar": "shuimo"
+  }
+}

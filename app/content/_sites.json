@@ -1,0 +1,32 @@
+{
+  "sites": [
+    {
+      "id": "grand-pavilion",
+      "name": "Grand Pavilion",
+      "nameZh": "大观楼",
+      "domain": "grandpavilionny.com",
+      "enabled": true,
+      "defaultLocale": "en",
+      "supportedLocales": ["en", "zh"],
+      "cuisineType": "Cantonese",
+      "cuisineTypeZh": "粤菜",
+      "features": {
+        "festival_pages": true,
+        "dim_sum_cart": true,
+        "chef_signatures": true,
+        "private_dining": true,
+        "catering": true,
+        "online_reservation": true,
+        "events_section": true,
+        "blog": true,
+        "gallery": true,
+        "gift_cards": true,
+        "online_ordering": false,
+        "careers": true,
+        "vip_membership": false
+      },
+      "createdAt": "2026-03-01T00:00:00Z",
+      "updatedAt": "2026-03-01T00:00:00Z"
+    }
+  ]
+}

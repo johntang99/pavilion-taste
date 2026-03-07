@@ -1,0 +1,108 @@
+{
+  "seo": {
+    "title": "Menu — Grand Pavilion 大观楼",
+    "description": "Explore our full menu: dim sum daily until 3pm, Cantonese dinner classics, chef's signatures, and weekend brunch."
+  },
+  "hero": {
+    "heading": "Our Menus",
+    "headingZh": "我们的菜单",
+    "subheading": "From morning dim sum to evening fine dining",
+    "subheadingZh": "从早午点心到晚间精致料理",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/menu-hero.jpg"
+  },
+  "categories": [
+    {
+      "id": "dim-sum",
+      "name": "Dim Sum",
+      "nameZh": "点心",
+      "description": "80+ hand-crafted varieties, served 10am–3pm daily",
+      "descriptionZh": "逾80种精心制作点心，每日上午10时至下午3时供应",
+      "href": "/menu/dim-sum",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/dim-sum-spread.jpg",
+      "hours": "10:00 AM – 3:00 PM",
+      "hoursZh": "上午10时 – 下午3时",
+      "badge": "Daily",
+      "itemCount": 80
+    },
+    {
+      "id": "dinner",
+      "name": "Cantonese Dinner",
+      "nameZh": "粤菜晚餐",
+      "description": "Classic Cantonese dishes, whole seafood, roasted meats",
+      "descriptionZh": "经典粤菜，鲜活海鲜，烧味拼盘",
+      "href": "/menu/dinner",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/dinner.jpg",
+      "hours": "5:00 PM – Close",
+      "hoursZh": "下午5时至打烊",
+      "badge": null,
+      "itemCount": 45
+    },
+    {
+      "id": "chef-signatures",
+      "name": "Chef's Signatures",
+      "nameZh": "厨师特色菜",
+      "description": "Executive Chef Li Wei's celebrated creations",
+      "descriptionZh": "行政主厨李伟的名牌菜式",
+      "href": "/menu/chef-signatures",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/chef-signatures.jpg",
+      "hours": "By reservation",
+      "hoursZh": "需预约",
+      "badge": "Premium",
+      "itemCount": 8
+    },
+    {
+      "id": "weekend-brunch",
+      "name": "Weekend Brunch",
+      "nameZh": "周末早午餐",
+      "description": "Extended dim sum selection from 9:30am",
+      "descriptionZh": "周末从早9时30分起，点心品种更丰富",
+      "href": "/menu/weekend-brunch",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/weekend-brunch.jpg",
+      "hours": "Sat & Sun 9:30 AM – 3:30 PM",
+      "hoursZh": "周六、日 早9时30分 – 下午3时30分",
+      "badge": "Sat & Sun",
+      "itemCount": 100
+    },
+    {
+      "id": "beverages",
+      "name": "Beverages & Tea",
+      "nameZh": "饮品及茶",
+      "description": "Curated tea selection, soft drinks, and fresh juices",
+      "descriptionZh": "精选茶类、软饮及鲜榨果汁",
+      "href": "/menu/beverages",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/tea.jpg",
+      "hours": null,
+      "hoursZh": null,
+      "badge": null,
+      "itemCount": 20
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "nameZh": "甜品",
+      "description": "Traditional Chinese desserts and sweet soups",
+      "descriptionZh": "传统中式甜品及糖水",
+      "href": "/menu/desserts",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/chocolate-1.jpg",
+      "hours": null,
+      "hoursZh": null,
+      "badge": null,
+      "itemCount": 15
+    },
+    {
+      "id": "seasonal",
+      "name": "Seasonal Menu",
+      "nameZh": "时令菜单",
+      "description": "Limited-time seasonal dishes and festival specialties",
+      "descriptionZh": "限时供应的时令菜及节庆特色菜",
+      "href": "/menu/seasonal",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/chef-signatures.jpg",
+      "hours": null,
+      "hoursZh": null,
+      "badge": "Limited",
+      "itemCount": 12
+    }
+  ],
+  "allergenNote": "Please inform your server of any dietary restrictions or allergies. Our kitchen handles shellfish, gluten, soy, nuts, and dairy.",
+  "allergenNoteZh": "如有饮食限制或过敏情况，请告知服务员。本厨房处理贝类、麸质、大豆、坚果及乳制品食材。"
+}

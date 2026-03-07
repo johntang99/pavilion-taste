@@ -1,0 +1,39 @@
+{
+  "seo": {
+    "title": "Catering — Grand Pavilion 大观楼",
+    "description": "Off-site catering for corporate events, weddings, and private parties. Authentic Cantonese cuisine delivered."
+  },
+  "hero": {
+    "heading": "Catering Services",
+    "headingZh": "外卖餐饮服务",
+    "subheading": "Authentic Cantonese cuisine brought to your event",
+    "subheadingZh": "正宗粤菜外卖服务",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/banquet/catering-hero.jpg"
+  },
+  "description": "Grand Pavilion's catering team brings the same quality and authenticity of our restaurant kitchen to your off-site event. We serve the greater New York City area with a minimum 72-hour advance notice.",
+  "descriptionZh": "大观楼外卖团队将餐厅同等品质的正宗粤菜带到您的场外活动。我们服务纽约市及周边地区，需提前至少72小时预订。",
+  "services": [
+    {
+      "name": "Corporate Lunches",
+      "nameZh": "企业午宴",
+      "description": "Minimum 20 guests. Set menus available.",
+      "minGuests": 20
+    },
+    {
+      "name": "Private Parties",
+      "nameZh": "私人派对",
+      "description": "Birthdays, anniversaries, family gatherings. Minimum 30 guests.",
+      "minGuests": 30
+    },
+    {
+      "name": "Wedding Receptions",
+      "nameZh": "婚宴",
+      "description": "Full wedding banquet service. Minimum 50 guests.",
+      "minGuests": 50
+    }
+  ],
+  "inquiryForm": {
+    "heading": "Request a Catering Quote",
+    "headingZh": "申请外卖报价"
+  }
+}

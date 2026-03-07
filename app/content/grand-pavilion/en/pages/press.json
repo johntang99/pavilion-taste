@@ -1,0 +1,13 @@
+{
+  "seo": {
+    "title": "Press & Awards — Grand Pavilion 大观楼",
+    "description": "Recognition, media coverage, and awards for Grand Pavilion."
+  },
+  "hero": {
+    "variant": "photo-background",
+    "eyebrow": "Recognition",
+    "headline": "Press & Awards",
+    "subline": "A selection of media mentions, culinary awards, and editor highlights.",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg"
+  }
+}

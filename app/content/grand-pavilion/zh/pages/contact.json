@@ -1,0 +1,42 @@
+{
+  "seo": {
+    "title": "Contact & Hours — Grand Pavilion 大观楼",
+    "description": "Visit us at 133-24 Roosevelt Ave, Flushing NY. Open daily. Call (718) 555-0188 or reserve online."
+  },
+  "hero": {
+    "heading": "Contact & Hours",
+    "headingZh": "联系方式及营业时间",
+    "image": null
+  },
+  "info": {
+    "address": "133-24 Roosevelt Ave, Flushing, NY 11354",
+    "addressZh": "纽约州法拉盛罗斯福大道133-24号，11354",
+    "phone": "(718) 555-0188",
+    "email": "info@grandpavilionny.com",
+    "mapEmbed": null,
+    "parking": "Street parking available on Roosevelt Ave. Validated parking at adjacent garage on weekends.",
+    "parkingZh": "罗斯福大道有路边停车。周末在相邻车库可验证停车。"
+  },
+  "hours": {
+    "heading": "Hours · 营业时间",
+    "schedule": [
+      { "day": "Monday – Thursday", "dayZh": "周一至周四", "hours": "10:00 AM – 9:30 PM" },
+      { "day": "Friday", "dayZh": "周五", "hours": "10:00 AM – 10:00 PM" },
+      { "day": "Saturday", "dayZh": "周六", "hours": "9:30 AM – 10:00 PM" },
+      { "day": "Sunday", "dayZh": "周日", "hours": "9:30 AM – 9:00 PM" }
+    ],
+    "dimSumNote": "Dim sum served daily 10am – 3pm (weekend brunch from 9:30am)",
+    "dimSumNoteZh": "每日点心供应上午10时至下午3时（周末早午餐从早9时30分开始）"
+  },
+  "wechat": {
+    "show": true,
+    "heading": "Follow Us on WeChat",
+    "headingZh": "关注我们的微信",
+    "accountName": "大观楼餐厅"
+  },
+  "form": {
+    "heading": "Send Us a Message",
+    "headingZh": "发送留言",
+    "showWechatField": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "seo": {
+    "title": "Gallery — Grand Pavilion 大观楼",
+    "description": "Photography of our signature dishes, dim sum, dining room, and event spaces."
+  },
+  "hero": {
+    "variant": "gallery-background",
+    "eyebrow": "Visual Tour",
+    "headline": "Gallery",
+    "subline": "Explore our dishes, dining rooms, and celebration moments.",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/food-1.jpg"
+  },
+  "categories": [
+    { "id": "food", "label": "Food", "labelZh": "美食" },
+    { "id": "dining-room", "label": "Dining Room", "labelZh": "餐厅" },
+    { "id": "events", "label": "Events", "labelZh": "活动" },
+    { "id": "festivals", "label": "Festivals", "labelZh": "节庆" },
+    { "id": "chef", "label": "Chef", "labelZh": "厨师" }
+  ]
+}

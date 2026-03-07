@@ -1,0 +1,40 @@
+{
+  "events": [
+    {
+      "id": "chef-table-spring-2026",
+      "slug": "chef-table-spring-2026",
+      "title": "Chef's Table: Spring Cantonese Tasting",
+      "shortDescription": "An 8-course chef-guided tasting highlighting spring ingredients.",
+      "description": "Join Chef Li Wei for an intimate tasting menu focused on spring produce, live seafood, and traditional Cantonese techniques.",
+      "eventType": "chef-table",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg",
+      "startDatetime": "2027-04-18T18:30:00-04:00",
+      "endDatetime": "2027-04-18T21:00:00-04:00",
+      "pricePerPerson": 15800,
+      "reservationRequired": true,
+      "reservationLink": "/reservations",
+      "capacity": 40,
+      "featured": true,
+      "published": true,
+      "cancelled": false
+    },
+    {
+      "id": "mid-autumn-preview-night",
+      "slug": "mid-autumn-preview-night",
+      "title": "Mid-Autumn Preview Night",
+      "shortDescription": "Seasonal mooncake tasting and festival menu preview.",
+      "description": "Sample our mooncake collection and a preview of this year's Mid-Autumn dinner menu.",
+      "eventType": "seasonal",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/festivals/mid-autumn-hero.jpg",
+      "startDatetime": "2027-09-12T19:00:00-04:00",
+      "endDatetime": "2027-09-12T21:30:00-04:00",
+      "pricePerPerson": null,
+      "reservationRequired": true,
+      "reservationLink": "/reservations",
+      "capacity": 80,
+      "featured": false,
+      "published": true,
+      "cancelled": false
+    }
+  ]
+}

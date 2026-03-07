@@ -1,0 +1,19 @@
+{
+  "seo": {
+    "title": "Events — Grand Pavilion 大观楼",
+    "description": "Chef's tables, seasonal tastings, and cultural dining events in Flushing."
+  },
+  "hero": {
+    "variant": "photo-background",
+    "eyebrow": "Upcoming Experiences",
+    "headline": "Events",
+    "subline": "Reserve your seat for chef-led tastings, seasonal previews, and festival nights.",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg"
+  },
+  "privateDiningCta": {
+    "headline": "Planning a private celebration?",
+    "description": "Our team can design a custom menu for birthdays, anniversaries, and family banquets.",
+    "ctaText": "Request Private Dining",
+    "ctaLink": "/private-dining"
+  }
+}

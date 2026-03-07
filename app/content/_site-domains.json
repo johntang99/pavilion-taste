@@ -1,0 +1,16 @@
+{
+  "domains": [
+    {
+      "siteId": "grand-pavilion",
+      "domain": "localhost",
+      "environment": "dev",
+      "enabled": true
+    },
+    {
+      "siteId": "grand-pavilion",
+      "domain": "grandpavilionny.com",
+      "environment": "prod",
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "title": "Grand Pavilion 大观楼 — Authentic Cantonese Restaurant Flushing NY",
+  "description": "Authentic Cantonese cuisine with 80+ dim sum varieties daily. Fine dining, private banquets up to 500 guests, and seasonal festival menus. Reserve your table at Grand Pavilion 大观楼, Flushing NY.",
+  "keywords": ["cantonese restaurant flushing", "dim sum flushing ny", "chinese restaurant queens", "authentic dim sum nyc", "chinese new year dinner flushing", "private dining banquet flushing"],
+  "ogImage": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/hero/hero-main.jpg",
+  "pages": {
+    "/": {
+      "title": "Grand Pavilion 大观楼 — Authentic Cantonese Restaurant Flushing NY",
+      "description": "Authentic Cantonese cuisine with 80+ dim sum varieties daily. Reserve your table at Flushing's premier Chinese dining destination."
+    },
+    "/menu": {
+      "title": "Menu — Grand Pavilion 大观楼",
+      "description": "Explore our full menu: dim sum served daily until 3pm, Cantonese dinner classics, chef's signature dishes, and weekend brunch."
+    },
+    "/menu/dim-sum": {
+      "title": "Dim Sum Menu 点心菜单 — Grand Pavilion 大观楼",
+      "description": "Over 80 hand-crafted dim sum varieties daily from 10am to 3pm. Steamed, baked, fried, and dessert selections with full Chinese menu names."
+    },
+    "/menu/dinner": {
+      "title": "Dinner Menu 晚餐 — Grand Pavilion 大观楼",
+      "description": "Classic Cantonese dinner menu featuring fresh seafood, roasted meats, and traditional family-style dishes. Served nightly from 5pm."
+    },
+    "/menu/chef-signatures": {
+      "title": "Chef's Signatures — Grand Pavilion 大观楼",
+      "description": "Chef Li Wei's signature creations — including Peking Duck, Live Lobster, and Braised Abalone. The pinnacle of Cantonese mastery."
+    },
+    "/reservations": {
+      "title": "Reserve a Table — Grand Pavilion 大观楼",
+      "description": "Book your table at Grand Pavilion. Online reservations available for dinner service and weekend brunch. Private dining for groups of 10 to 500."
+    },
+    "/private-dining": {
+      "title": "Private Dining & Banquets — Grand Pavilion 大观楼",
+      "description": "Private dining rooms and grand ballroom for up to 500 guests. Wedding banquets, corporate events, birthday celebrations, and family gatherings."
+    },
+    "/about": {
+      "title": "About — Grand Pavilion 大观楼",
+      "description": "The story of Grand Pavilion and Executive Chef Li Wei — 25+ years of Cantonese mastery in the heart of Flushing."
+    },
+    "/contact": {
+      "title": "Contact & Hours — Grand Pavilion 大观楼",
+      "description": "Visit us at 133-24 Roosevelt Ave, Flushing NY. Open daily. Call (718) 555-0188 or reserve online."
+    },
+    "/gallery": {
+      "title": "Gallery — Grand Pavilion 大观楼",
+      "description": "Photography of our signature dishes, dim sum, dining room, and event spaces."
+    },
+    "/catering": {
+      "title": "Catering — Grand Pavilion 大观楼",
+      "description": "Off-site catering for corporate events, weddings, and private parties. Authentic Cantonese cuisine delivered."
+    },
+    "/festivals/chinese-new-year": {
+      "title": "Chinese New Year Dinner 农历新年 — Grand Pavilion 大观楼",
+      "description": "Celebrate Lunar New Year 2027 with our special prix-fixe banquet dinner. Limited tables available — reserve early."
+    },
+    "/festivals/mid-autumn": {
+      "title": "Mid-Autumn Festival 中秋节 — Grand Pavilion 大观楼",
+      "description": "Celebrate Mid-Autumn Festival with our special seasonal menu and mooncake gift boxes. Reserve your table."
+    }
+  }
+}

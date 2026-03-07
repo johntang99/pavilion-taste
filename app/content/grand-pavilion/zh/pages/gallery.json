@@ -1,0 +1,20 @@
+{
+  "seo": {
+    "title": "图库 — 大观楼",
+    "description": "招牌菜、用餐空间与节庆活动影像。"
+  },
+  "hero": {
+    "variant": "gallery-background",
+    "eyebrow": "视觉导览",
+    "headline": "图库",
+    "subline": "浏览我们的菜品、空间与庆典瞬间。",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/food-1.jpg"
+  },
+  "categories": [
+    { "id": "food", "label": "Food", "labelZh": "美食" },
+    { "id": "dining-room", "label": "Dining Room", "labelZh": "餐厅" },
+    { "id": "events", "label": "Events", "labelZh": "活动" },
+    { "id": "festivals", "label": "Festivals", "labelZh": "节庆" },
+    { "id": "chef", "label": "Chef", "labelZh": "厨师" }
+  ]
+}

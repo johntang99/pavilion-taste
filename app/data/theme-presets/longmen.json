@@ -1,0 +1,132 @@
+{
+  "variantId": "longmen",
+  "_preset": {
+    "id": "longmen",
+    "name": "Long Men 龍門",
+    "category": "chinese-contemporary",
+    "description": "Dragon Gate — Near black and lacquer red on deep backdrop. For contemporary fusion and chef-driven modern Chinese restaurants. Dramatic, bold, cinematic."
+  },
+  "colors": {
+    "primary": {
+      "DEFAULT": "#2C1810",
+      "dark": "#180C08",
+      "light": "#3D2318",
+      "50": "#F5F0E8",
+      "100": "#EBE4D8"
+    },
+    "secondary": {
+      "DEFAULT": "#C0392B",
+      "dark": "#992D22",
+      "light": "#D44637",
+      "50": "#FDF2F2"
+    },
+    "backdrop": {
+      "primary": "#0A0A0A",
+      "secondary": "#121212",
+      "surface": "#1A1A1A",
+      "overlay": "rgba(0,0,0,0.65)"
+    },
+    "text": {
+      "primary": "#F5F0E8",
+      "secondary": "#C8BCAA",
+      "muted": "#8A7E72",
+      "inverse": "#1A1A1A",
+      "accent": "#C0392B",
+      "onDarkPrimary": "#F5F0E8",
+      "onDarkSecondary": "#C8BCAA",
+      "headingOnLight": "#1A1A1A",
+      "bodyOnLight": "#3D2318",
+      "mutedOnLight": "#6B5F55"
+    },
+    "border": {
+      "DEFAULT": "rgba(192,57,43,0.25)",
+      "subtle": "rgba(255,255,255,0.08)",
+      "emphasis": "rgba(192,57,43,0.5)"
+    },
+    "status": {
+      "success": "#22C55E",
+      "warning": "#F59E0B",
+      "error": "#EF4444"
+    }
+  },
+  "typography": {
+    "display": "clamp(2.8rem, 5.5vw, 4.5rem)",
+    "heading": "clamp(2rem, 3.5vw, 3rem)",
+    "subheading": "clamp(1.1rem, 1.8vw, 1.5rem)",
+    "body": "1rem",
+    "small": "0.875rem",
+    "fonts": {
+      "display": "'DM Serif Display', Georgia, serif",
+      "heading": "'DM Serif Display', Georgia, serif",
+      "subheading": "'DM Sans', system-ui, sans-serif",
+      "body": "'DM Sans', system-ui, sans-serif",
+      "small": "'DM Sans', system-ui, sans-serif"
+    },
+    "tracking": {
+      "display": "0.02em",
+      "heading": "0.01em",
+      "body": "0.01em",
+      "nav": "0.10em",
+      "label": "0.14em"
+    },
+    "lineHeight": {
+      "display": "1.1",
+      "heading": "1.2",
+      "body": "1.65",
+      "menu": "1.6"
+    },
+    "weight": {
+      "display": "400"
+    }
+  },
+  "spacing": {
+    "sectionPy": "5.5rem",
+    "sectionPySm": "3.5rem",
+    "containerMax": "1200px",
+    "containerPx": "2rem",
+    "cardPad": "2rem",
+    "menuItemPy": "1.2rem",
+    "navHeight": "72px",
+    "heroMinH": "100svh",
+    "gridGap": "1.5rem"
+  },
+  "effects": {
+    "cardRadius": "0px",
+    "btnRadius": "2px",
+    "badgeRadius": "2px",
+    "cardShadow": "0 2px 12px rgba(0,0,0,0.5)",
+    "cardShadowHover": "0 10px 30px rgba(0,0,0,0.7)",
+    "heroOverlay": "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%)",
+    "menuDivider": "1px solid rgba(192,57,43,0.2)"
+  },
+  "motion": {
+    "durationFast": "160ms",
+    "durationBase": "300ms",
+    "durationSlow": "500ms",
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "hoverLift": "-4px",
+    "entranceDist": "20px"
+  },
+  "shape": {
+    "radius": "0px",
+    "shadow": "0 2px 12px rgba(0,0,0,0.5)"
+  },
+  "layout": {
+    "heroVariant": "photo-background",
+    "featureVariant": "grid",
+    "spacingDensity": "spacious"
+  },
+  "chinese": {
+    "fontDisplayZh": "'Noto Serif SC', serif",
+    "fontBodyZh": "'Noto Sans SC', sans-serif",
+    "inkOverlayColor": "rgba(0,0,0,0.35)",
+    "inkOverlayOpacity": "0.35",
+    "paperCutColor": "#C0392B",
+    "sealColor": "#8B0000",
+    "festivalAccent": "#C0392B",
+    "brushDividerColor": "rgba(192,57,43,0.3)",
+    "zhNameDisplay": "block",
+    "lanternColor": "#C0392B"
+  },
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400&display=swap"
+}

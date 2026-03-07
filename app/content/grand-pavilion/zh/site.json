@@ -1,0 +1,46 @@
+{
+  "id": "grand-pavilion",
+  "name": "大观楼",
+  "nameZh": "大观楼",
+  "tagline": "地道粤菜，1998年创立",
+  "description": "大观楼是法拉盛首屈一指的正宗粤菜餐厅——传统点心与精致用餐体验的完美结合，中英双语服务，诚邀每一位宾客。",
+  "cuisineType": "Cantonese",
+  "cuisineTypeZh": "粤菜",
+  "chefName": "Chef Li Wei",
+  "chefNameZh": "李伟主厨",
+  "phone": "(718) 555-0188",
+  "email": "info@grandpavilionny.com",
+  "address": "133-24 Roosevelt Ave",
+  "city": "Flushing",
+  "state": "NY",
+  "zip": "11354",
+  "parkingNote": "Street parking available on Roosevelt Ave. Validated parking at adjacent garage on weekends.",
+  "parkingNoteZh": "罗斯福大道有路边停车。周末在相邻车库可验证停车。",
+  "dimSumHours": { "open": "10:00", "close": "15:00" },
+  "weekendBrunchHours": { "open": "09:30", "close": "15:30" },
+  "hours": {
+    "monday":    { "open": "10:00", "close": "21:30" },
+    "tuesday":   { "open": "10:00", "close": "21:30" },
+    "wednesday": { "open": "10:00", "close": "21:30" },
+    "thursday":  { "open": "10:00", "close": "21:30" },
+    "friday":    { "open": "10:00", "close": "22:00" },
+    "saturday":  { "open": "09:30", "close": "22:00" },
+    "sunday":    { "open": "09:30", "close": "21:00" }
+  },
+  "wechatQrUrl": null,
+  "wechatAccountName": "大观楼餐厅",
+  "defaultLocale": "en",
+  "enabledLocales": ["en", "zh"],
+  "social": {
+    "instagram": "@grandpavilionny",
+    "facebook": "facebook.com/grandpavilionny"
+  },
+  "features": {
+    "gift_cards": true,
+    "careers": true,
+    "private_dining": true,
+    "press": true,
+    "events": true,
+    "blog": true
+  }
+}

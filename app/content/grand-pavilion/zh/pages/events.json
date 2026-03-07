@@ -1,0 +1,19 @@
+{
+  "seo": {
+    "title": "活动 — 大观楼",
+    "description": "主厨餐桌、时令品鉴与节庆主题晚宴。"
+  },
+  "hero": {
+    "variant": "photo-background",
+    "eyebrow": "近期活动",
+    "headline": "活动",
+    "subline": "预订主厨品鉴、时令尝鲜与节庆主题夜场席位。",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg"
+  },
+  "privateDiningCta": {
+    "headline": "正在筹办私人庆典？",
+    "description": "我们可为生日、周年纪念与家庭宴会定制菜单与服务。",
+    "ctaText": "咨询私人宴会",
+    "ctaLink": "/private-dining"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "variant": "dark",
+  "tagline": "Authentic Cantonese cuisine in the heart of Flushing, New York. Dim sum daily until 3pm. Banquets for up to 500 guests.",
+  "columns": {
+    "story": true,
+    "hours": true,
+    "address": true,
+    "links": true
+  },
+  "explore": {
+    "heading": "Explore",
+    "links": [
+      { "text": "Dim Sum Menu", "url": "/menu/dim-sum" },
+      { "text": "Dinner Menu", "url": "/menu/dinner" },
+      { "text": "Chef's Signatures", "url": "/menu/chef-signatures" },
+      { "text": "Private Dining", "url": "/private-dining" },
+      { "text": "Catering", "url": "/catering" },
+      { "text": "Chinese New Year", "url": "/festivals/chinese-new-year" },
+      { "text": "Mid-Autumn Festival", "url": "/festivals/mid-autumn" },
+      { "text": "Gallery", "url": "/gallery" },
+      { "text": "FAQ", "url": "/faq" },
+      { "text": "Contact", "url": "/contact" }
+    ]
+  },
+  "show_newsletter": false,
+  "show_lang_switcher": true,
+  "copyright": "© {year} Grand Pavilion 大观楼. All rights reserved.",
+  "legal_links": [
+    { "text": "Privacy Policy", "url": "/privacy" },
+    { "text": "Terms of Service", "url": "/terms" }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "FAQ — Grand Pavilion 大观楼",
+    "description": "Common questions about reservations, menu, dietary options, parking, and private dining at Grand Pavilion."
+  },
+  "hero": {
+    "heading": "Frequently Asked Questions",
+    "headingZh": "常见问题"
+  },
+  "items": [
+    {
+      "question": "Do I need a reservation for dim sum?",
+      "questionZh": "用餐点心需要预约吗？",
+      "answer": "Walk-ins are welcome for dim sum during weekdays. Weekend brunch is very popular — we recommend calling ahead for groups of 4 or more.",
+      "answerZh": "工作日点心欢迎直接到店。周末早午餐非常受欢迎，4人以上建议提前致电预约。"
+    },
+    {
+      "question": "What time does dim sum service end?",
+      "questionZh": "点心供应到几点？",
+      "answer": "Dim sum is served Monday to Friday from 10:00 AM to 3:00 PM. On Saturday and Sunday, dim sum brunch begins at 9:30 AM and ends at 3:30 PM.",
+      "answerZh": "周一至周五，点心供应时间为上午10时至下午3时。周六及周日，点心早午餐从早9时30分至下午3时30分。"
+    },
+    {
+      "question": "Is parking available?",
+      "questionZh": "有停车场吗？",
+      "answer": "Street parking is available on Roosevelt Ave. On weekends, validated parking is available at the adjacent garage.",
+      "answerZh": "罗斯福大道有路边停车位。周末，相邻车库提供验证停车服务。"
+    },
+    {
+      "question": "Do you offer vegetarian or vegan options?",
+      "questionZh": "有素食或纯素选项吗？",
+      "answer": "Yes. Our menu includes vegetarian and vegan dim sum items. Please inform your server and they will guide you through the available options.",
+      "answerZh": "有的。我们的菜单包括素食及纯素点心。请告知服务员，他们将为您介绍可选项目。"
+    },
+    {
+      "question": "Can you accommodate large group reservations?",
+      "questionZh": "可以接待大型团体预订吗？",
+      "answer": "Yes. For groups of 10 or more, please contact our private dining team at (718) 555-0188 or via our Private Dining inquiry form. We have rooms for groups from 10 up to 500.",
+      "answerZh": "当然可以。10人以上团体，请致电 (718) 555-0188 或填写私人宴厅查询表。我们的宴席可容纳10至500人。"
+    },
+    {
+      "question": "What is your cancellation policy?",
+      "questionZh": "取消预约政策是什么？",
+      "answer": "For standard reservations, we request at least 24 hours notice for cancellation. For private dining and festival reservations, 72 hours notice is required.",
+      "answerZh": "普通预约需提前至少24小时通知取消。私人宴厅及节庆预约需提前72小时通知。"
+    },
+    {
+      "question": "Do you have gluten-free options?",
+      "questionZh": "有无麸质选项吗？",
+      "answer": "Some menu items are naturally gluten-free. Please inform your server of any dietary restrictions when ordering, and they will indicate which items are suitable.",
+      "answerZh": "部分菜肴天然不含麸质。点餐时请告知服务员您的饮食限制，他们将为您推荐合适的选项。"
+    },
+    {
+      "question": "Do you offer takeout or delivery?",
+      "questionZh": "提供外卖或送餐服务吗？",
+      "answer": "We offer takeout for our full menu. Please call (718) 555-0188 to place a takeout order. Delivery is available through DoorDash and UberEats.",
+      "answerZh": "全菜单均可外带。请致电 (718) 555-0188 点餐。DoorDash及UberEats提供外送服务。"
+    },
+    {
+      "question": "Do you have a WeChat account?",
+      "questionZh": "有微信公众号吗？",
+      "answer": "Yes. Follow our WeChat account 大观楼餐厅 for special offers, seasonal menus, and event announcements.",
+      "answerZh": "有的。关注我们的微信公众号「大观楼餐厅」，获取优惠信息、季节菜单及活动公告。"
+    },
+    {
+      "question": "How do I book a wedding banquet?",
+      "questionZh": "如何预订婚宴？",
+      "answer": "For wedding banquet inquiries, please contact our banquet manager directly at (718) 555-0188 or complete our Private Dining inquiry form. We recommend booking at least 3 months in advance.",
+      "answerZh": "婚宴查询，请直接致电 (718) 555-0188 联系宴席经理，或填写私人宴厅查询表。建议提前至少3个月预订。"
+    }
+  ]
+}

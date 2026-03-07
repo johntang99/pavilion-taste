@@ -1,0 +1,40 @@
+{
+  "events": [
+    {
+      "id": "chef-table-spring-2026",
+      "slug": "chef-table-spring-2026",
+      "title": "主厨餐桌：春季粤式品鉴",
+      "shortDescription": "8道式主厨讲解品鉴晚宴，聚焦春季时令食材。",
+      "description": "由李伟主厨带来春季限定品鉴菜单，呈现时令蔬材、鲜活海鲜与经典粤式技法。",
+      "eventType": "chef-table",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg",
+      "startDatetime": "2027-04-18T18:30:00-04:00",
+      "endDatetime": "2027-04-18T21:00:00-04:00",
+      "pricePerPerson": 15800,
+      "reservationRequired": true,
+      "reservationLink": "/reservations",
+      "capacity": 40,
+      "featured": true,
+      "published": true,
+      "cancelled": false
+    },
+    {
+      "id": "mid-autumn-preview-night",
+      "slug": "mid-autumn-preview-night",
+      "title": "中秋菜单抢先夜",
+      "shortDescription": "月饼品鉴与中秋限定菜单预览。",
+      "description": "抢先体验本年度中秋月饼礼盒与节庆晚宴菜单。",
+      "eventType": "seasonal",
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/festivals/mid-autumn-hero.jpg",
+      "startDatetime": "2027-09-12T19:00:00-04:00",
+      "endDatetime": "2027-09-12T21:30:00-04:00",
+      "pricePerPerson": null,
+      "reservationRequired": true,
+      "reservationLink": "/reservations",
+      "capacity": 80,
+      "featured": false,
+      "published": true,
+      "cancelled": false
+    }
+  ]
+}

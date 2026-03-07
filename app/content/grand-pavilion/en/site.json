@@ -1,0 +1,64 @@
+{
+  "id": "grand-pavilion",
+  "name": "Grand Pavilion",
+  "nameZh": "大观楼",
+  "tagline": "Authentic Cantonese Mastery Since 1998",
+  "taglineZh": "地道粤菜，1998年创立",
+  "description": "Grand Pavilion 大观楼 is Flushing's premier destination for authentic Cantonese cuisine — where classic dim sum tradition meets an elevated dining experience, served in both English and Chinese for every guest.",
+  "cuisineType": "Cantonese",
+  "cuisineTypeZh": "粤菜",
+  "chefName": "Chef Li Wei",
+  "chefNameZh": "李伟",
+  "phone": "(718) 555-0188",
+  "email": "info@grandpavilionny.com",
+  "address": "133-24 Roosevelt Ave",
+  "city": "Flushing",
+  "state": "NY",
+  "zip": "11354",
+  "lat": 40.7576,
+  "lng": -73.8330,
+  "parkingNote": "Street parking available on Roosevelt Ave. Validated parking at adjacent garage on weekends.",
+  "parkingNoteZh": "罗斯福大道有路边停车。周末在相邻车库可验证停车。",
+  "dimSumHours": {
+    "open": "10:00",
+    "close": "15:00"
+  },
+  "weekendBrunchHours": {
+    "open": "09:30",
+    "close": "15:30"
+  },
+  "hours": {
+    "monday":    { "open": "10:00", "close": "21:30" },
+    "tuesday":   { "open": "10:00", "close": "21:30" },
+    "wednesday": { "open": "10:00", "close": "21:30" },
+    "thursday":  { "open": "10:00", "close": "21:30" },
+    "friday":    { "open": "10:00", "close": "22:00" },
+    "saturday":  { "open": "09:30", "close": "22:00" },
+    "sunday":    { "open": "09:30", "close": "21:00" }
+  },
+  "seatingCapacity": {
+    "regular": 120,
+    "banquet": 500
+  },
+  "wechatQrUrl": null,
+  "wechatAccountName": "大观楼餐厅",
+  "googleRating": 4.7,
+  "googleReviewCount": 843,
+  "googlePlaceId": null,
+  "yelpUrl": null,
+  "defaultLocale": "en",
+  "enabledLocales": ["en", "zh"],
+  "social": {
+    "instagram": "@grandpavilionny",
+    "facebook": "facebook.com/grandpavilionny",
+    "yelp": null
+  },
+  "features": {
+    "gift_cards": true,
+    "careers": true,
+    "private_dining": true,
+    "press": true,
+    "events": true,
+    "blog": true
+  }
+}

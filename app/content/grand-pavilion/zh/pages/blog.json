@@ -1,0 +1,19 @@
+{
+  "seo": {
+    "title": "来自厨房 — 大观楼",
+    "description": "粤菜故事、食材文化与主厨视角。"
+  },
+  "hero": {
+    "variant": "split-photo-right",
+    "eyebrow": "专栏",
+    "headline": "来自厨房",
+    "subline": "分享配方、宴席文化、时令食材与主厨见解。",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/food-1.jpg"
+  },
+  "newsletter": {
+    "headline": "订阅厨房动态",
+    "description": "节令菜单、新菜发布与餐厅故事不定期推送。",
+    "placeholder": "输入邮箱",
+    "buttonText": "订阅"
+  }
+}

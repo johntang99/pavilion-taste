@@ -1,0 +1,280 @@
+{
+  "seo": {
+    "title": "Grand Pavilion 大观楼 — Authentic Cantonese Restaurant Flushing NY",
+    "description": "Authentic Cantonese cuisine with 80+ dim sum varieties daily. Reserve your table in Flushing's premier Chinese dining destination."
+  },
+  "hero": {
+    "cta": {
+      "href": "/reservations",
+      "text": "Reserve a Table",
+      "textZh": "预约餐桌"
+    },
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/hero/hero-main.jpg",
+    "layout": "zh-below",
+    "gallery": [
+      "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/hero/reservations-hero.jpg",
+      "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/peking-duck.jpg",
+      "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/chocolate-1.jpg",
+      "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/food-1.jpg"
+    ],
+    "headline": "The Art of Cantonese Tradition",
+    "imageAlt": "Grand Pavilion dining room with traditional Chinese décor",
+    "headlineZh": "粤菜传统的艺术",
+    "subheadline": "Authentic dim sum & Cantonese cuisine · Flushing, New York · Est. 1998",
+    "ctaSecondary": {
+      "href": "/menu",
+      "text": "View Menu",
+      "textZh": "查看菜单"
+    },
+    "subheadlineZh": "正宗点心及粤菜 · 纽约法拉盛 · 创立于1998年",
+    "galleryInterval": 5000,
+    "showInkWashOverlay": true,
+    "contentPositionDesktopX": 50,
+    "contentPositionDesktopY": 77,
+    "variant": "gallery-background"
+  },
+  "_workflow": {
+    "status": "published",
+    "updatedAt": "2026-03-07T01:15:28.426Z",
+    "publishedAt": "2026-03-06T23:58:39.853Z"
+  },
+  "chef_hero": {
+    "bio": "Trained in the kitchens of Hong Kong's finest Cantonese restaurants, Chef Li Wei has spent over 25 years perfecting the art of dim sum and classic Cantonese cuisine. His devotion to traditional techniques — combined with an unwavering commitment to seasonal, premium ingredients — has made Grand Pavilion the premier Chinese dining destination in Flushing.",
+    "cta": {
+      "href": "/about",
+      "text": "Meet Chef Li Wei",
+      "textZh": "了解李伟主厨"
+    },
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/chef/chef-li-wei.jpg",
+    "heading": "Chef Li Wei",
+    "headingZh": "李伟主厨",
+    "subheading": "Executive Chef & Founder",
+    "credentials": [
+      "25+ Years Cantonese Mastery",
+      "Hong Kong Trained",
+      "80+ Dim Sum Varieties"
+    ],
+    "subheadingZh": "行政主厨兼创始人",
+    "credentialsZh": [
+      "粤菜精研逾25年",
+      "香港名厨培训",
+      "80余种点心"
+    ]
+  },
+  "trust_bar": {
+    "stats": [
+      {
+        "label": "Est.",
+        "value": "1998",
+        "labelZh": "创立年份"
+      },
+      {
+        "label": "Dim Sum Varieties",
+        "value": "80+",
+        "labelZh": "点心品种"
+      },
+      {
+        "label": "Years of Mastery",
+        "value": "25+",
+        "labelZh": "精研年数"
+      },
+      {
+        "label": "Banquet Capacity",
+        "value": "500",
+        "labelZh": "宴席容量"
+      }
+    ]
+  },
+  "announcement": {
+    "link": "/festivals/chinese-new-year",
+    "text": "Now accepting reservations for Chinese New Year 2027 banquet dinners.",
+    "textZh": "现已开放2027年农历新年宴席预订。",
+    "enabled": true,
+    "dismissible": true
+  },
+  "blog_preview": {
+    "cta": {
+      "href": "/blog",
+      "text": "Read More",
+      "textZh": "阅读更多"
+    },
+    "heading": "From Our Kitchen",
+    "headingZh": "来自我们的厨房"
+  },
+  "menu_preview": {
+    "heading": "Explore Our Menus",
+    "headingZh": "探索我们的菜单",
+    "categories": [
+      {
+        "href": "/menu/dim-sum",
+        "name": "Dim Sum",
+        "badge": "Available Now",
+        "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/dim-sum-spread.jpg",
+        "nameZh": "点心",
+        "description": "80+ varieties daily, 10am–3pm",
+        "descriptionZh": "每日80余种点心，上午10时至下午3时"
+      },
+      {
+        "href": "/menu/dinner",
+        "name": "Cantonese Dinner",
+        "badge": null,
+        "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/dinner.jpg",
+        "nameZh": "粤菜晚餐",
+        "description": "Classic dishes, whole seafood, roasted meats",
+        "descriptionZh": "经典菜式，鲜活海鲜，烧味拼盘"
+      },
+      {
+        "href": "/menu/chef-signatures",
+        "name": "Chef's Signatures",
+        "badge": "Premium",
+        "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/chef-signatures.jpg",
+        "nameZh": "厨师特色菜",
+        "description": "Li Wei's celebrated creations",
+        "descriptionZh": "李伟主厨的名牌菜式"
+      },
+      {
+        "href": "/menu/weekend-brunch",
+        "name": "Weekend Brunch",
+        "badge": "Sat & Sun",
+        "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/weekend-brunch.jpg",
+        "nameZh": "周末早午餐",
+        "description": "Expanded dim sum selection from 9:30am",
+        "descriptionZh": "周末从早9时30分起，点心品种更丰富"
+      }
+    ]
+  },
+  "testimonials": {
+    "items": [
+      {
+        "name": "Michael Chen",
+        "text": "The best dim sum in Flushing, hands down. The har gow here is worth the trip from Manhattan.",
+        "rating": 5,
+        "source": "Google"
+      },
+      {
+        "name": "Sarah Liu",
+        "text": "We hosted our daughter's wedding banquet here for 300 guests. The service was flawless and the food was incredible.",
+        "rating": 5,
+        "source": "Yelp"
+      },
+      {
+        "name": "王先生",
+        "text": "每次来都是享受，点心品质一流，服务周到，是法拉盛最正宗的粤菜。",
+        "nameZh": "王先生",
+        "rating": 5,
+        "source": "Google",
+        "textZh": "每次来都是享受，点心品质一流，服务周到，是法拉盛最正宗的粤菜。"
+      },
+      {
+        "name": "Jennifer Park",
+        "text": "Chef Li Wei's Peking Duck is the most authentic I've had outside of Beijing. Absolutely stunning.",
+        "rating": 5,
+        "source": "Google"
+      },
+      {
+        "name": "陈太太",
+        "text": "在这里庆祝了父母的金婚纪念日，私人宴厅布置精美，菜肴用心，全家人都非常满意。",
+        "nameZh": "陈太太",
+        "rating": 5,
+        "source": "Google",
+        "textZh": "在这里庆祝了父母的金婚纪念日，私人宴厅布置精美，菜肴用心，全家人都非常满意。"
+      }
+    ],
+    "heading": "What Our Guests Say",
+    "headingZh": "宾客反馈",
+    "variant": "carousel"
+  },
+  "dim_sum_status": {
+    "enabled": true,
+    "closedText": "Dim Sum Available from 10am",
+    "weekendText": "Weekend Brunch from 9:30am",
+    "closedTextZh": "点心从上午10时开始供应",
+    "availableText": "Dim Sum Available Now",
+    "weekendTextZh": "周末早午餐从早9时30分开始",
+    "availableTextZh": "现在供应点心"
+  },
+  "today_specials": {
+    "items": [
+      {
+        "name": "Har Gow",
+        "badge": "Chef's Pick",
+        "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/har-gow.jpg",
+        "price": 650,
+        "nameZh": "虾饺",
+        "description": "Crystal-skin prawn dumplings, steamed to order"
+      },
+      {
+        "name": "Peking Duck",
+        "badge": "Signature",
+        "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/peking-duck.jpg",
+        "price": 8800,
+        "nameZh": "北京烤鸭",
+        "description": "Whole roasted duck, carved tableside with pancakes"
+      },
+      {
+        "name": "Char Siu Bao",
+        "badge": null,
+        "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/char-siu-bao.jpg",
+        "price": 600,
+        "nameZh": "叉烧包",
+        "description": "Soft steamed buns with honey-glazed BBQ pork"
+      }
+    ],
+    "heading": "Today's Specials",
+    "headingZh": "今日特别推荐",
+    "subheading": "Freshly prepared by our kitchen team",
+    "subheadingZh": "由我们的厨师团队精心制作"
+  },
+  "gallery_preview": {
+    "cta": {
+      "href": "/gallery",
+      "text": "View Gallery",
+      "textZh": "查看图库"
+    },
+    "images": [
+      "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/food-1.jpg",
+      "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/food-2.jpg",
+      "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/food-3.jpg",
+      "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/dining-room-1.jpg",
+      "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg",
+      "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/dim-sum-spread.jpg"
+    ],
+    "heading": "A Feast for the Eyes",
+    "headingZh": "视觉盛宴"
+  },
+  "reservations_cta": {
+    "cta": {
+      "href": "/reservations",
+      "text": "Book Now",
+      "textZh": "立即预约"
+    },
+    "heading": "Reserve Your Table",
+    "headingZh": "预约您的餐桌",
+    "subheading": "Join us for dim sum, dinner, or a special celebration.",
+    "subheadingZh": "欢迎前来享用点心、晚餐或特别庆典。"
+  },
+  "festival_highlight": {
+    "enabled": true,
+    "fallbackCta": {
+      "href": "/festivals/chinese-new-year",
+      "text": "View Festival Menus",
+      "textZh": "查看节庆菜单"
+    },
+    "fallbackText": "Celebrate Chinese holidays with us — special menus for Chinese New Year, Mid-Autumn Festival, and more.",
+    "fallbackTextZh": "与我们共庆中国传统节日——农历新年、中秋节等节庆特别菜单。",
+    "fallbackHeading": "Upcoming Festival Events",
+    "fallbackHeadingZh": "即将到来的节庆活动"
+  },
+  "private_dining_cta": {
+    "cta": {
+      "href": "/private-dining",
+      "text": "Inquire About Private Dining",
+      "textZh": "了解私人宴厅"
+    },
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/banquet/grand-ballroom.jpg",
+    "heading": "Hosting an Event?",
+    "headingZh": "计划举办活动？",
+    "subheading": "Banquet dining for 10 to 500 guests. Wedding banquets, corporate events, birthday celebrations.",
+    "subheadingZh": "可容纳10至500位宾客的宴席。婚宴、企业活动、生日庆典一应俱全。"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "seo": {
+    "title": "About — Grand Pavilion 大观楼",
+    "description": "The story of Grand Pavilion and Executive Chef Li Wei — 25+ years of Cantonese mastery in the heart of Flushing, New York."
+  },
+  "hero": {
+    "heading": "Our Story",
+    "headingZh": "我们的故事",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/chef/chef-li-wei-kitchen.jpg"
+  },
+  "chef": {
+    "name": "Chef Li Wei",
+    "nameZh": "李伟主厨",
+    "title": "Executive Chef & Founder",
+    "titleZh": "行政主厨兼创始人",
+    "origin": "Hong Kong",
+    "training": "Trained in Hong Kong's finest Cantonese kitchens · 25+ years mastery",
+    "trainingZh": "香港名厨培训 · 粤菜精研逾25年",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/chef/chef-li-wei-portrait.jpg",
+    "quote": "Dim sum is not just food — it is a conversation between generations.",
+    "quoteZh": "点心不只是食物——它是几代人之间的对话。",
+    "bio": "Born in Guangzhou and trained across Hong Kong's most celebrated Cantonese kitchens, Chef Li Wei brought his craft to New York in 1998 with a singular vision: to serve the same quality of Cantonese cuisine that generations of families had come to expect from the finest restaurants in Hong Kong.\n\nOver 25 years later, Grand Pavilion remains the standard-bearer for authentic Cantonese dim sum and fine dining in Flushing — a place where technique, ingredient quality, and cultural tradition converge in every dish.\n\nChef Li Wei oversees all dim sum production personally, arriving before dawn to prepare the day's selection alongside a team of dedicated dim sum artisans.",
+    "bioZh": "李伟主厨出生于广州，在香港多家顶级粤菜馆接受专业训练，于1998年来到纽约，怀揣着一个简单的愿景：在法拉盛呈现与香港最优秀餐厅同等水准的正宗粤菜。\n\n二十五年后，大观楼依然是法拉盛正宗粤菜与精致饮食的标杆——一个汇聚厨艺、食材品质与文化传统的地方。\n\n李伟主厨亲自把关所有点心出品，每日天未亮便与点心团队一同备料，确保每一份点心都达到最高标准。",
+    "credentials": [
+      "25+ Years Cantonese Mastery",
+      "Hong Kong Culinary Trained",
+      "80+ Daily Dim Sum Varieties",
+      "Former Master Chef, Three-Michelin-Star Cantonese Kitchen"
+    ],
+    "credentialsZh": [
+      "粤菜精研逾25年",
+      "香港名厨培训",
+      "每日供应80余种点心",
+      "前三星粤菜餐厅总厨"
+    ]
+  },
+  "story": {
+    "heading": "A Legacy of Authentic Cantonese Craft",
+    "headingZh": "正宗粤菜传承",
+    "body": "Grand Pavilion opened its doors in 1998 with twelve tables and a simple promise: authentic Cantonese cuisine made with the techniques and ingredients of Hong Kong's finest kitchens.\n\nToday, we serve over 300 guests daily in our expanded dining room, with a grand ballroom capable of hosting banquets for up to 500 guests. From morning dim sum to evening private dining, Grand Pavilion has become the gathering place for Flushing's Chinese community and food lovers from across New York.",
+    "bodyZh": "大观楼于1998年开业，当时仅有十二张桌子，但承诺始终如一：以香港顶级餐厅的厨艺与食材，呈现正宗粤菜。\n\n如今，我们在扩建的餐厅里每日接待逾300位宾客，宴会厅可容纳多达500人的盛大宴席。从早午点心到晚间私人宴席，大观楼已成为法拉盛华人社区与纽约各地美食爱好者的聚首之地。",
+    "bilingualLayout": "tabbed"
+  },
+  "stats": [
+    { "value": "1998", "label": "Established", "labelZh": "创立年份" },
+    { "value": "80+", "label": "Dim Sum Daily", "labelZh": "每日点心品种" },
+    { "value": "25+", "label": "Years of Mastery", "labelZh": "精研年数" },
+    { "value": "500", "label": "Banquet Seats", "labelZh": "宴席座位" }
+  ],
+  "team": {
+    "heading": "Our Team",
+    "headingZh": "我们的团队"
+  }
+}

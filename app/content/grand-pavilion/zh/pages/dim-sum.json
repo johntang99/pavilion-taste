@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "Dim Sum Menu 点心菜单 — Grand Pavilion 大观楼",
+    "description": "Over 80 hand-crafted dim sum varieties daily from 10am to 3pm. Steamed, baked, fried, and dessert selections with full Chinese menu names."
+  },
+  "hero": {
+    "heading": "Dim Sum 点心",
+    "subheading": "80+ hand-crafted varieties · Served daily 10am – 3pm",
+    "subheadingZh": "逾80种精心点心 · 每日上午10时至下午3时",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/dim-sum-hero.jpg"
+  },
+  "cartConfig": {
+    "enabled": true,
+    "mode": "pre-order",
+    "submissionEmail": "orders@grandpavilionny.com",
+    "confirmationMessage": "Your dim sum basket has been received. We will confirm your pre-order by phone within 2 hours.",
+    "confirmationMessageZh": "您的点心预订已收到。我们将在2小时内电话确认您的预订。"
+  },
+  "categories": [
+    {
+      "id": "steamed",
+      "name": "Steamed 蒸点",
+      "nameZh": "蒸点",
+      "slug": "steamed"
+    },
+    {
+      "id": "baked",
+      "name": "Baked 烘焙",
+      "nameZh": "烘焙",
+      "slug": "baked"
+    },
+    {
+      "id": "fried",
+      "name": "Fried 酥炸",
+      "nameZh": "酥炸",
+      "slug": "fried"
+    },
+    {
+      "id": "congee-noodle",
+      "name": "Congee & Noodles 粥面",
+      "nameZh": "粥面",
+      "slug": "congee-noodle"
+    },
+    {
+      "id": "dessert",
+      "name": "Desserts 甜品",
+      "nameZh": "甜品",
+      "slug": "dessert"
+    }
+  ],
+  "dietaryLegend": {
+    "heading": "Dietary Guide",
+    "headingZh": "饮食指南",
+    "items": [
+      { "icon": "素", "label": "Vegetarian", "labelZh": "素食" },
+      { "icon": "全素", "label": "Vegan", "labelZh": "全素" },
+      { "icon": "无麸质", "label": "Gluten-Free", "labelZh": "无麸质" },
+      { "icon": "清真", "label": "Halal", "labelZh": "清真" },
+      { "icon": "🌶", "label": "Spicy", "labelZh": "辣" }
+    ]
+  },
+  "notes": "Dim sum is freshly made to order. Some items may have limited daily quantities. Weekend brunch offers extended selection from 9:30am.",
+  "notesZh": "点心均为新鲜现点现做。部分菜品每日供应数量有限。周末早午餐从早9时30分起提供更多品种。"
+}

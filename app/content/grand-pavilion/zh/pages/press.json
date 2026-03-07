@@ -1,0 +1,13 @@
+{
+  "seo": {
+    "title": "新闻与奖项 — 大观楼",
+    "description": "大观楼的媒体报道、奖项与行业认可。"
+  },
+  "hero": {
+    "variant": "photo-background",
+    "eyebrow": "媒体认可",
+    "headline": "新闻与奖项",
+    "subline": "精选媒体报道、餐饮奖项与编辑推荐。",
+    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg"
+  }
+}
