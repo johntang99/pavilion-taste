@@ -1,4 +1,16 @@
 {
+  "title": "媒体与奖项",
+  "subtitle": "大观楼的媒体报道与行业认可。",
+  "categories": [
+    {
+      "id": "awards",
+      "name": "奖项"
+    },
+    {
+      "id": "press",
+      "name": "媒体报道"
+    }
+  ],
   "items": [
     {
       "id": "award-best-cantonese-2026-zh",

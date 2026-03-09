@@ -1,32 +1,78 @@
 {
   "posts": [
     {
+      "body": "<p>Cantonese banquets are built around shared dishes, warm hospitality, and rhythm. Guests are usually seated by family hierarchy, tea is poured for elders first, and courses are paced to encourage conversation.</p><p>If this is your first banquet, focus on enjoying each course and sharing dishes with your table. Our team is happy to guide you through each serving tradition.</p>",
       "slug": "cantonese-banquet-etiquette-guide",
+      "tags": [
+        "banquet",
+        "etiquette",
+        "cantonese"
+      ],
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg",
       "title": "Cantonese Banquet Etiquette: A Quick Guide for First-Time Guests",
+      "author": "Chef Li Wei",
       "excerpt": "From tea pouring customs to shared-course pacing, here are the traditions that make a Cantonese banquet special.",
       "category": "kitchen-stories",
-      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg",
-      "author": "Chef Li Wei",
-      "publishDate": "2026-02-20",
-      "readTime": "6 min",
       "featured": true,
+      "readTime": "6 min",
       "published": true,
-      "tags": ["banquet", "etiquette", "cantonese"],
-      "body": "<p>Cantonese banquets are built around shared dishes, warm hospitality, and rhythm. Guests are usually seated by family hierarchy, tea is poured for elders first, and courses are paced to encourage conversation.</p><p>If this is your first banquet, focus on enjoying each course and sharing dishes with your table. Our team is happy to guide you through each serving tradition.</p>"
+      "publishDate": "2026-02-20"
     },
     {
+      "body": "<p>For your first visit, we recommend starting with Har Gow, Siu Mai, Char Siu Bao, and a congee pairing. Add one fried item for texture and finish with mango pudding.</p>",
       "slug": "best-dim-sum-order-for-newcomers",
+      "tags": [
+        "dim-sum",
+        "guide"
+      ],
+      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/dim-sum-spread.jpg",
       "title": "Best Dim Sum Order for Newcomers",
+      "author": "Chef Li Wei",
       "excerpt": "A balanced first order that covers steamed classics, baked favorites, and a sweet finish.",
       "category": "chef-perspective",
-      "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/menu/dim-sum-spread.jpg",
-      "author": "Chef Li Wei",
-      "publishDate": "2026-03-01",
-      "readTime": "5 min",
       "featured": false,
+      "readTime": "5 min",
       "published": true,
-      "tags": ["dim-sum", "guide"],
-      "body": "<p>For your first visit, we recommend starting with Har Gow, Siu Mai, Char Siu Bao, and a congee pairing. Add one fried item for texture and finish with mango pudding.</p>"
+      "publishDate": "2026-03-01"
+    },
+    {
+      "slug": "post-3",
+      "tags": [],
+      "type": "article",
+      "image": "",
+      "title": "",
+      "author": "",
+      "excerpt": "",
+      "category": "kitchen-stories",
+      "featured": false,
+      "readTime": "3 min",
+      "published": true,
+      "publishDate": "2026-03-09"
+    },
+    {
+      "slug": "post-4",
+      "type": "article",
+      "image": "",
+      "category": "kitchen-stories",
+      "readTime": "3 min",
+      "title": "",
+      "excerpt": "",
+      "author": "",
+      "publishDate": "2026-03-09",
+      "tags": [],
+      "featured": false,
+      "published": true
     }
+  ],
+  "_workflow": {
+    "status": "published",
+    "updatedAt": "2026-03-09T08:31:06.211Z",
+    "publishedAt": "2026-03-09T08:21:40.033Z"
+  },
+  "categories": [
+    "kitchen-stories",
+    "chef-perspective",
+    "category-3",
+    "category-4"
   ]
 }

@@ -1,54 +1,81 @@
-[
-  {
-    "id": "chef-li-wei",
-    "slug": "chef-li-wei",
-    "name": "Chef Li Wei",
-    "nameZh": "李伟",
-    "role": "Executive Chef & Founder",
-    "roleZh": "行政主厨兼创始人",
-    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/chef/chef-li-wei-portrait.jpg",
-    "chefOrigin": "Hong Kong",
-    "chefTraining": "Trained in Hong Kong's finest Cantonese kitchens · 25+ years mastery",
-    "credentials": [
-      "25+ Years Cantonese Mastery",
-      "Hong Kong Culinary Trained",
-      "80+ Daily Dim Sum Varieties"
-    ],
-    "bio": "Born in Guangzhou and trained across Hong Kong's most celebrated Cantonese kitchens, Chef Li Wei brought his craft to New York in 1998. His devotion to traditional techniques — combined with an unwavering commitment to premium seasonal ingredients — has made Grand Pavilion the premier Chinese dining destination in Flushing.",
-    "bioZh": "李伟主厨出生于广州，在香港多家顶级粤菜馆接受专业训练，于1998年来到纽约。他对传统厨艺的坚守，加上对优质时令食材的执着追求，使大观楼成为法拉盛最顶级的粤菜餐厅。",
-    "sortOrder": 1,
-    "isActive": true
-  },
-  {
-    "id": "chef-wong-mei",
-    "slug": "chef-wong-mei",
-    "name": "Chef Wong Mei",
-    "nameZh": "黄梅",
-    "role": "Dim Sum Chef",
-    "roleZh": "点心主厨",
-    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/chef/chef-wong-mei.jpg",
-    "chefOrigin": "Guangdong",
-    "chefTraining": "15 years dim sum artisan",
-    "credentials": ["15 Years Dim Sum Expertise", "Guangdong Trained"],
-    "bio": "Chef Wong Mei leads our dim sum kitchen with 15 years of expertise in traditional Cantonese dim sum craftsmanship.",
-    "bioZh": "黄梅主厨带领我们的点心厨房，拥有15年的传统粤式点心制作经验。",
-    "sortOrder": 2,
-    "isActive": true
-  },
-  {
-    "id": "manager-david-lin",
-    "slug": "manager-david-lin",
-    "name": "David Lin",
-    "nameZh": "林大卫",
-    "role": "General Manager",
-    "roleZh": "总经理",
-    "image": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/team/david-lin.jpg",
-    "chefOrigin": null,
-    "chefTraining": null,
-    "credentials": ["10+ Years Hospitality", "Certified Sommelier"],
-    "bio": "David Lin oversees all front-of-house operations, ensuring every guest experience at Grand Pavilion is exceptional.",
-    "bioZh": "林大卫负责所有前厅运营，确保大观楼的每位宾客都能享受卓越的用餐体验。",
-    "sortOrder": 3,
-    "isActive": true
-  }
-]
+{
+  "title": "Our Team",
+  "subtitle": "Meet the chefs and hospitality leaders behind Grand Pavilion.",
+  "categories": [
+    {
+      "id": "culinary",
+      "name": "Culinary"
+    },
+    {
+      "id": "management",
+      "name": "Management"
+    }
+  ],
+  "members": [
+    {
+      "id": "chef-li-wei",
+      "slug": "chef-li-wei",
+      "name": "Chef Li Wei",
+      "nameZh": "李伟",
+      "role": "Executive Chef & Founder",
+      "roleZh": "行政主厨兼创始人",
+      "photo": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/chef/chef-li-wei-portrait.jpg",
+      "chefOrigin": "Hong Kong",
+      "chefTraining": "Trained in Hong Kong's finest Cantonese kitchens · 25+ years mastery",
+      "credentials": [
+        "25+ Years Cantonese Mastery",
+        "Hong Kong Culinary Trained",
+        "80+ Daily Dim Sum Varieties"
+      ],
+      "bio": "Born in Guangzhou and trained across Hong Kong's most celebrated Cantonese kitchens, Chef Li Wei brought his craft to New York in 1998. His devotion to traditional techniques, combined with an unwavering commitment to premium seasonal ingredients, has made Grand Pavilion the premier Chinese dining destination in Flushing.",
+      "bioZh": "李伟主厨出生于广州，在香港多家顶级粤菜馆接受专业训练，于1998年来到纽约。他对传统厨艺的坚守，加上对优质时令食材的执着追求，使大观楼成为法拉盛最顶级的粤菜餐厅。",
+      "shortBio": "Executive Chef and founder with 25+ years of Cantonese mastery.",
+      "department": "culinary",
+      "displayOrder": 1,
+      "featured": true,
+      "active": true
+    },
+    {
+      "id": "chef-wong-mei",
+      "slug": "chef-wong-mei",
+      "name": "Chef Wong Mei",
+      "nameZh": "黄梅",
+      "role": "Dim Sum Chef",
+      "roleZh": "点心主厨",
+      "photo": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/chef/chef-wong-mei.jpg",
+      "chefOrigin": "Guangdong",
+      "chefTraining": "15 years dim sum artisan",
+      "credentials": [
+        "15 Years Dim Sum Expertise",
+        "Guangdong Trained"
+      ],
+      "bio": "Chef Wong Mei leads our dim sum kitchen with 15 years of expertise in traditional Cantonese dim sum craftsmanship.",
+      "bioZh": "黄梅主厨带领我们的点心厨房，拥有15年的传统粤式点心制作经验。",
+      "shortBio": "Leads dim sum production and seasonal specials.",
+      "department": "culinary",
+      "displayOrder": 2,
+      "featured": true,
+      "active": true
+    },
+    {
+      "id": "manager-david-lin",
+      "slug": "manager-david-lin",
+      "name": "David Lin",
+      "nameZh": "林大卫",
+      "role": "General Manager",
+      "roleZh": "总经理",
+      "photo": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/team/david-lin.jpg",
+      "credentials": [
+        "10+ Years Hospitality",
+        "Certified Sommelier"
+      ],
+      "bio": "David Lin oversees all front-of-house operations, ensuring every guest experience at Grand Pavilion is exceptional.",
+      "bioZh": "林大卫负责所有前厅运营，确保大观楼的每位宾客都能享受卓越的用餐体验。",
+      "shortBio": "Oversees operations and guest experience.",
+      "department": "management",
+      "displayOrder": 3,
+      "featured": false,
+      "active": true
+    }
+  ]
+}

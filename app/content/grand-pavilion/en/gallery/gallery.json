@@ -1,0 +1,46 @@
+{
+  "title": "Gallery",
+  "subtitle": "A visual tour of dishes, dining spaces, and celebration moments at Grand Pavilion.",
+  "categories": [
+    {
+      "id": "food",
+      "name": "Food"
+    },
+    {
+      "id": "dining-room",
+      "name": "Dining Room"
+    },
+    {
+      "id": "events",
+      "name": "Events"
+    },
+    {
+      "id": "festivals",
+      "name": "Festivals"
+    },
+    {
+      "id": "chef",
+      "name": "Chef"
+    }
+  ],
+  "items": [
+    {
+      "id": "g-001",
+      "url": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/food-1.jpg",
+      "alt": "Signature dish at Grand Pavilion",
+      "caption": "Signature Cantonese dish",
+      "category": "food",
+      "featured": true,
+      "displayOrder": 1
+    },
+    {
+      "id": "g-002",
+      "url": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg",
+      "alt": "Private dining event setup",
+      "caption": "Private dining and celebrations",
+      "category": "events",
+      "featured": true,
+      "displayOrder": 2
+    }
+  ]
+}

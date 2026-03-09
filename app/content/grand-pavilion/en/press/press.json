@@ -1,4 +1,16 @@
 {
+  "title": "Press",
+  "subtitle": "Awards and media mentions for Grand Pavilion.",
+  "categories": [
+    {
+      "id": "awards",
+      "name": "Awards"
+    },
+    {
+      "id": "press",
+      "name": "Press"
+    }
+  ],
   "items": [
     {
       "id": "award-best-cantonese-2026",

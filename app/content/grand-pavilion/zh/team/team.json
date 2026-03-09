@@ -1,0 +1,74 @@
+{
+  "title": "我们的团队",
+  "subtitle": "认识大观楼背后的主厨与服务团队。",
+  "categories": [
+    {
+      "id": "culinary",
+      "name": "厨房团队"
+    },
+    {
+      "id": "management",
+      "name": "管理团队"
+    }
+  ],
+  "members": [
+    {
+      "id": "chef-li-wei",
+      "slug": "chef-li-wei",
+      "name": "Chef Li Wei",
+      "nameZh": "李伟",
+      "role": "Executive Chef & Founder",
+      "roleZh": "行政主厨兼创始人",
+      "photo": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/chef/chef-li-wei-portrait.jpg",
+      "credentials": [
+        "25+ Years Cantonese Mastery",
+        "Hong Kong Culinary Trained"
+      ],
+      "bio": "Born in Guangzhou and trained across Hong Kong's most celebrated Cantonese kitchens, Chef Li Wei brought his craft to New York in 1998.",
+      "bioZh": "李伟主厨出生于广州，在香港多家顶级粤菜馆接受专业训练，于1998年来到纽约。",
+      "shortBio": "粤菜经验超过25年。",
+      "department": "culinary",
+      "displayOrder": 1,
+      "featured": true,
+      "active": true
+    },
+    {
+      "id": "chef-wong-mei",
+      "slug": "chef-wong-mei",
+      "name": "Chef Wong Mei",
+      "nameZh": "黄梅",
+      "role": "Dim Sum Chef",
+      "roleZh": "点心主厨",
+      "photo": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/chef/chef-wong-mei.jpg",
+      "credentials": [
+        "15 Years Dim Sum Expertise"
+      ],
+      "bio": "Chef Wong Mei leads our dim sum kitchen with 15 years of expertise.",
+      "bioZh": "黄梅主厨带领我们的点心厨房，拥有15年的传统粤式点心制作经验。",
+      "shortBio": "点心出品与季节新品负责人。",
+      "department": "culinary",
+      "displayOrder": 2,
+      "featured": true,
+      "active": true
+    },
+    {
+      "id": "manager-david-lin",
+      "slug": "manager-david-lin",
+      "name": "David Lin",
+      "nameZh": "林大卫",
+      "role": "General Manager",
+      "roleZh": "总经理",
+      "photo": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/team/david-lin.jpg",
+      "credentials": [
+        "10+ Years Hospitality"
+      ],
+      "bio": "David Lin oversees front-of-house operations and service quality.",
+      "bioZh": "林大卫负责前厅运营与服务质量把控。",
+      "shortBio": "负责运营与宾客体验。",
+      "department": "management",
+      "displayOrder": 3,
+      "featured": false,
+      "active": true
+    }
+  ]
+}

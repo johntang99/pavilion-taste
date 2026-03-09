@@ -1,4 +1,16 @@
 {
+  "title": "博客",
+  "subtitle": "来自大观楼厨房与主厨团队的故事。",
+  "categories": [
+    {
+      "id": "kitchen-stories",
+      "name": "厨房故事"
+    },
+    {
+      "id": "chef-perspective",
+      "name": "主厨观点"
+    }
+  ],
   "posts": [
     {
       "slug": "cantonese-banquet-etiquette-guide",

@@ -12,6 +12,8 @@ export interface ContentFileItem {
 }
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
+const RESTAURANT_MODULE_DIRS = ['events', 'gallery', 'press', 'team'] as const;
+type RestaurantModuleDir = (typeof RESTAURANT_MODULE_DIRS)[number];
 
 function titleCase(value: string) {
   return value
@@ -174,6 +176,19 @@ export async function listContentFiles(
         return;
       }
 
+      for (const dir of RESTAURANT_MODULE_DIRS) {
+        if (entry.path.startsWith(`${dir}/`) && entry.path.endsWith('.json')) {
+          const slug = entry.path.replace(`${dir}/`, '').replace('.json', '');
+          addItem({
+            id: `${dir}-${slug}`,
+            label: `${titleCase(dir)}: ${titleCase(slug)}`,
+            path: entry.path,
+            scope: 'locale',
+          });
+          return;
+        }
+      }
+
       if (entry.path === 'navigation.json') {
         addItem({ id: 'navigation', label: 'Navigation', path: entry.path, scope: 'locale' });
       }
@@ -291,6 +306,28 @@ export async function listContentFiles(
     // ignore missing services directory
   }
 
+  await Promise.all(
+    RESTAURANT_MODULE_DIRS.map(async (dir) => {
+      const moduleDir = path.join(CONTENT_DIR, siteId, locale, dir);
+      try {
+        const files = await fs.readdir(moduleDir);
+        files
+          .filter((file) => file.endsWith('.json'))
+          .forEach((file) => {
+            const slug = file.replace('.json', '');
+            addItem({
+              id: `${dir}-${slug}`,
+              label: `${titleCase(dir)}: ${titleCase(slug)}`,
+              path: `${dir}/${file}`,
+              scope: 'locale',
+            });
+          });
+      } catch (error) {
+        // ignore missing module directories
+      }
+    })
+  );
+
   addItem({
     id: 'navigation',
     label: 'Navigation',
@@ -369,6 +406,12 @@ export function resolveContentPath(siteId: string, locale: string, filePath: str
   }
 
   if (filePath.startsWith('services/')) {
+    return path.join(CONTENT_DIR, siteId, locale, filePath);
+  }
+
+  if (
+    RESTAURANT_MODULE_DIRS.some((dir) => filePath.startsWith(`${dir}/` as `${RestaurantModuleDir}/`))
+  ) {
     return path.join(CONTENT_DIR, siteId, locale, filePath);
   }
 

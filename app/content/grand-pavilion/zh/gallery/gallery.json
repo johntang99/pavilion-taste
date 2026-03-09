@@ -1,0 +1,46 @@
+{
+  "title": "图库",
+  "subtitle": "浏览大观楼的菜品、空间与庆典瞬间。",
+  "categories": [
+    {
+      "id": "food",
+      "name": "美食"
+    },
+    {
+      "id": "dining-room",
+      "name": "餐厅"
+    },
+    {
+      "id": "events",
+      "name": "活动"
+    },
+    {
+      "id": "festivals",
+      "name": "节庆"
+    },
+    {
+      "id": "chef",
+      "name": "主厨"
+    }
+  ],
+  "items": [
+    {
+      "id": "g-001",
+      "url": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/food-1.jpg",
+      "alt": "大观楼招牌菜",
+      "caption": "招牌粤式菜品",
+      "category": "food",
+      "featured": true,
+      "displayOrder": 1
+    },
+    {
+      "id": "g-002",
+      "url": "https://hrhxxuremjgaooqbzzix.supabase.co/storage/v1/object/public/media/grand-pavilion/gallery/event-1.jpg",
+      "alt": "宴会与活动场景",
+      "caption": "宴会与庆典时刻",
+      "category": "events",
+      "featured": true,
+      "displayOrder": 2
+    }
+  ]
+}

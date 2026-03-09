@@ -1,4 +1,16 @@
 {
+  "title": "Events",
+  "subtitle": "Chef's table nights, seasonal celebrations, and limited special dinners.",
+  "categories": [
+    {
+      "id": "chef-table",
+      "name": "Chef Table"
+    },
+    {
+      "id": "seasonal",
+      "name": "Seasonal"
+    }
+  ],
   "events": [
     {
       "id": "chef-table-spring-2026",

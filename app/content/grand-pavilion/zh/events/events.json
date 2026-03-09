@@ -1,4 +1,16 @@
 {
+  "title": "活动",
+  "subtitle": "主厨品鉴、节庆限定与特别晚宴。",
+  "categories": [
+    {
+      "id": "chef-table",
+      "name": "主厨餐桌"
+    },
+    {
+      "id": "seasonal",
+      "name": "季节限定"
+    }
+  ],
   "events": [
     {
       "id": "chef-table-spring-2026",

@@ -3,19 +3,44 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import type { Locale, SiteConfig } from '@/lib/types';
+import { Button } from '@/components/ui';
 import { CONTENT_TEMPLATES } from '@/lib/admin/templates';
 import { ImagePickerModal } from '@/components/admin/ImagePickerModal';
+import { SeoPanel } from '@/components/admin/panels/SeoPanel';
+import { HeaderPanel } from '@/components/admin/panels/HeaderPanel';
+import { ThemePanel } from '@/components/admin/panels/ThemePanel';
 import ThemePresetsTab from '@/components/admin/ThemePresetsTab';
-import { ContentEditorLegacy } from './ContentEditorLegacy';
-import { useRestaurantModuleActions } from '@/components/admin/hooks/useRestaurantModuleActions';
-import { ContentEditorActionToolbar } from '@/components/admin/sections/ContentEditorActionToolbar';
-import { ContentEditorTopControls } from '@/components/admin/sections/ContentEditorTopControls';
-import { ContentEditorLeftPane } from '@/components/admin/sections/ContentEditorLeftPane';
-import { ContentEditorFormPanels } from '@/components/admin/sections/ContentEditorFormPanels';
-import { ContentEditorJsonBranch } from '@/components/admin/sections/ContentEditorJsonBranch';
-import { ContentEditorHeaderActions } from '@/components/admin/sections/ContentEditorHeaderActions';
+import { SectionVariantsPanel } from '@/components/admin/panels/SectionVariantsPanel';
+import { ConditionsLayoutPanel } from '@/components/admin/panels/ConditionsLayoutPanel';
+import { HomeSectionPhotosPanel } from '@/components/admin/panels/HomeSectionPhotosPanel';
+import { HeroPanel } from '@/components/admin/panels/HeroPanel';
+import { ProfilePanel } from '@/components/admin/panels/ProfilePanel';
+import { IntroductionPanel } from '@/components/admin/panels/IntroductionPanel';
+import { GalleryPhotosPanel } from '@/components/admin/panels/GalleryPhotosPanel';
+import { CtaPanel } from '@/components/admin/panels/CtaPanel';
+import { ServicesPanel } from '@/components/admin/panels/ServicesPanel';
+import { ServicesItemPanel } from '@/components/admin/panels/ServicesItemPanel';
+import { ServicesModuleList } from '@/components/admin/panels/ServicesModuleList';
+import { ServiceCategoryItemPanel } from '@/components/admin/panels/ServiceCategoryItemPanel';
+import { ServiceDetailPanel } from '@/components/admin/panels/ServiceDetailPanel';
+import { ConditionsPanel } from '@/components/admin/panels/ConditionsPanel';
+import { ConditionsModuleList } from '@/components/admin/panels/ConditionsModuleList';
+import { CaseStudiesModuleList } from '@/components/admin/panels/CaseStudiesModuleList';
+import { ItemJsonEditor } from '@/components/admin/panels/ItemJsonEditor';
+import {
+  ConditionCategoryItemPanel,
+  ConditionItemPanel,
+} from '@/components/admin/panels/ConditionsItemPanel';
+import {
+  CaseStudyCategoryItemPanel,
+  CaseStudyItemPanel,
+} from '@/components/admin/panels/CaseStudiesItemPanel';
+import { CaseStudiesPanel } from '@/components/admin/panels/CaseStudiesPanel';
+import { PostsPanel } from '@/components/admin/panels/PostsPanel';
+import { MenuHubPanel } from '@/components/admin/panels/MenuHubPanel';
+import { MenuLayoutPanel } from '@/components/admin/panels/MenuLayoutPanel';
+import { MenuTypePanel } from '@/components/admin/panels/MenuTypePanel';
 import { SECTION_VARIANT_OPTIONS, SITE_SETTINGS_PATHS } from '@/components/admin/utils/editorConstants';
-import { getContentEditorHeaderMeta } from '@/components/admin/utils/contentEditorHeaderMeta';
 import { getPathValue, toTitleCase } from '@/components/admin/utils/editorHelpers';
 import type { ThemePreset } from '@/lib/theme-presets';
 
@@ -52,7 +77,7 @@ interface ContentEditorProps {
 }
 
 
-export function ContentEditor({
+export function ContentEditorLegacy({
   sites,
   selectedSiteId,
   selectedLocale,
@@ -61,28 +86,6 @@ export function ContentEditor({
   titleOverride,
   basePath = '/admin/content',
 }: ContentEditorProps) {
-  const isLegacyMedicalFilter =
-    fileFilter === 'services' ||
-    fileFilter === 'servicesItems' ||
-    fileFilter === 'conditions' ||
-    fileFilter === 'conditionsItems' ||
-    fileFilter === 'caseStudies' ||
-    fileFilter === 'caseStudiesItems';
-
-  if (isLegacyMedicalFilter) {
-    return (
-      <ContentEditorLegacy
-        sites={sites}
-        selectedSiteId={selectedSiteId}
-        selectedLocale={selectedLocale}
-        initialFilePath={initialFilePath}
-        fileFilter={fileFilter}
-        titleOverride={titleOverride}
-        basePath={basePath}
-      />
-    );
-  }
-
   const router = useRouter();
   const [siteId, setSiteId] = useState(selectedSiteId);
   const [locale, setLocale] = useState<Locale>(selectedLocale as Locale);
@@ -122,28 +125,6 @@ export function ContentEditor({
   const [activeCaseStudyIndex, setActiveCaseStudyIndex] = useState(-1);
   const [caseStudiesItemJsonDraft, setCaseStudiesItemJsonDraft] = useState('');
   const [caseStudiesItemJsonError, setCaseStudiesItemJsonError] = useState<string | null>(null);
-  const [activeEventCategoryIndex, setActiveEventCategoryIndex] = useState(-1);
-  const [activeEventIndex, setActiveEventIndex] = useState(-1);
-  const [eventItemJsonDraft, setEventItemJsonDraft] = useState('');
-  const [eventItemJsonError, setEventItemJsonError] = useState<string | null>(null);
-  const [cachedEventCategories, setCachedEventCategories] = useState<any[]>([]);
-  const [cachedEventItems, setCachedEventItems] = useState<any[]>([]);
-  const [activeGalleryCategoryIndex, setActiveGalleryCategoryIndex] = useState(-1);
-  const [activeGalleryItemIndex, setActiveGalleryItemIndex] = useState(-1);
-  const [cachedGalleryCategories, setCachedGalleryCategories] = useState<any[]>([]);
-  const [cachedGalleryItems, setCachedGalleryItems] = useState<any[]>([]);
-  const [activeBlogCategoryIndex, setActiveBlogCategoryIndex] = useState(-1);
-  const [activeBlogPostIndex, setActiveBlogPostIndex] = useState(-1);
-  const [cachedBlogCategories, setCachedBlogCategories] = useState<any[]>([]);
-  const [cachedBlogPosts, setCachedBlogPosts] = useState<any[]>([]);
-  const [activePressCategoryIndex, setActivePressCategoryIndex] = useState(-1);
-  const [activePressItemIndex, setActivePressItemIndex] = useState(-1);
-  const [cachedPressCategories, setCachedPressCategories] = useState<any[]>([]);
-  const [cachedPressItems, setCachedPressItems] = useState<any[]>([]);
-  const [activeTeamCategoryIndex, setActiveTeamCategoryIndex] = useState(-1);
-  const [activeTeamMemberIndex, setActiveTeamMemberIndex] = useState(-1);
-  const [cachedTeamCategories, setCachedTeamCategories] = useState<any[]>([]);
-  const [cachedTeamMembers, setCachedTeamMembers] = useState<any[]>([]);
 
   const collectMissingLocalizedPaths = (
     value: any,
@@ -217,10 +198,38 @@ export function ContentEditor({
       ? 'Blog Posts'
       : fileFilter === 'siteSettings'
         ? 'Site Settings'
+        : fileFilter === 'services'
+          ? 'Services'
+          : fileFilter === 'servicesItems'
+            ? 'Services'
+          : fileFilter === 'conditions'
+            ? 'Conditions'
+            : fileFilter === 'conditionsItems'
+              ? 'Conditions'
+            : fileFilter === 'caseStudies'
+              ? 'Case Studies'
+            : fileFilter === 'caseStudiesItems'
+              ? 'Case Studies'
         : SIMPLE_DIR_FILTERS[fileFilter] || 'Files';
-  const isServicesItemsMode = false;
-  const isConditionsItemsMode = false;
-  const isCaseStudiesItemsMode = false;
+  const FILE_FILTER_PATHS: Record<
+    | 'services'
+    | 'servicesItems'
+    | 'conditions'
+    | 'conditionsItems'
+    | 'caseStudies'
+    | 'caseStudiesItems',
+    string[]
+  > = {
+    services: ['pages/services.json', 'pages/services.layout.json'],
+    servicesItems: ['pages/services.json', 'pages/services.layout.json'],
+    conditions: ['pages/conditions.json', 'pages/conditions.layout.json'],
+    conditionsItems: ['pages/conditions.json', 'pages/conditions.layout.json'],
+    caseStudies: ['pages/case-studies.json', 'pages/case-studies.layout.json'],
+    caseStudiesItems: ['pages/case-studies.json', 'pages/case-studies.layout.json'],
+  };
+  const isServicesItemsMode = fileFilter === 'servicesItems';
+  const isConditionsItemsMode = fileFilter === 'conditionsItems';
+  const isCaseStudiesItemsMode = fileFilter === 'caseStudiesItems';
 
   const site = useMemo(
     () => sites.find((item) => item.id === siteId),
@@ -264,31 +273,47 @@ export function ContentEditor({
               file.path === 'pages/layout.json'
           );
         } else {
-          nextFiles = nextFiles.filter(
-            (file) =>
-              file.path.startsWith(`${simpleDirFilter}/`) ||
-              file.path === `pages/${simpleDirFilter}.json` ||
-              file.path === `pages/${simpleDirFilter}.layout.json`
-          );
+          nextFiles = nextFiles.filter((file) => file.path.startsWith(`${simpleDirFilter}/`));
         }
         nextFiles = [...nextFiles].sort((a, b) => a.label.localeCompare(b.label));
       } else if (fileFilter === 'blog') {
-        nextFiles = nextFiles.filter(
-          (file) => file.path.startsWith('blog/') || file.path === 'pages/blog.json'
-        );
+        nextFiles = nextFiles.filter((file) => file.path.startsWith('blog/'));
         nextFiles = [...nextFiles].sort((a, b) =>
           (b.publishDate || '').localeCompare(a.publishDate || '')
         );
       } else if (fileFilter === 'siteSettings') {
         nextFiles = nextFiles.filter((file) => SITE_SETTINGS_PATHS.has(file.path));
         nextFiles = [...nextFiles].sort((a, b) => a.label.localeCompare(b.label));
+      } else if (
+        fileFilter === 'services' ||
+        fileFilter === 'servicesItems' ||
+        fileFilter === 'conditions' ||
+        fileFilter === 'conditionsItems' ||
+        fileFilter === 'caseStudies' ||
+        fileFilter === 'caseStudiesItems'
+      ) {
+        const allowedPaths = new Set(FILE_FILTER_PATHS[fileFilter]);
+        const isServiceFilter = fileFilter === 'services' || fileFilter === 'servicesItems';
+        const isCaseFilter = fileFilter === 'caseStudies' || fileFilter === 'caseStudiesItems';
+        nextFiles = nextFiles.filter(
+          (file) => allowedPaths.has(file.path) || (isServiceFilter && file.path.startsWith('services/')) || (isCaseFilter && file.path.startsWith('cases/'))
+        );
+        nextFiles = [...nextFiles].sort((a, b) => a.label.localeCompare(b.label));
       } else {
+        const moduleManagedPaths = new Set([
+          ...FILE_FILTER_PATHS.servicesItems,
+          ...FILE_FILTER_PATHS.conditions,
+          ...FILE_FILTER_PATHS.caseStudies,
+        ]);
         const simpleDirPrefixes = Object.keys(SIMPLE_DIR_FILTERS);
         nextFiles = nextFiles.filter(
           (file) =>
             !file.path.startsWith('blog/') &&
+            !file.path.startsWith('services/') &&
+            !file.path.startsWith('cases/') &&
             !simpleDirPrefixes.some((prefix) => file.path.startsWith(`${prefix}/`)) &&
-            !SITE_SETTINGS_PATHS.has(file.path)
+            !SITE_SETTINGS_PATHS.has(file.path) &&
+            !moduleManagedPaths.has(file.path)
         );
         nextFiles = [...nextFiles].sort((a, b) => a.label.localeCompare(b.label));
       }
@@ -304,16 +329,6 @@ export function ContentEditor({
     } finally {
       setLoading(false);
     }
-  };
-
-  const toggleSelection = (path: string[], value: string) => {
-    if (!formData) return;
-    const current = Array.isArray(getPathValue(formData, path))
-      ? (getPathValue(formData, path) as string[])
-      : [];
-    const exists = current.includes(value);
-    const next = exists ? current.filter((item) => item !== value) : [...current, value];
-    updateFormValue(path, next);
   };
 
   useEffect(() => {
@@ -412,10 +427,6 @@ export function ContentEditor({
       setStatus('Invalid case study JSON. Please fix before saving.');
       return;
     }
-    if ((isEventCategorySelected || isEventItemSelected) && activeTab === 'json' && eventItemJsonError) {
-      setStatus('Invalid event JSON. Please fix before saving.');
-      return;
-    }
 
     const setPathValue = (source: Record<string, any>, path: string[], value: any) => {
       let cursor: any = source;
@@ -506,27 +517,6 @@ export function ContentEditor({
         return;
       }
     }
-    if (activeTab === 'json' && (isEventCategorySelected || isEventItemSelected)) {
-      try {
-        const parsed = JSON.parse(eventItemJsonDraft);
-        if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
-          setStatus('Event JSON must be an object.');
-          return;
-        }
-        if (!nextFormData) {
-          setStatus('Form data is unavailable. Please reload and try again.');
-          return;
-        }
-        if (isEventCategorySelected) {
-          setPathValue(nextFormData, ['categories', String(activeEventCategoryIndex)], parsed);
-        } else {
-          setPathValue(nextFormData, ['events', String(activeEventIndex)], parsed);
-        }
-      } catch (error) {
-        setStatus('Invalid event JSON. Please fix before saving.');
-        return;
-      }
-    }
     let parsedContent: Record<string, any>;
     const isItemJsonMode =
       isServicesItemSelected ||
@@ -534,9 +524,7 @@ export function ContentEditor({
       isConditionCategorySelected ||
       isConditionItemSelected ||
       isCaseStudyCategorySelected ||
-      isCaseStudyItemSelected ||
-      isEventCategorySelected ||
-      isEventItemSelected;
+      isCaseStudyItemSelected;
     const isRawJsonEditing = activeTab === 'json' && !isItemJsonMode;
     if (isRawJsonEditing) {
       try {
@@ -928,19 +916,6 @@ export function ContentEditor({
       }
       return;
     }
-    if ((isEventCategorySelected || isEventItemSelected) && activeTab === 'json') {
-      try {
-        const parsed = JSON.parse(eventItemJsonDraft);
-        const formatted = JSON.stringify(parsed, null, 2);
-        setEventItemJsonDraft(formatted);
-        setEventItemJsonError(null);
-        setStatus('Formatted');
-      } catch (error) {
-        setEventItemJsonError('Invalid JSON');
-        setStatus('Invalid event JSON. Unable to format.');
-      }
-      return;
-    }
     try {
       const parsed = JSON.parse(content);
       const formatted = JSON.stringify(parsed, null, 2);
@@ -1107,12 +1082,7 @@ export function ContentEditor({
     fileFilter !== 'siteSettings' &&
     !isServicesItemsMode &&
     !isConditionsItemsMode &&
-    !isCaseStudiesItemsMode &&
-    fileFilter !== 'events' &&
-    fileFilter !== 'gallery' &&
-    fileFilter !== 'blog' &&
-    fileFilter !== 'press' &&
-    fileFilter !== 'team';
+    !isCaseStudiesItemsMode;
   const servicesPageFile = files.find((file) => file.path === 'pages/services.json') || null;
   const servicesLayoutFile =
     files.find((file) => file.path === 'pages/services.layout.json') || null;
@@ -1198,311 +1168,20 @@ export function ContentEditor({
     : null;
   const showCaseStudiesGlobalPanels =
     !isCaseStudiesItemsMode || isCaseStudiesPageSettingsSelected;
-  const eventsPageFile = files.find((file) => file.path === 'pages/events.json') || null;
-  const eventsDataFile =
-    files.find((file) => file.path === 'events/events.json') ||
-    (fileFilter === 'events'
-      ? {
-          id: '__events-data__',
-          label: 'events/events',
-          path: 'events/events.json',
-          scope: 'locale' as const,
-        }
-      : null);
-  const isEventsModuleMode = fileFilter === 'events' && Boolean(eventsPageFile || eventsDataFile);
-  const isEventsPageFileActive = activeFile?.path === 'pages/events.json';
-  const isEventsDataFileActive = activeFile?.path === 'events/events.json';
-  const eventCategories = isEventsDataFileActive
-    ? Array.isArray(formData?.categories)
-      ? formData.categories
-      : []
-    : cachedEventCategories;
-  const eventItems = isEventsDataFileActive
-    ? Array.isArray(formData?.events)
-      ? formData.events
-      : []
-    : cachedEventItems;
-  const derivedEventCategoryOptions = Array.from(
-    new Set(
-      eventItems
-        .map((entry: any) =>
-          typeof entry?.category === 'string' && entry.category.trim()
-            ? entry.category.trim()
-            : typeof entry?.eventType === 'string' && entry.eventType.trim()
-              ? entry.eventType.trim()
-              : ''
-        )
-        .filter(Boolean)
-    )
-  ).map((id) => ({
-    id,
-    name: toTitleCase(id),
-  }));
-  const eventCategoryOptions = eventCategories.length > 0
-    ? eventCategories
-        .filter((entry: any) => entry?.id)
-        .map((entry: any) => ({
-          id: entry.id,
-          name: entry?.name || entry.id,
-        }))
-    : derivedEventCategoryOptions;
-  const isEventCategorySelected =
-    isEventsModuleMode && isEventsDataFileActive && activeEventCategoryIndex >= 0;
-  const isEventItemSelected = isEventsModuleMode && isEventsDataFileActive && activeEventIndex >= 0;
-  const isEventsPageSettingsSelected =
-    isEventsModuleMode &&
-    isEventsPageFileActive &&
-    activeEventCategoryIndex === -1 &&
-    activeEventIndex === -1;
-  const isEventsDataSettingsSelected =
-    isEventsModuleMode &&
-    isEventsDataFileActive &&
-    activeEventCategoryIndex === -1 &&
-    activeEventIndex === -1;
-  const selectedEventCategory = isEventCategorySelected
-    ? eventCategories[activeEventCategoryIndex] ?? null
-    : null;
-  const selectedEventItem = isEventItemSelected ? eventItems[activeEventIndex] ?? null : null;
-  const showEventsGlobalPanels = !isEventsModuleMode || isEventsPageSettingsSelected;
-  const galleryPageFile = files.find((file) => file.path === 'pages/gallery.json') || null;
-  const galleryDataFile =
-    files.find((file) => file.path === 'gallery/gallery.json') ||
-    (fileFilter === 'gallery'
-      ? {
-          id: '__gallery-data__',
-          label: 'gallery/gallery',
-          path: 'gallery/gallery.json',
-          scope: 'locale' as const,
-        }
-      : null);
-  const isGalleryModuleMode = fileFilter === 'gallery' && Boolean(galleryPageFile || galleryDataFile);
-  const isGalleryPageFileActive = activeFile?.path === 'pages/gallery.json';
-  const isGalleryDataFileActive = activeFile?.path === 'gallery/gallery.json';
-  const galleryModuleCategories = isGalleryDataFileActive
-    ? Array.isArray(formData?.categories)
-      ? formData.categories
-      : []
-    : cachedGalleryCategories;
-  const galleryModuleItems = isGalleryDataFileActive
-    ? Array.isArray(formData?.items)
-      ? formData.items
-      : []
-    : cachedGalleryItems;
-  const galleryModuleCategoryOptions = galleryModuleCategories.map((entry: any) => {
-    const id = typeof entry === 'string' ? entry : entry?.id || '';
-    const name = typeof entry === 'string' ? toTitleCase(entry) : entry?.name || entry?.id || '';
-    return { id, name };
-  }).filter((entry) => entry.id);
-  const isGalleryCategorySelected =
-    isGalleryModuleMode && isGalleryDataFileActive && activeGalleryCategoryIndex >= 0;
-  const isGalleryItemSelected =
-    isGalleryModuleMode && isGalleryDataFileActive && activeGalleryItemIndex >= 0;
-  const isGalleryPageSettingsSelected =
-    isGalleryModuleMode &&
-    isGalleryPageFileActive &&
-    activeGalleryCategoryIndex === -1 &&
-    activeGalleryItemIndex === -1;
-  const isGalleryDataSettingsSelected =
-    isGalleryModuleMode &&
-    isGalleryDataFileActive &&
-    activeGalleryCategoryIndex === -1 &&
-    activeGalleryItemIndex === -1;
-  const selectedGalleryCategory = isGalleryCategorySelected
-    ? galleryModuleCategories[activeGalleryCategoryIndex] ?? null
-    : null;
-  const selectedGalleryItem = isGalleryItemSelected
-    ? galleryModuleItems[activeGalleryItemIndex] ?? null
-    : null;
-  const showGalleryGlobalPanels = !isGalleryModuleMode || isGalleryPageSettingsSelected;
-  const blogPageFile = files.find((file) => file.path === 'pages/blog.json') || null;
-  const blogDataFile =
-    files.find((file) => file.path === 'blog/posts.json') ||
-    (fileFilter === 'blog'
-      ? {
-          id: '__blog-data__',
-          label: 'blog/posts',
-          path: 'blog/posts.json',
-          scope: 'locale' as const,
-        }
-      : null);
-  const isBlogModuleMode = fileFilter === 'blog' && Boolean(blogPageFile || blogDataFile);
-  const isBlogPageFileActive = activeFile?.path === 'pages/blog.json';
-  const isBlogDataFileActive = activeFile?.path === 'blog/posts.json';
-  const blogPosts = isBlogDataFileActive
-    ? Array.isArray(formData?.posts)
-      ? formData.posts
-      : []
-    : cachedBlogPosts;
-  const blogCategories = isBlogDataFileActive
-    ? Array.isArray(formData?.categories)
-      ? formData.categories
-      : []
-    : cachedBlogCategories;
-  const derivedBlogCategoryOptions = Array.from(
-    new Set(
-      blogPosts
-        .map((entry: any) => (typeof entry?.category === 'string' ? entry.category.trim() : ''))
-        .filter(Boolean)
-    )
-  ).map((id) => ({ id, name: toTitleCase(id) }));
-  const blogCategoryOptions = blogCategories.length > 0
-    ? blogCategories
-        .map((entry: any) => ({
-          id: typeof entry === 'string' ? entry : entry?.id || '',
-          name: typeof entry === 'string' ? toTitleCase(entry) : entry?.name || entry?.id || '',
-        }))
-        .filter((entry) => entry.id)
-    : derivedBlogCategoryOptions;
-  const isBlogCategorySelected =
-    isBlogModuleMode && isBlogDataFileActive && activeBlogCategoryIndex >= 0;
-  const isBlogPostSelected = isBlogModuleMode && isBlogDataFileActive && activeBlogPostIndex >= 0;
-  const isBlogPageSettingsSelected =
-    isBlogModuleMode &&
-    isBlogPageFileActive &&
-    activeBlogCategoryIndex === -1 &&
-    activeBlogPostIndex === -1;
-  const isBlogDataSettingsSelected =
-    isBlogModuleMode &&
-    isBlogDataFileActive &&
-    activeBlogCategoryIndex === -1 &&
-    activeBlogPostIndex === -1;
-  const selectedBlogCategory = isBlogCategorySelected
-    ? blogCategories[activeBlogCategoryIndex] ?? null
-    : null;
-  const selectedBlogPost = isBlogPostSelected ? blogPosts[activeBlogPostIndex] ?? null : null;
-  const showBlogGlobalPanels = !isBlogModuleMode || isBlogPageSettingsSelected;
-  const pressPageFile = files.find((file) => file.path === 'pages/press.json') || null;
-  const pressDataFile =
-    files.find((file) => file.path === 'press/press.json') ||
-    (fileFilter === 'press'
-      ? {
-          id: '__press-data__',
-          label: 'press/press',
-          path: 'press/press.json',
-          scope: 'locale' as const,
-        }
-      : null);
-  const isPressModuleMode = fileFilter === 'press' && Boolean(pressPageFile || pressDataFile);
-  const isPressPageFileActive = activeFile?.path === 'pages/press.json';
-  const isPressDataFileActive = activeFile?.path === 'press/press.json';
-  const pressItems = isPressDataFileActive
-    ? Array.isArray(formData?.items)
-      ? formData.items
-      : []
-    : cachedPressItems;
-  const pressCategories = isPressDataFileActive
-    ? Array.isArray(formData?.categories)
-      ? formData.categories
-      : []
-    : cachedPressCategories;
-  const derivedPressCategoryOptions = Array.from(
-    new Set(
-      pressItems
-        .map((entry: any) => {
-          if (typeof entry?.category === 'string' && entry.category.trim()) return entry.category.trim();
-          return entry?.isAward ? 'awards' : 'press';
-        })
-        .filter(Boolean)
-    )
-  ).map((id) => ({ id, name: toTitleCase(id) }));
-  const pressCategoryOptions = pressCategories.length > 0
-    ? pressCategories
-        .map((entry: any) => ({
-          id: typeof entry === 'string' ? entry : entry?.id || '',
-          name: typeof entry === 'string' ? toTitleCase(entry) : entry?.name || entry?.id || '',
-        }))
-        .filter((entry) => entry.id)
-    : derivedPressCategoryOptions;
-  const isPressCategorySelected =
-    isPressModuleMode && isPressDataFileActive && activePressCategoryIndex >= 0;
-  const isPressItemSelected = isPressModuleMode && isPressDataFileActive && activePressItemIndex >= 0;
-  const isPressPageSettingsSelected =
-    isPressModuleMode &&
-    isPressPageFileActive &&
-    activePressCategoryIndex === -1 &&
-    activePressItemIndex === -1;
-  const isPressDataSettingsSelected =
-    isPressModuleMode &&
-    isPressDataFileActive &&
-    activePressCategoryIndex === -1 &&
-    activePressItemIndex === -1;
-  const selectedPressCategory = isPressCategorySelected
-    ? pressCategories[activePressCategoryIndex] ?? null
-    : null;
-  const selectedPressItem = isPressItemSelected ? pressItems[activePressItemIndex] ?? null : null;
-  const showPressGlobalPanels = !isPressModuleMode || isPressPageSettingsSelected;
-  const teamPageFile = files.find((file) => file.path === 'pages/team.json') || null;
-  const teamDataFile =
-    files.find((file) => file.path === 'team/team.json') ||
-    (fileFilter === 'team'
-      ? {
-          id: '__team-data__',
-          label: 'team/team',
-          path: 'team/team.json',
-          scope: 'locale' as const,
-        }
-      : null);
-  const isTeamModuleMode = fileFilter === 'team' && Boolean(teamPageFile || teamDataFile);
-  const isTeamPageFileActive = activeFile?.path === 'pages/team.json';
-  const isTeamDataFileActive = activeFile?.path === 'team/team.json';
-  const teamMembers = isTeamDataFileActive
-    ? Array.isArray(formData?.members)
-      ? formData.members
-      : []
-    : cachedTeamMembers;
-  const teamCategories = isTeamDataFileActive
-    ? Array.isArray(formData?.categories)
-      ? formData.categories
-      : []
-    : cachedTeamCategories;
-  const derivedTeamCategoryOptions = Array.from(
-    new Set(
-      teamMembers
-        .map((entry: any) => (typeof entry?.department === 'string' ? entry.department.trim() : ''))
-        .filter(Boolean)
-    )
-  ).map((id) => ({ id, name: toTitleCase(id) }));
-  const teamCategoryOptions = teamCategories.length > 0
-    ? teamCategories
-        .map((entry: any) => ({
-          id: typeof entry === 'string' ? entry : entry?.id || '',
-          name: typeof entry === 'string' ? toTitleCase(entry) : entry?.name || entry?.id || '',
-        }))
-        .filter((entry) => entry.id)
-    : derivedTeamCategoryOptions;
-  const isTeamCategorySelected =
-    isTeamModuleMode && isTeamDataFileActive && activeTeamCategoryIndex >= 0;
-  const isTeamMemberSelected =
-    isTeamModuleMode && isTeamDataFileActive && activeTeamMemberIndex >= 0;
-  const isTeamPageSettingsSelected =
-    isTeamModuleMode &&
-    isTeamPageFileActive &&
-    activeTeamCategoryIndex === -1 &&
-    activeTeamMemberIndex === -1;
-  const isTeamDataSettingsSelected =
-    isTeamModuleMode &&
-    isTeamDataFileActive &&
-    activeTeamCategoryIndex === -1 &&
-    activeTeamMemberIndex === -1;
-  const selectedTeamCategory = isTeamCategorySelected
-    ? teamCategories[activeTeamCategoryIndex] ?? null
-    : null;
-  const selectedTeamMember = isTeamMemberSelected ? teamMembers[activeTeamMemberIndex] ?? null : null;
-  const showTeamGlobalPanels = !isTeamModuleMode || isTeamPageSettingsSelected;
   const showSharedPanels =
-    showGlobalPanels &&
-    showConditionsGlobalPanels &&
-    showCaseStudiesGlobalPanels &&
-    showEventsGlobalPanels &&
-    showGalleryGlobalPanels &&
-    showBlogGlobalPanels &&
-    showPressGlobalPanels &&
-    showTeamGlobalPanels;
+    showGlobalPanels && showConditionsGlobalPanels && showCaseStudiesGlobalPanels;
   const scopedActionPaths = useMemo(() => {
+    if (fileFilter === 'services' || fileFilter === 'servicesItems') {
+      return ['pages/services.json', 'pages/services.layout.json'];
+    }
+    if (fileFilter === 'conditions' || fileFilter === 'conditionsItems') {
+      return ['pages/conditions.json', 'pages/conditions.layout.json'];
+    }
+    if (fileFilter === 'caseStudies' || fileFilter === 'caseStudiesItems') {
+      return ['pages/case-studies.json', 'pages/case-studies.layout.json'];
+    }
     if (fileFilter === 'blog') {
-      return files
-        .filter((file) => file.path.startsWith('blog/') || file.path === 'pages/blog.json')
-        .map((file) => file.path);
+      return files.filter((file) => file.path.startsWith('blog/')).map((file) => file.path);
     }
     if (SIMPLE_DIR_FILTERS[fileFilter]) {
       if (fileFilter === 'menu') {
@@ -1515,22 +1194,21 @@ export function ContentEditor({
           )
           .map((file) => file.path);
       }
-      return files
-        .filter(
-          (file) =>
-            file.path.startsWith(`${fileFilter}/`) ||
-            file.path === `pages/${fileFilter}.json` ||
-            file.path === `pages/${fileFilter}.layout.json`
-        )
-        .map((file) => file.path);
+      return files.filter((file) => file.path.startsWith(`${fileFilter}/`)).map((file) => file.path);
     }
     return [] as string[];
   }, [fileFilter, files]);
   const hasScopedActions = scopedActionPaths.length > 0;
   const scopeLabel = hasScopedActions
-    ? fileFilter === 'blog'
-      ? 'Blog Posts'
-      : SIMPLE_DIR_FILTERS[fileFilter] || 'Current Section'
+    ? fileFilter === 'services' || fileFilter === 'servicesItems'
+      ? 'Services'
+      : fileFilter === 'conditions' || fileFilter === 'conditionsItems'
+        ? 'Conditions'
+        : fileFilter === 'caseStudies' || fileFilter === 'caseStudiesItems'
+          ? 'Case Studies'
+          : fileFilter === 'blog'
+            ? 'Blog Posts'
+            : SIMPLE_DIR_FILTERS[fileFilter] || 'Current Section'
     : 'Current Section';
   const variantSections = formData
     ? Object.entries(SECTION_VARIANT_OPTIONS).filter(
@@ -1734,69 +1412,59 @@ export function ContentEditor({
     updateFormValue(['languages'], languages);
   };
 
+  const toggleSelection = (path: string[], value: string) => {
+    if (!formData) return;
+    const current = Array.isArray(getPathValue(formData, path))
+      ? (getPathValue(formData, path) as string[])
+      : [];
+    const exists = current.includes(value);
+    const next = exists ? current.filter((item) => item !== value) : [...current, value];
+    updateFormValue(path, next);
+  };
 
-  const {
-    addEventCategory,
-    removeEventCategory,
-    addEventItem,
-    removeEventItem,
-    addGalleryCategory,
-    removeGalleryCategory,
-    addGalleryDataItem,
-    removeGalleryDataItem,
-    addBlogCategory,
-    removeBlogCategory,
-    addBlogPost,
-    removeBlogPost,
-  } = useRestaurantModuleActions({
-    formData,
-    setFormData,
-    updateFormValue,
-    isEventsModuleMode,
-    isEventsDataFileActive,
-    setActiveEventCategoryIndex,
-    setActiveEventIndex,
-    eventCategoryOptions,
-    isGalleryModuleMode,
-    isGalleryDataFileActive,
-    setActiveGalleryCategoryIndex,
-    setActiveGalleryItemIndex,
-    galleryModuleCategoryOptions,
-    isBlogModuleMode,
-    isBlogDataFileActive,
-    setActiveBlogCategoryIndex,
-    setActiveBlogPostIndex,
-    blogCategoryOptions,
-  });
-
-  const addPressCategory = () => {
+  const addConditionCategory = () => {
     if (!formData) return;
     const categories = Array.isArray(formData.categories) ? [...formData.categories] : [];
-    categories.push(`category-${categories.length + 1}`);
+    categories.push({
+      id: `category-${categories.length + 1}`,
+      icon: 'Activity',
+      name: '',
+      subtitle: '',
+      description: '',
+      image: '',
+      order: categories.length + 1,
+    });
     updateFormValue(['categories'], categories);
-    if (isPressModuleMode && isPressDataFileActive) {
-      setActivePressCategoryIndex(categories.length - 1);
-      setActivePressItemIndex(-1);
+    if (isConditionsItemsMode) {
+      setActiveConditionCategoryIndex(categories.length - 1);
+      setActiveConditionIndex(-1);
     }
   };
 
-  const removePressCategory = (index: number) => {
+  const removeConditionCategory = (index: number) => {
     if (!formData || !Array.isArray(formData.categories)) return;
     const categories = [...formData.categories];
     const target = categories[index];
     categories.splice(index, 1);
-    const targetId = typeof target === 'string' ? target : target?.id || '';
     const next: Record<string, any> = { ...formData, categories };
-    if (targetId && Array.isArray(formData.items)) {
-      const fallback = categories[0];
-      const fallbackId = typeof fallback === 'string' ? fallback : fallback?.id || '';
-      next.items = formData.items.map((item: any) =>
-        item?.category === targetId ? { ...item, category: fallbackId, isAward: fallbackId === 'awards' } : item
-      );
+
+    if (target?.id && Array.isArray(formData.conditions)) {
+      const fallbackCategory =
+        categories.find((category: any) => category?.id && category.id !== 'all')?.id || '';
+      next.conditions = formData.conditions.map((condition: any) => {
+        if (condition?.category === target.id) {
+          return {
+            ...condition,
+            category: fallbackCategory,
+          };
+        }
+        return condition;
+      });
     }
+
     setFormData(next);
-    if (isPressModuleMode && isPressDataFileActive) {
-      setActivePressCategoryIndex((current) => {
+    if (isConditionsItemsMode) {
+      setActiveConditionCategoryIndex((current) => {
         if (categories.length === 0) return -1;
         if (current > index) return current - 1;
         if (current >= categories.length) return categories.length - 1;
@@ -1805,36 +1473,205 @@ export function ContentEditor({
     }
   };
 
-  const addPressItem = () => {
+  const addConditionItem = () => {
     if (!formData) return;
-    const items = Array.isArray(formData.items) ? [...formData.items] : [];
-    const firstCategory = pressCategoryOptions[0]?.id || 'press';
-    items.push({
-      id: `p-${String(items.length + 1).padStart(3, '0')}`,
-      publication: '',
-      headline: '',
-      excerpt: '',
-      url: '',
-      date: new Date().toISOString().slice(0, 10),
+    const list = Array.isArray(formData.conditions) ? [...formData.conditions] : [];
+    const firstCategory = conditionCategoryOptions[0]?.id || '';
+    list.push({
+      id: `condition-${list.length + 1}`,
+      title: '',
       category: firstCategory,
-      isAward: firstCategory === 'awards',
+      icon: 'Activity',
+      image: '',
+      description: '',
+      symptoms: [],
+      tcmApproach: '',
+      treatmentMethods: [],
       featured: false,
-      displayOrder: items.length + 1,
     });
-    updateFormValue(['items'], items);
-    if (isPressModuleMode && isPressDataFileActive) {
-      setActivePressItemIndex(items.length - 1);
-      setActivePressCategoryIndex(-1);
+    updateFormValue(['conditions'], list);
+    if (isConditionsItemsMode) {
+      setActiveConditionIndex(list.length - 1);
+      setActiveConditionCategoryIndex(-1);
     }
   };
 
-  const removePressItem = (index: number) => {
-    if (!formData || !Array.isArray(formData.items)) return;
-    const items = [...formData.items];
+  const removeConditionItem = (index: number) => {
+    if (!formData || !Array.isArray(formData.conditions)) return;
+    const list = [...formData.conditions];
+    list.splice(index, 1);
+    updateFormValue(['conditions'], list);
+    if (isConditionsItemsMode) {
+      setActiveConditionIndex((current) => {
+        if (list.length === 0) return -1;
+        if (current > index) return current - 1;
+        if (current >= list.length) return list.length - 1;
+        return current;
+      });
+    }
+  };
+
+  const addCaseStudyCategory = () => {
+    if (!formData) return;
+    const categories = Array.isArray(formData.categories) ? [...formData.categories] : [];
+    categories.push({
+      id: `category-${categories.length + 1}`,
+      icon: 'Activity',
+      name: '',
+    });
+    updateFormValue(['categories'], categories);
+    if (isCaseStudiesItemsMode) {
+      setActiveCaseStudyCategoryIndex(categories.length - 1);
+      setActiveCaseStudyIndex(-1);
+    }
+  };
+
+  const removeCaseStudyCategory = (index: number) => {
+    if (!formData || !Array.isArray(formData.categories)) return;
+    const categories = [...formData.categories];
+    const target = categories[index];
+    categories.splice(index, 1);
+    const next: Record<string, any> = { ...formData, categories };
+
+    if (target?.id && Array.isArray(formData.caseStudies)) {
+      const fallbackCategory =
+        categories.find((category: any) => category?.id && category.id !== 'all')?.id || '';
+      next.caseStudies = formData.caseStudies.map((item: any) => {
+        if (item?.category === target.id) {
+          return {
+            ...item,
+            category: fallbackCategory,
+          };
+        }
+        return item;
+      });
+    }
+
+    setFormData(next);
+    if (isCaseStudiesItemsMode) {
+      setActiveCaseStudyCategoryIndex((current) => {
+        if (categories.length === 0) return -1;
+        if (current > index) return current - 1;
+        if (current >= categories.length) return categories.length - 1;
+        return current;
+      });
+    }
+  };
+
+  const addCaseStudyItem = () => {
+    if (!formData) return;
+    const list = Array.isArray(formData.caseStudies) ? [...formData.caseStudies] : [];
+    const firstCategory = caseStudyCategories.find((entry) => entry.id !== 'all')?.id || '';
+    list.push({
+      id: `case-${list.length + 1}`,
+      condition: '',
+      category: firstCategory,
+      summary: '',
+      image: '',
+      beforeImage: '',
+      afterImage: '',
+    });
+    updateFormValue(['caseStudies'], list);
+    if (isCaseStudiesItemsMode) {
+      setActiveCaseStudyIndex(list.length - 1);
+      setActiveCaseStudyCategoryIndex(-1);
+    }
+  };
+
+  const removeCaseStudyItem = (index: number) => {
+    if (!formData || !Array.isArray(formData.caseStudies)) return;
+    const list = [...formData.caseStudies];
+    list.splice(index, 1);
+    updateFormValue(['caseStudies'], list);
+    if (isCaseStudiesItemsMode) {
+      setActiveCaseStudyIndex((current) => {
+        if (list.length === 0) return -1;
+        if (current > index) return current - 1;
+        if (current >= list.length) return list.length - 1;
+        return current;
+      });
+    }
+  };
+
+  const addServiceCategory = () => {
+    if (!formData) return;
+    const categories = Array.isArray(formData.categories) ? [...formData.categories] : [];
+    categories.push({
+      id: `category-${categories.length + 1}`,
+      icon: 'shield-check',
+      name: '',
+      subtitle: '',
+      description: '',
+      image: '',
+      order: categories.length + 1,
+    });
+    updateFormValue(['categories'], categories);
+    if (isServicesItemsMode) {
+      setActiveServiceCategoryIndex(categories.length - 1);
+      setActiveServiceIndex(-1);
+    }
+  };
+
+  const removeServiceCategory = (index: number) => {
+    if (!formData || !Array.isArray(formData.categories)) return;
+    const categories = [...formData.categories];
+    const target = categories[index];
+    categories.splice(index, 1);
+    const next: Record<string, any> = { ...formData, categories };
+
+    if (target?.id && Array.isArray(formData.servicesList?.items)) {
+      next.servicesList = {
+        ...(formData.servicesList || {}),
+        items: formData.servicesList.items.map((service: any) => {
+          if (service?.category === target.id) {
+            return { ...service, category: '' };
+          }
+          return service;
+        }),
+      };
+    }
+
+    setFormData(next);
+    if (isServicesItemsMode) {
+      setActiveServiceCategoryIndex((current) => {
+        if (categories.length === 0) return -1;
+        if (current > index) return current - 1;
+        if (current >= categories.length) return categories.length - 1;
+        return current;
+      });
+    }
+  };
+
+  const addServicesListItem = () => {
+    if (!formData) return;
+    const items = Array.isArray(formData.servicesList?.items) ? [...formData.servicesList.items] : [];
+    const firstCategory = serviceCategoryOptions[0]?.id || '';
+    items.push({
+      id: `service-${items.length + 1}`,
+      icon: 'Syringe',
+      order: items.length + 1,
+      title: '',
+      category: firstCategory,
+      shortDescription: '',
+      fullDescription: '',
+      benefits: [],
+      whatToExpect: '',
+      image: '',
+      featured: false,
+    });
+    updateFormValue(['servicesList', 'items'], items);
+    if (isServicesItemsMode) {
+      setActiveServiceIndex(items.length - 1);
+    }
+  };
+
+  const removeServicesListItem = (index: number) => {
+    if (!formData || !Array.isArray(formData.servicesList?.items)) return;
+    const items = [...formData.servicesList.items];
     items.splice(index, 1);
-    updateFormValue(['items'], items);
-    if (isPressModuleMode && isPressDataFileActive) {
-      setActivePressItemIndex((current) => {
+    updateFormValue(['servicesList', 'items'], items);
+    if (isServicesItemsMode) {
+      setActiveServiceIndex((current) => {
         if (items.length === 0) return -1;
         if (current > index) return current - 1;
         if (current >= items.length) return items.length - 1;
@@ -1843,78 +1680,176 @@ export function ContentEditor({
     }
   };
 
-  const addTeamCategory = () => {
-    if (!formData) return;
-    const categories = Array.isArray(formData.categories) ? [...formData.categories] : [];
-    categories.push(`department-${categories.length + 1}`);
-    updateFormValue(['categories'], categories);
-    if (isTeamModuleMode && isTeamDataFileActive) {
-      setActiveTeamCategoryIndex(categories.length - 1);
-      setActiveTeamMemberIndex(-1);
+  const deleteSelectedService = async () => {
+    if (!isServicesPageFileActive || activeServiceIndex < 0 || !formData) return;
+    const currentService = serviceItems[activeServiceIndex];
+    const serviceName =
+      currentService?.title || currentService?.id || `Service ${activeServiceIndex + 1}`;
+    const confirmed = window.confirm(
+      `Delete "${serviceName}"? This removes only this service item.`
+    );
+    if (!confirmed) return;
+
+    const items = Array.isArray(formData.servicesList?.items) ? [...formData.servicesList.items] : [];
+    items.splice(activeServiceIndex, 1);
+    const next = {
+      ...formData,
+      servicesList: {
+        ...(formData.servicesList || {}),
+        items,
+      },
+    };
+
+    setFormData(next);
+    setActiveServiceIndex((current) => {
+      if (items.length === 0) return -1;
+      if (current >= items.length) return items.length - 1;
+      return current;
+    });
+
+    let payloadToSave: Record<string, any> = JSON.parse(JSON.stringify(next));
+    if ('services' in payloadToSave) {
+      delete payloadToSave.services;
     }
+    const contentToSave = JSON.stringify(payloadToSave, null, 2);
+
+    const response = await fetch('/api/admin/content/file', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        siteId,
+        locale,
+        path: 'pages/services.json',
+        content: contentToSave,
+      }),
+    });
+    if (!response.ok) {
+      const payload = await response.json();
+      setStatus(payload.message || 'Delete failed to save');
+      return;
+    }
+    const payload = await response.json();
+    setStatus(payload.message || 'Service deleted and saved.');
   };
 
-  const removeTeamCategory = (index: number) => {
-    if (!formData || !Array.isArray(formData.categories)) return;
-    const categories = [...formData.categories];
-    const target = categories[index];
-    categories.splice(index, 1);
-    const targetId = typeof target === 'string' ? target : target?.id || '';
+  const loadServiceDetailFile = (serviceId: string, index: number) => {
+    if (!serviceId) return;
+    const filePath = `services/${serviceId}.json`;
+    const fileRef: ContentFileItem = {
+      id: `service-${serviceId}`,
+      label: `Service: ${serviceItems[index]?.title || serviceId}`,
+      path: filePath,
+      scope: 'locale',
+    };
+    setActiveServiceIndex(index);
+    setActiveServiceCategoryIndex(-1);
+    setActiveFile(fileRef);
+  };
+
+  const deleteSelectedCaseStudyCategory = async () => {
+    if (!isCaseStudiesPageFileActive || activeCaseStudyCategoryIndex < 0 || !formData) return;
+    const categories = Array.isArray(formData.categories) ? [...formData.categories] : [];
+    const target = categories[activeCaseStudyCategoryIndex];
+    if (target?.id === 'all') {
+      setStatus('Cannot delete the "all" category.');
+      return;
+    }
+    categories.splice(activeCaseStudyCategoryIndex, 1);
     const next: Record<string, any> = { ...formData, categories };
-    if (targetId && Array.isArray(formData.members)) {
-      const fallback = categories[0];
-      const fallbackId = typeof fallback === 'string' ? fallback : fallback?.id || '';
-      next.members = formData.members.map((item: any) =>
-        item?.department === targetId ? { ...item, department: fallbackId } : item
+    if (target?.id && Array.isArray(formData.caseStudies)) {
+      const fallbackCategory =
+        categories.find((category: any) => category?.id && category.id !== 'all')?.id || '';
+      next.caseStudies = formData.caseStudies.map((item: any) =>
+        item?.category === target.id ? { ...item, category: fallbackCategory } : item
       );
     }
     setFormData(next);
-    if (isTeamModuleMode && isTeamDataFileActive) {
-      setActiveTeamCategoryIndex((current) => {
-        if (categories.length === 0) return -1;
-        if (current > index) return current - 1;
-        if (current >= categories.length) return categories.length - 1;
-        return current;
-      });
-    }
-  };
-
-  const addTeamMember = () => {
-    if (!formData) return;
-    const members = Array.isArray(formData.members) ? [...formData.members] : [];
-    const firstCategory = teamCategoryOptions[0]?.id || '';
-    members.push({
-      id: `member-${members.length + 1}`,
-      name: '',
-      role: '',
-      shortBio: '',
-      bio: '',
-      photo: '',
-      department: firstCategory,
-      featured: false,
-      displayOrder: members.length + 1,
-      active: true,
+    setActiveCaseStudyCategoryIndex((current) => {
+      if (categories.length === 0) return -1;
+      if (current >= categories.length) return categories.length - 1;
+      return current;
     });
-    updateFormValue(['members'], members);
-    if (isTeamModuleMode && isTeamDataFileActive) {
-      setActiveTeamMemberIndex(members.length - 1);
-      setActiveTeamCategoryIndex(-1);
+    const response = await fetch('/api/admin/content/file', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        siteId,
+        locale,
+        path: 'pages/case-studies.json',
+        content: JSON.stringify(next, null, 2),
+      }),
+    });
+    if (!response.ok) {
+      const payload = await response.json();
+      setStatus(payload.message || 'Delete failed to save');
+      return;
     }
+    const payload = await response.json();
+    setStatus(payload.message || 'Category deleted and saved.');
   };
 
-  const removeTeamMember = (index: number) => {
-    if (!formData || !Array.isArray(formData.members)) return;
-    const members = [...formData.members];
-    members.splice(index, 1);
-    updateFormValue(['members'], members);
-    if (isTeamModuleMode && isTeamDataFileActive) {
-      setActiveTeamMemberIndex((current) => {
-        if (members.length === 0) return -1;
-        if (current > index) return current - 1;
-        if (current >= members.length) return members.length - 1;
-        return current;
-      });
+  const deleteSelectedCaseStudyItem = async () => {
+    if (!isCaseStudiesPageFileActive || activeCaseStudyIndex < 0 || !formData) return;
+    const list = Array.isArray(formData.caseStudies) ? [...formData.caseStudies] : [];
+    list.splice(activeCaseStudyIndex, 1);
+    const next = { ...formData, caseStudies: list };
+    setFormData(next);
+    setActiveCaseStudyIndex((current) => {
+      if (list.length === 0) return -1;
+      if (current >= list.length) return list.length - 1;
+      return current;
+    });
+    const response = await fetch('/api/admin/content/file', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        siteId,
+        locale,
+        path: 'pages/case-studies.json',
+        content: JSON.stringify(next, null, 2),
+      }),
+    });
+    if (!response.ok) {
+      const payload = await response.json();
+      setStatus(payload.message || 'Delete failed to save');
+      return;
     }
+    const payload = await response.json();
+    setStatus(payload.message || 'Case study deleted and saved.');
+  };
+
+  const addTrustBarItem = () => {
+    if (!formData) return;
+    const items = Array.isArray(formData.trustBar?.items) ? [...formData.trustBar.items] : [];
+    items.push({
+      icon: 'Shield',
+      title: '',
+      description: '',
+    });
+    updateFormValue(['trustBar', 'items'], items);
+  };
+
+  const removeTrustBarItem = (index: number) => {
+    if (!formData || !Array.isArray(formData.trustBar?.items)) return;
+    const items = [...formData.trustBar.items];
+    items.splice(index, 1);
+    updateFormValue(['trustBar', 'items'], items);
+  };
+
+  const addRelatedReadingSlug = () => {
+    if (!formData) return;
+    const slugs = Array.isArray(formData.relatedReading?.preferredSlugs)
+      ? [...formData.relatedReading.preferredSlugs]
+      : [];
+    slugs.push('');
+    updateFormValue(['relatedReading', 'preferredSlugs'], slugs);
+  };
+
+  const removeRelatedReadingSlug = (index: number) => {
+    if (!formData || !Array.isArray(formData.relatedReading?.preferredSlugs)) return;
+    const slugs = [...formData.relatedReading.preferredSlugs];
+    slugs.splice(index, 1);
+    updateFormValue(['relatedReading', 'preferredSlugs'], slugs);
   };
 
   const populateSeoFromHeroes = async () => {
@@ -2077,355 +2012,6 @@ export function ContentEditor({
   ]);
 
   useEffect(() => {
-    if (!isEventsDataFileActive || !formData) return;
-    setCachedEventCategories(Array.isArray(formData.categories) ? formData.categories : []);
-    setCachedEventItems(Array.isArray(formData.events) ? formData.events : []);
-  }, [isEventsDataFileActive, formData]);
-
-  useEffect(() => {
-    if (!isEventsModuleMode || !eventsDataFile || !siteId || !locale) return;
-    if (isEventsDataFileActive) return;
-    fetch(
-      `/api/admin/content/file?siteId=${siteId}&locale=${locale}&path=${encodeURIComponent(
-        eventsDataFile.path
-      )}`
-    )
-      .then(async (response) => {
-        if (!response.ok) return;
-        const payload = await response.json();
-        const parsed = payload?.content ? JSON.parse(payload.content) : null;
-        if (!parsed || typeof parsed !== 'object') return;
-        setCachedEventCategories(Array.isArray(parsed.categories) ? parsed.categories : []);
-        setCachedEventItems(Array.isArray(parsed.events) ? parsed.events : []);
-      })
-      .catch(() => {});
-  }, [isEventsModuleMode, eventsDataFile, siteId, locale, isEventsDataFileActive]);
-
-  useEffect(() => {
-    if (!isEventsModuleMode || !isEventsDataFileActive || !formData) return;
-    const categories = Array.isArray(formData.categories) ? formData.categories : [];
-    const events = Array.isArray(formData.events) ? formData.events : [];
-    if (categories.length > 0 || events.length === 0) return;
-
-    const ids = Array.from(
-      new Set(
-        events
-          .map((entry: any) =>
-            typeof entry?.category === 'string' && entry.category.trim()
-              ? entry.category.trim()
-              : typeof entry?.eventType === 'string' && entry.eventType.trim()
-                ? entry.eventType.trim()
-                : ''
-          )
-          .filter(Boolean)
-      )
-    );
-    if (ids.length === 0) return;
-
-    const nextCategories = ids.map((id, index) => ({
-      id,
-      name: toTitleCase(id),
-      description: '',
-      order: index + 1,
-    }));
-    const nextEvents = events.map((entry: any) => {
-      const selectedCategory =
-        typeof entry?.category === 'string' && entry.category.trim()
-          ? entry.category.trim()
-          : typeof entry?.eventType === 'string' && entry.eventType.trim()
-            ? entry.eventType.trim()
-            : '';
-      return selectedCategory ? { ...entry, category: selectedCategory } : entry;
-    });
-
-    setFormData({
-      ...formData,
-      categories: nextCategories,
-      events: nextEvents,
-    });
-  }, [isEventsModuleMode, isEventsDataFileActive, formData]);
-
-  useEffect(() => {
-    if (!isGalleryModuleMode || !isGalleryDataFileActive || !formData) return;
-    const categories = Array.isArray(formData.categories) ? formData.categories : [];
-    const items = Array.isArray(formData.items) ? formData.items : [];
-    if (categories.length > 0 || items.length === 0) return;
-    const ids = Array.from(
-      new Set(
-        items
-          .map((entry: any) =>
-            typeof entry?.category === 'string' ? entry.category.trim() : ''
-          )
-          .filter(Boolean)
-      )
-    );
-    if (ids.length === 0) return;
-    setFormData({
-      ...formData,
-      categories: ids,
-    });
-  }, [isGalleryModuleMode, isGalleryDataFileActive, formData]);
-
-  useEffect(() => {
-    if (!isBlogModuleMode || !isBlogDataFileActive || !formData) return;
-    const categories = Array.isArray(formData.categories) ? formData.categories : [];
-    const posts = Array.isArray(formData.posts) ? formData.posts : [];
-    if (categories.length > 0 || posts.length === 0) return;
-    const ids = Array.from(
-      new Set(
-        posts
-          .map((entry: any) =>
-            typeof entry?.category === 'string' ? entry.category.trim() : ''
-          )
-          .filter(Boolean)
-      )
-    );
-    if (ids.length === 0) return;
-    setFormData({
-      ...formData,
-      categories: ids,
-    });
-  }, [isBlogModuleMode, isBlogDataFileActive, formData]);
-
-  useEffect(() => {
-    if (!isEventsModuleMode || !isEventsDataFileActive) return;
-    const categories = Array.isArray(formData?.categories) ? formData.categories : [];
-    const items = Array.isArray(formData?.events) ? formData.events : [];
-    if (activeEventCategoryIndex >= categories.length) {
-      setActiveEventCategoryIndex(categories.length > 0 ? categories.length - 1 : -1);
-    }
-    if (activeEventIndex >= items.length) {
-      setActiveEventIndex(items.length > 0 ? items.length - 1 : -1);
-    }
-  }, [
-    isEventsModuleMode,
-    isEventsDataFileActive,
-    formData?.categories,
-    formData?.events,
-    activeEventCategoryIndex,
-    activeEventIndex,
-  ]);
-
-  useEffect(() => {
-    if (!isGalleryDataFileActive || !formData) return;
-    setCachedGalleryCategories(Array.isArray(formData.categories) ? formData.categories : []);
-    setCachedGalleryItems(Array.isArray(formData.items) ? formData.items : []);
-  }, [isGalleryDataFileActive, formData]);
-
-  useEffect(() => {
-    if (!isGalleryModuleMode || !galleryDataFile || !siteId || !locale) return;
-    if (isGalleryDataFileActive) return;
-    fetch(
-      `/api/admin/content/file?siteId=${siteId}&locale=${locale}&path=${encodeURIComponent(
-        galleryDataFile.path
-      )}`
-    )
-      .then(async (response) => {
-        if (!response.ok) return;
-        const payload = await response.json();
-        const parsed = payload?.content ? JSON.parse(payload.content) : null;
-        if (!parsed || typeof parsed !== 'object') return;
-        setCachedGalleryCategories(Array.isArray(parsed.categories) ? parsed.categories : []);
-        setCachedGalleryItems(Array.isArray(parsed.items) ? parsed.items : []);
-      })
-      .catch(() => {});
-  }, [isGalleryModuleMode, galleryDataFile, siteId, locale, isGalleryDataFileActive]);
-
-  useEffect(() => {
-    if (!isGalleryModuleMode || !isGalleryDataFileActive) return;
-    const categories = Array.isArray(formData?.categories) ? formData.categories : [];
-    const items = Array.isArray(formData?.items) ? formData.items : [];
-    if (activeGalleryCategoryIndex >= categories.length) {
-      setActiveGalleryCategoryIndex(categories.length > 0 ? categories.length - 1 : -1);
-    }
-    if (activeGalleryItemIndex >= items.length) {
-      setActiveGalleryItemIndex(items.length > 0 ? items.length - 1 : -1);
-    }
-  }, [
-    isGalleryModuleMode,
-    isGalleryDataFileActive,
-    formData?.categories,
-    formData?.items,
-    activeGalleryCategoryIndex,
-    activeGalleryItemIndex,
-  ]);
-
-  useEffect(() => {
-    if (!isBlogDataFileActive || !formData) return;
-    setCachedBlogCategories(Array.isArray(formData.categories) ? formData.categories : []);
-    setCachedBlogPosts(Array.isArray(formData.posts) ? formData.posts : []);
-  }, [isBlogDataFileActive, formData]);
-
-  useEffect(() => {
-    if (!isBlogModuleMode || !blogDataFile || !siteId || !locale) return;
-    if (isBlogDataFileActive) return;
-    fetch(
-      `/api/admin/content/file?siteId=${siteId}&locale=${locale}&path=${encodeURIComponent(
-        blogDataFile.path
-      )}`
-    )
-      .then(async (response) => {
-        if (!response.ok) return;
-        const payload = await response.json();
-        const parsed = payload?.content ? JSON.parse(payload.content) : null;
-        if (!parsed || typeof parsed !== 'object') return;
-        setCachedBlogCategories(Array.isArray(parsed.categories) ? parsed.categories : []);
-        setCachedBlogPosts(Array.isArray(parsed.posts) ? parsed.posts : []);
-      })
-      .catch(() => {});
-  }, [isBlogModuleMode, blogDataFile, siteId, locale, isBlogDataFileActive]);
-
-  useEffect(() => {
-    if (!isBlogModuleMode || !isBlogDataFileActive) return;
-    const categories = Array.isArray(formData?.categories) ? formData.categories : [];
-    const posts = Array.isArray(formData?.posts) ? formData.posts : [];
-    if (activeBlogCategoryIndex >= categories.length) {
-      setActiveBlogCategoryIndex(categories.length > 0 ? categories.length - 1 : -1);
-    }
-    if (activeBlogPostIndex >= posts.length) {
-      setActiveBlogPostIndex(posts.length > 0 ? posts.length - 1 : -1);
-    }
-  }, [
-    isBlogModuleMode,
-    isBlogDataFileActive,
-    formData?.categories,
-    formData?.posts,
-    activeBlogCategoryIndex,
-    activeBlogPostIndex,
-  ]);
-
-  useEffect(() => {
-    if (!isPressDataFileActive || !formData) return;
-    setCachedPressCategories(Array.isArray(formData.categories) ? formData.categories : []);
-    setCachedPressItems(Array.isArray(formData.items) ? formData.items : []);
-  }, [isPressDataFileActive, formData]);
-
-  useEffect(() => {
-    if (!isPressModuleMode || !pressDataFile || !siteId || !locale) return;
-    if (isPressDataFileActive) return;
-    fetch(
-      `/api/admin/content/file?siteId=${siteId}&locale=${locale}&path=${encodeURIComponent(
-        pressDataFile.path
-      )}`
-    )
-      .then(async (response) => {
-        if (!response.ok) return;
-        const payload = await response.json();
-        const parsed = payload?.content ? JSON.parse(payload.content) : null;
-        if (!parsed || typeof parsed !== 'object') return;
-        setCachedPressCategories(Array.isArray(parsed.categories) ? parsed.categories : []);
-        setCachedPressItems(Array.isArray(parsed.items) ? parsed.items : []);
-      })
-      .catch(() => {});
-  }, [isPressModuleMode, pressDataFile, siteId, locale, isPressDataFileActive]);
-
-  useEffect(() => {
-    if (!isPressModuleMode || !isPressDataFileActive || !formData) return;
-    const categories = Array.isArray(formData.categories) ? formData.categories : [];
-    const items = Array.isArray(formData.items) ? formData.items : [];
-    if (categories.length > 0 || items.length === 0) return;
-    const ids = Array.from(
-      new Set(
-        items
-          .map((entry: any) => {
-            if (typeof entry?.category === 'string' && entry.category.trim()) return entry.category.trim();
-            return entry?.isAward ? 'awards' : 'press';
-          })
-          .filter(Boolean)
-      )
-    );
-    if (ids.length === 0) return;
-    setFormData({
-      ...formData,
-      categories: ids,
-    });
-  }, [isPressModuleMode, isPressDataFileActive, formData]);
-
-  useEffect(() => {
-    if (!isPressModuleMode || !isPressDataFileActive) return;
-    const categories = Array.isArray(formData?.categories) ? formData.categories : [];
-    const items = Array.isArray(formData?.items) ? formData.items : [];
-    if (activePressCategoryIndex >= categories.length) {
-      setActivePressCategoryIndex(categories.length > 0 ? categories.length - 1 : -1);
-    }
-    if (activePressItemIndex >= items.length) {
-      setActivePressItemIndex(items.length > 0 ? items.length - 1 : -1);
-    }
-  }, [
-    isPressModuleMode,
-    isPressDataFileActive,
-    formData?.categories,
-    formData?.items,
-    activePressCategoryIndex,
-    activePressItemIndex,
-  ]);
-
-  useEffect(() => {
-    if (!isTeamDataFileActive || !formData) return;
-    setCachedTeamCategories(Array.isArray(formData.categories) ? formData.categories : []);
-    setCachedTeamMembers(Array.isArray(formData.members) ? formData.members : []);
-  }, [isTeamDataFileActive, formData]);
-
-  useEffect(() => {
-    if (!isTeamModuleMode || !teamDataFile || !siteId || !locale) return;
-    if (isTeamDataFileActive) return;
-    fetch(
-      `/api/admin/content/file?siteId=${siteId}&locale=${locale}&path=${encodeURIComponent(
-        teamDataFile.path
-      )}`
-    )
-      .then(async (response) => {
-        if (!response.ok) return;
-        const payload = await response.json();
-        const parsed = payload?.content ? JSON.parse(payload.content) : null;
-        if (!parsed || typeof parsed !== 'object') return;
-        setCachedTeamCategories(Array.isArray(parsed.categories) ? parsed.categories : []);
-        setCachedTeamMembers(Array.isArray(parsed.members) ? parsed.members : []);
-      })
-      .catch(() => {});
-  }, [isTeamModuleMode, teamDataFile, siteId, locale, isTeamDataFileActive]);
-
-  useEffect(() => {
-    if (!isTeamModuleMode || !isTeamDataFileActive || !formData) return;
-    const categories = Array.isArray(formData.categories) ? formData.categories : [];
-    const members = Array.isArray(formData.members) ? formData.members : [];
-    if (categories.length > 0 || members.length === 0) return;
-    const ids = Array.from(
-      new Set(
-        members
-          .map((entry: any) =>
-            typeof entry?.department === 'string' ? entry.department.trim() : ''
-          )
-          .filter(Boolean)
-      )
-    );
-    if (ids.length === 0) return;
-    setFormData({
-      ...formData,
-      categories: ids,
-    });
-  }, [isTeamModuleMode, isTeamDataFileActive, formData]);
-
-  useEffect(() => {
-    if (!isTeamModuleMode || !isTeamDataFileActive) return;
-    const categories = Array.isArray(formData?.categories) ? formData.categories : [];
-    const members = Array.isArray(formData?.members) ? formData.members : [];
-    if (activeTeamCategoryIndex >= categories.length) {
-      setActiveTeamCategoryIndex(categories.length > 0 ? categories.length - 1 : -1);
-    }
-    if (activeTeamMemberIndex >= members.length) {
-      setActiveTeamMemberIndex(members.length > 0 ? members.length - 1 : -1);
-    }
-  }, [
-    isTeamModuleMode,
-    isTeamDataFileActive,
-    formData?.categories,
-    formData?.members,
-    activeTeamCategoryIndex,
-    activeTeamMemberIndex,
-  ]);
-
-  useEffect(() => {
     if (isConditionCategorySelected && selectedConditionCategory) {
       setConditionsItemJsonDraft(JSON.stringify(selectedConditionCategory, null, 2));
       setConditionsItemJsonError(null);
@@ -2470,37 +2056,13 @@ export function ContentEditor({
   ]);
 
   useEffect(() => {
-    if (isEventCategorySelected && selectedEventCategory) {
-      setEventItemJsonDraft(JSON.stringify(selectedEventCategory, null, 2));
-      setEventItemJsonError(null);
-      return;
-    }
-    if (isEventItemSelected && selectedEventItem) {
-      setEventItemJsonDraft(JSON.stringify(selectedEventItem, null, 2));
-      setEventItemJsonError(null);
-      return;
-    }
-    setEventItemJsonDraft('');
-    setEventItemJsonError(null);
-  }, [
-    isEventCategorySelected,
-    selectedEventCategory,
-    isEventItemSelected,
-    selectedEventItem,
-    activeEventCategoryIndex,
-    activeEventIndex,
-  ]);
-
-  useEffect(() => {
     const isItemJsonMode =
       isServicesItemSelected ||
       isServiceCategorySelected ||
       isConditionCategorySelected ||
       isConditionItemSelected ||
       isCaseStudyCategorySelected ||
-      isCaseStudyItemSelected ||
-      isEventCategorySelected ||
-      isEventItemSelected;
+      isCaseStudyItemSelected;
     if (activeTab !== 'json' || isItemJsonMode || !formData) return;
     setContent(JSON.stringify(formData, null, 2));
   }, [
@@ -2512,85 +2074,7 @@ export function ContentEditor({
     isConditionItemSelected,
     isCaseStudyCategorySelected,
     isCaseStudyItemSelected,
-    isEventCategorySelected,
-    isEventItemSelected,
   ]);
-
-  const headerMeta = getContentEditorHeaderMeta({
-    isServicesItemsMode,
-    isServicesLayoutFileActive,
-    isServicesPageSettingsSelected,
-    selectedService,
-    isConditionsItemsMode,
-    isConditionsLayoutFileActive,
-    isConditionsPageSettingsSelected,
-    isConditionCategorySelected,
-    selectedConditionCategory,
-    isConditionItemSelected,
-    selectedConditionItem,
-    isCaseStudiesItemsMode,
-    isCaseStudiesLayoutFileActive,
-    isCaseStudiesPageSettingsSelected,
-    isCaseStudyCategorySelected,
-    selectedCaseStudyCategory,
-    isCaseStudyItemSelected,
-    selectedCaseStudyItem,
-    isEventsModuleMode,
-    isEventsPageSettingsSelected,
-    isEventCategorySelected,
-    selectedEventCategory,
-    isEventItemSelected,
-    selectedEventItem,
-    isEventsDataSettingsSelected,
-    isGalleryModuleMode,
-    isGalleryPageSettingsSelected,
-    isGalleryCategorySelected,
-    selectedGalleryCategory,
-    isGalleryItemSelected,
-    selectedGalleryItem,
-    isGalleryDataSettingsSelected,
-    isBlogModuleMode,
-    isBlogPageSettingsSelected,
-    isBlogCategorySelected,
-    selectedBlogCategory,
-    isBlogPostSelected,
-    selectedBlogPost,
-    isBlogDataSettingsSelected,
-    isPressModuleMode,
-    isPressPageSettingsSelected,
-    isPressCategorySelected,
-    selectedPressCategory,
-    isPressItemSelected,
-    selectedPressItem,
-    isPressDataSettingsSelected,
-    isTeamModuleMode,
-    isTeamPageSettingsSelected,
-    isTeamCategorySelected,
-    selectedTeamCategory,
-    isTeamMemberSelected,
-    selectedTeamMember,
-    isTeamDataSettingsSelected,
-    isServiceDetailFileActive,
-    isServiceCategorySelected,
-    activeServiceCategoryIndex,
-    activeServiceIndex,
-    activeConditionCategoryIndex,
-    activeConditionIndex,
-    activeCaseStudyCategoryIndex,
-    activeCaseStudyIndex,
-    activeEventCategoryIndex,
-    activeEventIndex,
-    activeGalleryCategoryIndex,
-    activeGalleryItemIndex,
-    activeBlogCategoryIndex,
-    activeBlogPostIndex,
-    activePressCategoryIndex,
-    activePressItemIndex,
-    activeTeamCategoryIndex,
-    activeTeamMemberIndex,
-    activeFileLabel: activeFile?.label,
-    activeFilePath: activeFile?.path,
-  });
 
   return (
     <div className="space-y-6">
@@ -2603,135 +2087,308 @@ export function ContentEditor({
             Select a site and locale to edit JSON content files.
           </p>
         </div>
-        <ContentEditorTopControls
-          sites={sites}
-          siteId={siteId}
-          locale={locale}
-          supportedLocales={site?.supportedLocales || ['en']}
-          setSiteId={setSiteId}
-          setLocale={setLocale}
-          actionToolbar={
-            <ContentEditorActionToolbar
-              siteId={siteId}
-              locale={locale}
-              importing={importing}
-              exporting={exporting}
-              loading={loading}
-              hasScopedActions={hasScopedActions}
-              scopeLabel={scopeLabel}
-              scopedActionPaths={scopedActionPaths}
-              handleImport={handleImport}
-              handleOverwriteImport={handleOverwriteImport}
-              handleExport={handleExport}
-              handleCheckUpdateFromDb={handleCheckUpdateFromDb}
-            />
-          }
-        />
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div>
+            <label className="block text-xs font-medium text-gray-500">Site</label>
+            <select
+              className="mt-1 rounded-md border border-gray-200 px-3 py-2 text-sm"
+              value={siteId}
+              onChange={(event) => {
+                setSiteId(event.target.value);
+              }}
+            >
+              {sites.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-xs font-medium text-gray-500">Locale</label>
+            <select
+              className="mt-1 rounded-md border border-gray-200 px-3 py-2 text-sm"
+              value={locale}
+              onChange={(event) => setLocale(event.target.value as Locale)}
+            >
+              {(site?.supportedLocales || ['en']).map((item) => (
+                <option key={item} value={item}>
+                  {item === 'en' ? 'English' : item === 'zh' ? 'Chinese' : item}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="flex items-end gap-2 pt-4 sm:pt-0">
+            <button
+              type="button"
+              onClick={() => {
+                const confirmed = window.confirm(
+                  `Import locale JSON for ${siteId} (${locale})?\n\nThis applies to all files in the selected site + locale and may overwrite missing DB entries.`
+                );
+                if (!confirmed) return;
+                handleImport('missing');
+              }}
+              disabled={importing || loading}
+              className="px-3 py-2 rounded-md border border-gray-200 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-60"
+            >
+              {importing ? 'Importing…' : 'Import Locale JSON'}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                const confirmed = window.confirm(
+                  `Run Check Update From DB for ${siteId} (${locale})?\n\nThis compares local JSON vs DB for the whole locale and shows a diff summary.`
+                );
+                if (!confirmed) return;
+                handleCheckUpdateFromDb();
+              }}
+              disabled={importing || loading}
+              className="px-3 py-2 rounded-md border border-gray-200 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-60"
+            >
+              Check Update From DB
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                const confirmed = window.confirm(
+                  `Overwrite import for ${siteId} (${locale})?\n\nThis is a locale-wide write action and can replace DB content with local JSON. Continue?`
+                );
+                if (!confirmed) return;
+                handleOverwriteImport();
+              }}
+              disabled={importing || loading}
+              className="px-3 py-2 rounded-md border border-amber-200 text-xs text-amber-700 hover:bg-amber-50 disabled:opacity-60"
+            >
+              {importing ? 'Importing…' : 'Overwrite Import'}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                const confirmed = window.confirm(
+                  `Export locale DB to JSON for ${siteId} (${locale})?\n\nThis applies to all files in the selected site + locale.`
+                );
+                if (!confirmed) return;
+                handleExport();
+              }}
+              disabled={exporting || loading}
+              className="px-3 py-2 rounded-md border border-gray-200 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-60"
+            >
+              {exporting ? 'Exporting…' : 'Export Locale JSON'}
+            </button>
+            {hasScopedActions && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const confirmed = window.confirm(
+                      `Import section JSON for ${scopeLabel} (${siteId}, ${locale})?\n\nThis applies only to ${scopeLabel} files and imports missing DB entries.`
+                    );
+                    if (!confirmed) return;
+                    handleImport('missing', { includePaths: scopedActionPaths });
+                  }}
+                  disabled={importing || loading}
+                  className="px-3 py-2 rounded-md border border-gray-200 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-60"
+                >
+                  {importing ? 'Importing…' : 'Import Section JSON'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const confirmed = window.confirm(
+                      `Export section JSON for ${scopeLabel} (${siteId}, ${locale})?\n\nThis applies only to ${scopeLabel} files and writes local JSON from DB.`
+                    );
+                    if (!confirmed) return;
+                    handleExport({ includePaths: scopedActionPaths });
+                  }}
+                  disabled={exporting || loading}
+                  className="px-3 py-2 rounded-md border border-gray-200 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-60"
+                >
+                  {exporting ? 'Exporting…' : 'Export Section JSON'}
+                </button>
+              </>
+            )}
+          </div>
+        </div>
       </div>
       <p className="text-xs text-gray-500 -mt-3">
         Locale actions apply to all files for selected site+locale. Section actions apply only to this module.
       </p>
 
       <div className="grid gap-6 lg:grid-cols-[280px_1fr]">
-        <ContentEditorLeftPane
-          filesTitle={filesTitle}
-          loading={loading}
-          files={files}
-          activeFile={activeFile}
-          fileFilter={fileFilter}
-          locale={locale}
-          setActiveFile={setActiveFile}
-          isEventsModuleMode={isEventsModuleMode}
-          eventsPageFile={eventsPageFile}
-          eventsDataFile={eventsDataFile}
-          isEventsPageSettingsSelected={isEventsPageSettingsSelected}
-          isEventsDataSettingsSelected={isEventsDataSettingsSelected}
-          isEventsPageFileActive={isEventsPageFileActive}
-          isEventsDataFileActive={isEventsDataFileActive}
-          activeEventCategoryIndex={activeEventCategoryIndex}
-          activeEventIndex={activeEventIndex}
-          eventCategories={eventCategories}
-          eventItems={eventItems}
-          setActiveEventCategoryIndex={setActiveEventCategoryIndex}
-          setActiveEventIndex={setActiveEventIndex}
-          addEventCategory={addEventCategory}
-          removeEventCategory={removeEventCategory}
-          addEventItem={addEventItem}
-          removeEventItem={removeEventItem}
-          isGalleryModuleMode={isGalleryModuleMode}
-          galleryPageFile={galleryPageFile}
-          galleryDataFile={galleryDataFile}
-          isGalleryPageSettingsSelected={isGalleryPageSettingsSelected}
-          isGalleryDataSettingsSelected={isGalleryDataSettingsSelected}
-          isGalleryDataFileActive={isGalleryDataFileActive}
-          activeGalleryCategoryIndex={activeGalleryCategoryIndex}
-          activeGalleryItemIndex={activeGalleryItemIndex}
-          galleryModuleCategories={galleryModuleCategories}
-          galleryModuleItems={galleryModuleItems}
-          setActiveGalleryCategoryIndex={setActiveGalleryCategoryIndex}
-          setActiveGalleryItemIndex={setActiveGalleryItemIndex}
-          addGalleryCategory={addGalleryCategory}
-          removeGalleryCategory={removeGalleryCategory}
-          addGalleryDataItem={addGalleryDataItem}
-          removeGalleryDataItem={removeGalleryDataItem}
-          isBlogModuleMode={isBlogModuleMode}
-          blogPageFile={blogPageFile}
-          blogDataFile={blogDataFile}
-          isBlogPageSettingsSelected={isBlogPageSettingsSelected}
-          isBlogDataSettingsSelected={isBlogDataSettingsSelected}
-          isBlogDataFileActive={isBlogDataFileActive}
-          activeBlogCategoryIndex={activeBlogCategoryIndex}
-          activeBlogPostIndex={activeBlogPostIndex}
-          blogCategories={blogCategories}
-          blogPosts={blogPosts}
-          setActiveBlogCategoryIndex={setActiveBlogCategoryIndex}
-          setActiveBlogPostIndex={setActiveBlogPostIndex}
-          addBlogCategory={addBlogCategory}
-          removeBlogCategory={removeBlogCategory}
-          addBlogPost={addBlogPost}
-          removeBlogPost={removeBlogPost}
-          isPressModuleMode={isPressModuleMode}
-          pressPageFile={pressPageFile}
-          pressDataFile={pressDataFile}
-          isPressPageSettingsSelected={isPressPageSettingsSelected}
-          isPressDataSettingsSelected={isPressDataSettingsSelected}
-          isPressDataFileActive={isPressDataFileActive}
-          activePressCategoryIndex={activePressCategoryIndex}
-          activePressItemIndex={activePressItemIndex}
-          pressCategories={pressCategories}
-          pressItems={pressItems}
-          setActivePressCategoryIndex={setActivePressCategoryIndex}
-          setActivePressItemIndex={setActivePressItemIndex}
-          addPressCategory={addPressCategory}
-          removePressCategory={removePressCategory}
-          addPressItem={addPressItem}
-          removePressItem={removePressItem}
-          isTeamModuleMode={isTeamModuleMode}
-          teamPageFile={teamPageFile}
-          teamDataFile={teamDataFile}
-          isTeamPageSettingsSelected={isTeamPageSettingsSelected}
-          isTeamDataSettingsSelected={isTeamDataSettingsSelected}
-          isTeamDataFileActive={isTeamDataFileActive}
-          activeTeamCategoryIndex={activeTeamCategoryIndex}
-          activeTeamMemberIndex={activeTeamMemberIndex}
-          teamCategories={teamCategories}
-          teamMembers={teamMembers}
-          setActiveTeamCategoryIndex={setActiveTeamCategoryIndex}
-          setActiveTeamMemberIndex={setActiveTeamMemberIndex}
-          addTeamCategory={addTeamCategory}
-          removeTeamCategory={removeTeamCategory}
-          addTeamMember={addTeamMember}
-          removeTeamMember={removeTeamMember}
-        />
+        <div className="bg-white border border-gray-200 rounded-xl p-4">
+          <div className="text-xs font-semibold text-gray-500 uppercase mb-3">
+            {filesTitle}
+          </div>
+          {loading && files.length === 0 ? (
+            <div className="text-sm text-gray-500">Loading…</div>
+          ) : (
+            <div className="space-y-2">
+              {isServicesItemsMode && activeFile ? (
+                <ServicesModuleList
+                  servicesPageFile={servicesPageFile}
+                  servicesLayoutFile={servicesLayoutFile}
+                  isServicesPageSettingsSelected={isServicesPageSettingsSelected}
+                  isServicesLayoutFileActive={isServicesLayoutFileActive}
+                  isServicesPageFileActive={isServicesPageFileActive}
+                  isServiceDetailFileActive={isServiceDetailFileActive}
+                  activeServiceIndex={activeServiceIndex}
+                  activeServiceCategoryIndex={activeServiceCategoryIndex}
+                  serviceItems={serviceItems}
+                  serviceCategories={serviceCategories}
+                  setActiveFile={(file) => setActiveFile(file as ContentFileItem | null)}
+                  setActiveServiceIndex={setActiveServiceIndex}
+                  setActiveServiceCategoryIndex={setActiveServiceCategoryIndex}
+                  addServicesListItem={addServicesListItem}
+                  deleteSelectedService={deleteSelectedService}
+                  addServiceCategory={addServiceCategory}
+                  removeServiceCategory={removeServiceCategory}
+                  onServiceClick={loadServiceDetailFile}
+                  setStatus={(message) => setStatus(message)}
+                />
+              ) : isConditionsItemsMode && activeFile ? (
+                <ConditionsModuleList
+                  conditionsPageFile={conditionsPageFile}
+                  conditionsLayoutFile={conditionsLayoutFile}
+                  isConditionsPageSettingsSelected={isConditionsPageSettingsSelected}
+                  isConditionsLayoutFileActive={isConditionsLayoutFileActive}
+                  isConditionsPageFileActive={isConditionsPageFileActive}
+                  activeConditionCategoryIndex={activeConditionCategoryIndex}
+                  activeConditionIndex={activeConditionIndex}
+                  categories={Array.isArray(formData?.categories) ? formData.categories : []}
+                  conditionItems={conditionItems}
+                  setActiveFile={(file: any) => setActiveFile(file as ContentFileItem | null)}
+                  setActiveConditionCategoryIndex={setActiveConditionCategoryIndex}
+                  setActiveConditionIndex={setActiveConditionIndex}
+                  addConditionCategory={addConditionCategory}
+                  removeConditionCategory={removeConditionCategory}
+                  addConditionItem={addConditionItem}
+                  removeConditionItem={removeConditionItem}
+                  setStatus={(message: string) => setStatus(message)}
+                />
+              ) : isCaseStudiesItemsMode && activeFile ? (
+                <CaseStudiesModuleList
+                  caseStudiesPageFile={caseStudiesPageFile}
+                  caseStudiesLayoutFile={caseStudiesLayoutFile}
+                  isCaseStudiesPageSettingsSelected={isCaseStudiesPageSettingsSelected}
+                  isCaseStudiesLayoutFileActive={isCaseStudiesLayoutFileActive}
+                  isCaseStudiesPageFileActive={isCaseStudiesPageFileActive}
+                  activeCaseStudyCategoryIndex={activeCaseStudyCategoryIndex}
+                  activeCaseStudyIndex={activeCaseStudyIndex}
+                  categories={Array.isArray(formData?.categories) ? formData.categories : []}
+                  caseStudies={caseStudyItems}
+                  setActiveFile={(file) => setActiveFile(file as ContentFileItem | null)}
+                  setActiveCaseStudyCategoryIndex={setActiveCaseStudyCategoryIndex}
+                  setActiveCaseStudyIndex={setActiveCaseStudyIndex}
+                  addCaseStudyCategory={addCaseStudyCategory}
+                  deleteSelectedCaseStudyCategory={deleteSelectedCaseStudyCategory}
+                  addCaseStudyItem={addCaseStudyItem}
+                  deleteSelectedCaseStudyItem={deleteSelectedCaseStudyItem}
+                  setStatus={(message) => setStatus(message)}
+                />
+              ) : (
+                files.map((file) => (
+                  <button
+                    key={file.id}
+                    type="button"
+                    onClick={() => setActiveFile(file)}
+                    className={`w-full text-left px-3 py-2 rounded-lg text-sm ${
+                      activeFile?.id === file.id
+                        ? 'bg-[var(--primary)] text-white'
+                        : 'hover:bg-gray-100 text-gray-700'
+                    }`}
+                  >
+                    <div className="font-medium">{file.label}</div>
+                    <div className="text-xs opacity-70">{file.path}</div>
+                    {fileFilter === 'blog' && file.publishDate && (
+                      <div className="text-[11px] text-gray-500 mt-1">
+                        {new Date(file.publishDate).toLocaleDateString(
+                          locale === 'zh' ? 'zh-CN' : 'en-US',
+                          { year: 'numeric', month: 'short', day: 'numeric' }
+                        )}
+                      </div>
+                    )}
+                  </button>
+                ))
+              )}
+              {files.length === 0 && (
+                <div className="text-sm text-gray-500">
+                  {fileFilter === 'blog'
+                    ? 'No blog posts found for this locale.'
+                    : 'No content files found for this locale.'}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
 
         <div className="bg-white border border-gray-200 rounded-xl p-4">
           <div className="flex items-center justify-between mb-3">
             <div>
               <div className="text-sm font-semibold text-gray-900">
-                {headerMeta.title}
+                {isServicesItemsMode
+                  ? isServicesLayoutFileActive
+                    ? 'Services Layout'
+                    : isServicesPageSettingsSelected
+                    ? 'Services Page Settings'
+                    : selectedService?.title || selectedService?.id || 'Select a service'
+                  : isConditionsItemsMode
+                    ? isConditionsLayoutFileActive
+                      ? 'Conditions Layout'
+                      : isConditionsPageSettingsSelected
+                        ? 'Conditions Page Settings'
+                        : isConditionCategorySelected
+                          ? selectedConditionCategory?.name ||
+                            selectedConditionCategory?.id ||
+                            'Category'
+                          : isConditionItemSelected
+                            ? selectedConditionItem?.title || selectedConditionItem?.id || 'Condition'
+                            : 'Select an item'
+                  : isCaseStudiesItemsMode
+                    ? isCaseStudiesLayoutFileActive
+                      ? 'Case Studies Layout'
+                      : isCaseStudiesPageSettingsSelected
+                        ? 'Case Studies Page Settings'
+                        : isCaseStudyCategorySelected
+                          ? selectedCaseStudyCategory?.name ||
+                            selectedCaseStudyCategory?.id ||
+                            'Category'
+                          : isCaseStudyItemSelected
+                            ? selectedCaseStudyItem?.condition || selectedCaseStudyItem?.id || 'Case Study'
+                            : 'Select an item'
+                  : activeFile?.label || 'Select a file'}
               </div>
               <div className="text-xs text-gray-500">
-                {headerMeta.subtitle}
+                {isServicesItemsMode
+                  ? isServicesLayoutFileActive
+                    ? `${activeFile?.path || ''} · layout`
+                    : isServiceDetailFileActive
+                    ? `${activeFile?.path || ''}`
+                    : isServicesPageSettingsSelected
+                    ? `${activeFile?.path || ''} · page settings`
+                    : isServiceCategorySelected
+                    ? `${activeFile?.path || ''} · category ${activeServiceCategoryIndex + 1}`
+                    : `${activeFile?.path || ''} · item ${activeServiceIndex + 1}`
+                  : isConditionsItemsMode
+                    ? isConditionsLayoutFileActive
+                      ? `${activeFile?.path || ''} · layout`
+                      : isConditionsPageSettingsSelected
+                        ? `${activeFile?.path || ''} · page settings`
+                        : isConditionCategorySelected
+                          ? `${activeFile?.path || ''} · category ${activeConditionCategoryIndex + 1}`
+                          : isConditionItemSelected
+                            ? `${activeFile?.path || ''} · condition ${activeConditionIndex + 1}`
+                            : activeFile?.path
+                  : isCaseStudiesItemsMode
+                    ? isCaseStudiesLayoutFileActive
+                      ? `${activeFile?.path || ''} · layout`
+                      : isCaseStudiesPageSettingsSelected
+                        ? `${activeFile?.path || ''} · page settings`
+                        : isCaseStudyCategorySelected
+                          ? `${activeFile?.path || ''} · category ${activeCaseStudyCategoryIndex + 1}`
+                          : isCaseStudyItemSelected
+                            ? `${activeFile?.path || ''} · case ${activeCaseStudyIndex + 1}`
+                            : activeFile?.path
+                  : activeFile?.path}
               </div>
               {workflowState && (
                 <div className="mt-1 text-xs text-gray-500">
@@ -2740,32 +2397,67 @@ export function ContentEditor({
                 </div>
               )}
             </div>
-        <ContentEditorHeaderActions
-          hasActiveFile={Boolean(activeFile)}
-          canCreateOrDuplicate={allowCreateOrDuplicate}
-          showDelete={
-            Boolean(activeFile) &&
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => window.open(getPreviewPath(), '_blank')}
+            className="px-3 py-2 rounded-lg border border-gray-200 text-xs text-gray-700 hover:bg-gray-50"
+          >
+            Preview
+          </button>
+          {allowCreateOrDuplicate && (
+            <button
+              type="button"
+              onClick={handleCreate}
+              className="px-3 py-2 rounded-lg border border-gray-200 text-xs text-gray-700 hover:bg-gray-50"
+            >
+              {fileFilter === 'blog' ? 'New Post' : 'New Page'}
+            </button>
+          )}
+          {allowCreateOrDuplicate && (
+            <button
+              type="button"
+              onClick={handleDuplicate}
+              disabled={!activeFile}
+              className="px-3 py-2 rounded-lg border border-gray-200 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+            >
+              Duplicate
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={handleFormat}
+            disabled={!activeFile}
+            className="px-3 py-2 rounded-lg border border-gray-200 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+          >
+            Format
+          </button>
+          {activeFile &&
             !isServicesItemsMode &&
             !isConditionsItemsMode &&
             !isCaseStudiesItemsMode &&
-            !isEventsModuleMode &&
-            !isGalleryModuleMode &&
-            !isBlogModuleMode &&
-            !isPressModuleMode &&
-            !isTeamModuleMode &&
-            Boolean(
-              activeFile &&
-                (activeFile.path.startsWith('pages/') || activeFile.path.startsWith('blog/'))
-            )
-          }
-          onPreview={() => window.open(getPreviewPath(), '_blank')}
-          onCreate={handleCreate}
-          onDuplicate={handleDuplicate}
-          onFormat={handleFormat}
-          onDelete={handleDelete}
-          onSaveDraft={() => handleSave('draft')}
-          onSavePublish={() => handleSave('publish')}
-        />
+            (activeFile.path.startsWith('pages/') ||
+              activeFile.path.startsWith('blog/')) && (
+              <button
+                type="button"
+                onClick={handleDelete}
+                className="px-3 py-2 rounded-lg border border-red-200 text-xs text-red-600 hover:bg-red-50"
+              >
+                Delete
+              </button>
+            )}
+          <button
+            type="button"
+            onClick={() => handleSave('draft')}
+            disabled={!activeFile}
+            className="px-3 py-2 rounded-lg border border-gray-200 text-xs text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+          >
+            Save Draft
+          </button>
+          <Button onClick={() => handleSave('publish')} disabled={!activeFile}>
+            Publish
+          </Button>
+        </div>
           </div>
 
           {status && (
@@ -2824,131 +2516,475 @@ export function ContentEditor({
               <div className="text-sm text-gray-500">Presets are available only for theme.json.</div>
             )
           ) : activeTab === 'form' ? (
-            <ContentEditorFormPanels
-              formData={formData}
-              isSeoFile={isSeoFile}
-              seoPopulating={seoPopulating}
-              updateFormValue={updateFormValue}
-              openImagePicker={openImagePicker}
-              populateSeoFromHeroes={populateSeoFromHeroes}
-              addSeoPage={addSeoPage}
-              removeSeoPage={removeSeoPage}
-              isHeaderFile={isHeaderFile}
-              addHeaderMenuItem={addHeaderMenuItem}
-              removeHeaderMenuItem={removeHeaderMenuItem}
-              addHeaderLanguage={addHeaderLanguage}
-              removeHeaderLanguage={removeHeaderLanguage}
-              isThemeFile={isThemeFile}
-              getPathValue={getPathValueLocal}
-              showSharedPanels={showSharedPanels}
-              variantSections={variantSections}
-              isHomePageFile={isHomePageFile}
-              homePhotoFields={homePhotoFields}
-              isMenuHubPageFile={Boolean(isMenuHubPageFile)}
-              isPagesLayoutFile={Boolean(isPagesLayoutFile)}
-              isMenuTypeFile={Boolean(isMenuTypeFile)}
-              galleryCategories={galleryCategories}
-              addGalleryImage={addGalleryImage}
-              removeGalleryImage={removeGalleryImage}
-              isEventsModuleMode={isEventsModuleMode}
-              isEventsDataSettingsSelected={isEventsDataSettingsSelected}
-              isEventCategorySelected={isEventCategorySelected}
-              selectedEventCategory={selectedEventCategory}
-              activeEventCategoryIndex={activeEventCategoryIndex}
-              isEventItemSelected={isEventItemSelected}
-              selectedEventItem={selectedEventItem}
-              activeEventIndex={activeEventIndex}
-              eventCategoryOptions={eventCategoryOptions}
-              isGalleryModuleMode={isGalleryModuleMode}
-              isGalleryDataSettingsSelected={isGalleryDataSettingsSelected}
-              isGalleryCategorySelected={isGalleryCategorySelected}
-              selectedGalleryCategory={selectedGalleryCategory}
-              activeGalleryCategoryIndex={activeGalleryCategoryIndex}
-              isGalleryItemSelected={isGalleryItemSelected}
-              selectedGalleryItem={selectedGalleryItem}
-              activeGalleryItemIndex={activeGalleryItemIndex}
-              galleryModuleCategoryOptions={galleryModuleCategoryOptions}
-              isBlogModuleMode={isBlogModuleMode}
-              isBlogDataSettingsSelected={isBlogDataSettingsSelected}
-              isBlogCategorySelected={isBlogCategorySelected}
-              selectedBlogCategory={selectedBlogCategory}
-              activeBlogCategoryIndex={activeBlogCategoryIndex}
-              isBlogPostSelected={isBlogPostSelected}
-              selectedBlogPost={selectedBlogPost}
-              activeBlogPostIndex={activeBlogPostIndex}
-              blogCategoryOptions={blogCategoryOptions}
-              isPressModuleMode={isPressModuleMode}
-              isPressDataSettingsSelected={isPressDataSettingsSelected}
-              isPressCategorySelected={isPressCategorySelected}
-              selectedPressCategory={selectedPressCategory}
-              activePressCategoryIndex={activePressCategoryIndex}
-              isPressItemSelected={isPressItemSelected}
-              selectedPressItem={selectedPressItem}
-              activePressItemIndex={activePressItemIndex}
-              pressCategoryOptions={pressCategoryOptions}
-              isTeamModuleMode={isTeamModuleMode}
-              isTeamDataSettingsSelected={isTeamDataSettingsSelected}
-              isTeamCategorySelected={isTeamCategorySelected}
-              selectedTeamCategory={selectedTeamCategory}
-              activeTeamCategoryIndex={activeTeamCategoryIndex}
-              isTeamMemberSelected={isTeamMemberSelected}
-              selectedTeamMember={selectedTeamMember}
-              activeTeamMemberIndex={activeTeamMemberIndex}
-              teamCategoryOptions={teamCategoryOptions}
-              isBlogPostFile={isBlogPostFile}
-              blogServiceOptions={blogServiceOptions}
-              blogConditionOptions={blogConditionOptions}
-              markdownPreview={markdownPreview}
-              toggleMarkdownPreview={toggleMarkdownPreview}
-              toggleSelection={toggleSelection}
+            <div className="space-y-6 text-sm">
+              {!formData && (
+                <div className="text-sm text-gray-500">
+                  Invalid JSON. Switch to JSON tab to fix.
+                </div>
+              )}
+
+              {isSeoFile && formData && (
+                <SeoPanel
+                  formData={formData}
+                  seoPopulating={seoPopulating}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                  populateSeoFromHeroes={populateSeoFromHeroes}
+                  addSeoPage={addSeoPage}
+                  removeSeoPage={removeSeoPage}
+                />
+              )}
+
+              {isHeaderFile && formData && (
+                <HeaderPanel
+                  formData={formData}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                  addHeaderMenuItem={addHeaderMenuItem}
+                  removeHeaderMenuItem={removeHeaderMenuItem}
+                  addHeaderLanguage={addHeaderLanguage}
+                  removeHeaderLanguage={removeHeaderLanguage}
+                />
+              )}
+
+              {isThemeFile && formData && (
+                <ThemePanel
+                  formData={formData}
+                  getPathValue={getPathValueLocal}
+                  updateFormValue={updateFormValue}
+                />
+              )}
+
+              {showSharedPanels && formData && variantSections.length > 0 && (
+                <SectionVariantsPanel
+                  variantSections={variantSections}
+                  getPathValue={getPathValueLocal}
+                  updateFormValue={updateFormValue}
+                />
+              )}
+
+              {isConditionsPageFile && showConditionsGlobalPanels && formData && (
+                <ConditionsLayoutPanel
+                  layoutVariant={String(formData.layoutVariant || 'categories-tabs')}
+                  updateFormValue={updateFormValue}
+                />
+              )}
+
+              {isHomePageFile && homePhotoFields.length > 0 && (
+                <HomeSectionPhotosPanel
+                  homePhotoFields={homePhotoFields}
+                  getPathValue={getPathValueLocal}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {isMenuHubPageFile && formData && (
+                <MenuHubPanel
+                  formData={formData}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {isPagesLayoutFile && formData && (
+                <MenuLayoutPanel
+                  formData={formData}
+                  updateFormValue={updateFormValue}
+                />
+              )}
+
+              {isMenuTypeFile && formData && (
+                <MenuTypePanel
+                  formData={formData}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {showSharedPanels && formData?.hero && (
+                <HeroPanel
+                  hero={formData.hero}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {showSharedPanels && formData?.profile && (
+                <ProfilePanel
+                  profile={formData.profile}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {showSharedPanels && formData?.introduction && (
+                <IntroductionPanel
+                  introduction={formData.introduction}
+                  updateFormValue={updateFormValue}
+                />
+              )}
+
+              {showSharedPanels && Array.isArray(formData?.images) && (
+                <GalleryPhotosPanel
+                  images={formData.images}
+                  galleryCategories={galleryCategories}
+                  addGalleryImage={addGalleryImage}
+                  removeGalleryImage={removeGalleryImage}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {showSharedPanels && formData?.cta && (
+                <CtaPanel
+                  cta={formData.cta}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {isServicesItemsMode && isServiceCategorySelected && selectedServiceCategory && (
+                <ServiceCategoryItemPanel
+                  category={selectedServiceCategory}
+                  index={activeServiceCategoryIndex}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {isServicesItemsMode && isServiceDetailFileActive && formData && (
+                <ServiceDetailPanel
+                  formData={formData}
+                  serviceCategoryOptions={serviceCategoryOptions}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  updateValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {isServicesItemsMode && !isServiceDetailFileActive && formData?.servicesList && selectedService && (
+                <ServicesItemPanel
+                  servicesList={formData.servicesList}
+                  selectedService={selectedService}
+                  selectedIndex={activeServiceIndex}
+                  serviceCategoryOptions={serviceCategoryOptions}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                  removeServicesListItem={removeServicesListItem}
+                />
+              )}
+
+              {isServicesItemsMode && isServicesPageSettingsSelected && formData && (
+                <ServicesPanel
+                  formData={formData}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                  addServicesListItem={addServicesListItem}
+                  removeServicesListItem={removeServicesListItem}
+                  addTrustBarItem={addTrustBarItem}
+                  removeTrustBarItem={removeTrustBarItem}
+                  addRelatedReadingSlug={addRelatedReadingSlug}
+                  removeRelatedReadingSlug={removeRelatedReadingSlug}
+                  hideItemsEditor
+                />
+              )}
+
+              {!isServicesItemsMode &&
+                (formData?.services ||
+                  formData?.servicesList ||
+                  formData?.trustBar ||
+                  formData?.legacyLabels ||
+                  formData?.relatedReading) && (
+                <ServicesPanel
+                  formData={formData}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                  addServicesListItem={addServicesListItem}
+                  removeServicesListItem={removeServicesListItem}
+                  addTrustBarItem={addTrustBarItem}
+                  removeTrustBarItem={removeTrustBarItem}
+                  addRelatedReadingSlug={addRelatedReadingSlug}
+                  removeRelatedReadingSlug={removeRelatedReadingSlug}
+                />
+              )}
+
+              {isConditionsItemsMode && isConditionCategorySelected && selectedConditionCategory && (
+                <ConditionCategoryItemPanel
+                  category={selectedConditionCategory}
+                  index={activeConditionCategoryIndex}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {isConditionsItemsMode && isConditionItemSelected && selectedConditionItem && (
+                <ConditionItemPanel
+                  condition={selectedConditionItem}
+                  index={activeConditionIndex}
+                  isConditionsPageFile={isConditionsPageFile}
+                  conditionCategoryOptions={conditionCategoryOptions}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {isConditionsItemsMode &&
+                isConditionsPageSettingsSelected &&
+                isConditionsPageFile &&
+                (formData?.categories || formData?.conditions) && (
+                <ConditionsPanel
+                  isConditionsPageFile={isConditionsPageFile}
+                  categories={formData?.categories ?? []}
+                  conditions={formData?.conditions ?? []}
+                  sortedConditionCategories={sortedConditionCategories}
+                  conditionCategoryOptions={conditionCategoryOptions}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                  addConditionCategory={addConditionCategory}
+                  removeConditionCategory={removeConditionCategory}
+                  addConditionItem={addConditionItem}
+                  removeConditionItem={removeConditionItem}
+                  hideItemsEditor
+                />
+              )}
+
+              {!isConditionsItemsMode &&
+                isConditionsPageFile &&
+                (formData?.categories || formData?.conditions) && (
+                <ConditionsPanel
+                  isConditionsPageFile={isConditionsPageFile}
+                  categories={formData?.categories ?? []}
+                  conditions={formData?.conditions ?? []}
+                  sortedConditionCategories={sortedConditionCategories}
+                  conditionCategoryOptions={conditionCategoryOptions}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                  addConditionCategory={addConditionCategory}
+                  removeConditionCategory={removeConditionCategory}
+                  addConditionItem={addConditionItem}
+                  removeConditionItem={removeConditionItem}
+                />
+              )}
+
+              {isCaseStudiesItemsMode &&
+                isCaseStudyCategorySelected &&
+                selectedCaseStudyCategory && (
+                <CaseStudyCategoryItemPanel
+                  category={selectedCaseStudyCategory}
+                  index={activeCaseStudyCategoryIndex}
+                  updateFormValue={updateFormValue}
+                />
+              )}
+
+              {isCaseStudiesItemsMode && isCaseStudyItemSelected && selectedCaseStudyItem && (
+                <CaseStudyItemPanel
+                  item={selectedCaseStudyItem}
+                  index={activeCaseStudyIndex}
+                  caseStudyCategories={caseStudyCategories}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {!isCaseStudiesItemsMode && Array.isArray(formData?.caseStudies) && (
+                <CaseStudiesPanel
+                  caseStudies={formData.caseStudies}
+                  caseStudyCategories={caseStudyCategories}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+
+              {(formData?.featuredPost || Array.isArray(formData?.posts) || formData?.slug) && (
+                <PostsPanel
+                  formData={formData}
+                  isBlogPostFile={!!isBlogPostFile}
+                  blogServiceOptions={blogServiceOptions}
+                  blogConditionOptions={blogConditionOptions}
+                  markdownPreview={markdownPreview}
+                  toggleMarkdownPreview={toggleMarkdownPreview}
+                  toggleSelection={toggleSelection}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
+              {formData &&
+                !isMenuHubPageFile &&
+                !isPagesLayoutFile &&
+                !isMenuTypeFile &&
+                !formData.hero &&
+                !formData.introduction &&
+                !formData.cta && (
+                <div className="text-sm text-gray-500">
+                  No schema panels available for this file yet. Use the JSON tab.
+                </div>
+              )}
+            </div>
+          ) : (isServiceCategorySelected && selectedServiceCategory) ||
+            (isServicesItemSelected && selectedService) ? (
+            <ItemJsonEditor
+              error={serviceItemJsonError}
+              draft={serviceItemJsonDraft}
+              onDraftChange={(next) => {
+                setServiceItemJsonDraft(next);
+                try {
+                  const parsed = JSON.parse(next);
+                  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+                    setServiceItemJsonError('JSON must be an object.');
+                    return;
+                  }
+                  setServiceItemJsonError(null);
+                } catch (error) {
+                  setServiceItemJsonError('Invalid JSON');
+                }
+              }}
+              onApply={() => {
+                try {
+                  const parsed = JSON.parse(serviceItemJsonDraft);
+                  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+                    setServiceItemJsonError('JSON must be an object.');
+                    return;
+                  }
+                  setServiceItemJsonError(null);
+                  if (isServiceCategorySelected) {
+                    updateFormValue(['categories', String(activeServiceCategoryIndex)], parsed);
+                    setStatus('Category JSON applied.');
+                  } else if (isServicesItemSelected) {
+                    updateFormValue(['servicesList', 'items', String(activeServiceIndex)], parsed);
+                    setStatus('Service JSON applied.');
+                  }
+                } catch (error) {
+                  setServiceItemJsonError('Invalid JSON');
+                }
+              }}
+              placeholder={
+                isServiceCategorySelected
+                  ? 'Edit selected category JSON.'
+                  : 'Edit selected service JSON.'
+              }
+            />
+          ) : (isConditionCategorySelected && selectedConditionCategory) ||
+            (isConditionItemSelected && selectedConditionItem) ? (
+            <ItemJsonEditor
+              error={conditionsItemJsonError}
+              draft={conditionsItemJsonDraft}
+              onDraftChange={(next) => {
+                setConditionsItemJsonDraft(next);
+                try {
+                  const parsed = JSON.parse(next);
+                  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+                    setConditionsItemJsonError('Condition JSON must be an object.');
+                    return;
+                  }
+                  setConditionsItemJsonError(null);
+                } catch (error) {
+                  setConditionsItemJsonError('Invalid JSON');
+                }
+              }}
+              onApply={() => {
+                try {
+                  const parsed = JSON.parse(conditionsItemJsonDraft);
+                  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+                    setConditionsItemJsonError('Condition JSON must be an object.');
+                    return;
+                  }
+                  setConditionsItemJsonError(null);
+                  if (isConditionCategorySelected) {
+                    updateFormValue(['categories', String(activeConditionCategoryIndex)], parsed);
+                    setStatus('Category JSON applied.');
+                  } else if (isConditionItemSelected) {
+                    updateFormValue(['conditions', String(activeConditionIndex)], parsed);
+                    setStatus('Condition JSON applied.');
+                  }
+                } catch (error) {
+                  setConditionsItemJsonError('Invalid JSON');
+                }
+              }}
+              placeholder={
+                isConditionCategorySelected
+                  ? 'Edit selected category JSON.'
+                  : 'Edit selected condition JSON.'
+              }
+            />
+          ) : (isCaseStudyCategorySelected && selectedCaseStudyCategory) ||
+            (isCaseStudyItemSelected && selectedCaseStudyItem) ? (
+            <ItemJsonEditor
+              error={caseStudiesItemJsonError}
+              draft={caseStudiesItemJsonDraft}
+              onDraftChange={(next) => {
+                setCaseStudiesItemJsonDraft(next);
+                try {
+                  const parsed = JSON.parse(next);
+                  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+                    setCaseStudiesItemJsonError('Case study JSON must be an object.');
+                    return;
+                  }
+                  setCaseStudiesItemJsonError(null);
+                } catch (error) {
+                  setCaseStudiesItemJsonError('Invalid JSON');
+                }
+              }}
+              onApply={() => {
+                try {
+                  const parsed = JSON.parse(caseStudiesItemJsonDraft);
+                  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+                    setCaseStudiesItemJsonError('Case study JSON must be an object.');
+                    return;
+                  }
+                  setCaseStudiesItemJsonError(null);
+                  if (isCaseStudyCategorySelected) {
+                    updateFormValue(['categories', String(activeCaseStudyCategoryIndex)], parsed);
+                    setStatus('Case study category JSON applied.');
+                  } else if (isCaseStudyItemSelected) {
+                    updateFormValue(['caseStudies', String(activeCaseStudyIndex)], parsed);
+                    setStatus('Case study JSON applied.');
+                  }
+                } catch (error) {
+                  setCaseStudiesItemJsonError('Invalid JSON');
+                }
+              }}
+              placeholder={
+                isCaseStudyCategorySelected
+                  ? 'Edit selected category JSON.'
+                  : 'Edit selected case study JSON.'
+              }
             />
           ) : (
-            <ContentEditorJsonBranch
-              isServiceCategorySelected={isServiceCategorySelected}
-              selectedServiceCategory={selectedServiceCategory}
-              isServicesItemSelected={isServicesItemSelected}
-              selectedService={selectedService}
-              serviceItemJsonError={serviceItemJsonError}
-              serviceItemJsonDraft={serviceItemJsonDraft}
-              setServiceItemJsonDraft={setServiceItemJsonDraft}
-              setServiceItemJsonError={setServiceItemJsonError}
-              activeServiceCategoryIndex={activeServiceCategoryIndex}
-              activeServiceIndex={activeServiceIndex}
-              isConditionCategorySelected={isConditionCategorySelected}
-              selectedConditionCategory={selectedConditionCategory}
-              isConditionItemSelected={isConditionItemSelected}
-              selectedConditionItem={selectedConditionItem}
-              conditionsItemJsonError={conditionsItemJsonError}
-              conditionsItemJsonDraft={conditionsItemJsonDraft}
-              setConditionsItemJsonDraft={setConditionsItemJsonDraft}
-              setConditionsItemJsonError={setConditionsItemJsonError}
-              activeConditionCategoryIndex={activeConditionCategoryIndex}
-              activeConditionIndex={activeConditionIndex}
-              isEventCategorySelected={isEventCategorySelected}
-              selectedEventCategory={selectedEventCategory}
-              isEventItemSelected={isEventItemSelected}
-              selectedEventItem={selectedEventItem}
-              eventItemJsonError={eventItemJsonError}
-              eventItemJsonDraft={eventItemJsonDraft}
-              setEventItemJsonDraft={setEventItemJsonDraft}
-              setEventItemJsonError={setEventItemJsonError}
-              activeEventCategoryIndex={activeEventCategoryIndex}
-              activeEventIndex={activeEventIndex}
-              isCaseStudyCategorySelected={isCaseStudyCategorySelected}
-              selectedCaseStudyCategory={selectedCaseStudyCategory}
-              isCaseStudyItemSelected={isCaseStudyItemSelected}
-              selectedCaseStudyItem={selectedCaseStudyItem}
-              caseStudiesItemJsonError={caseStudiesItemJsonError}
-              caseStudiesItemJsonDraft={caseStudiesItemJsonDraft}
-              setCaseStudiesItemJsonDraft={setCaseStudiesItemJsonDraft}
-              setCaseStudiesItemJsonError={setCaseStudiesItemJsonError}
-              activeCaseStudyCategoryIndex={activeCaseStudyCategoryIndex}
-              activeCaseStudyIndex={activeCaseStudyIndex}
-              updateFormValue={updateFormValue}
-              setStatus={(next) => setStatus(next)}
-              content={content}
-              setContent={setContent}
-              setFormData={setFormData}
+            <textarea
+              className="w-full min-h-[520px] rounded-lg border border-gray-200 p-3 font-mono text-xs text-gray-800"
+              value={content}
+              onChange={(event) => {
+                const next = event.target.value;
+                setContent(next);
+                try {
+                  setFormData(JSON.parse(next));
+                } catch (error) {
+                  setFormData(null);
+                }
+              }}
+              placeholder="Select a file to begin editing."
             />
           )}
         </div>
